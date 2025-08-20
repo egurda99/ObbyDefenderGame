@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562ddd02668945ef9cad6a3c8acd312c, type: 3}
+  m_Name: "Config \xABTakeFromConveyorConfig\xBB"
+  m_EditorClassIdentifier: 
+  _title: "\u0417\u0430\u0431\u0435\u0440\u0438 \u043F\u0435\u0440\u0435\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0435
+    \u0440\u0435\u0441\u0443\u0440\u0441\u044B"
+  _sprite: {fileID: 21300000, guid: 2c0acaf236a2e764688de312d4a2047a, type: 3}
+  _description: 
+  _takeFromConveyorPanelShower:
+    _viewPrefab: {fileID: 3686309046735039914, guid: f3fc973cf4f79704c83411d440c7fa87,
+      type: 3}
+  _targetPosition: {fileID: 755190696680707999, guid: 3f41e517706946a4abf816d869602c7e,
+    type: 3}
+  _panelContainer: {fileID: 7725263787936774130, guid: d6c92aa6a1e5dca4e92e2162b4e96cc0,
+    type: 3}

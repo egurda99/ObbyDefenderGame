@@ -1,0 +1,31 @@
+using UnityEngine;
+
+namespace MyCodeBase.IdGenerator
+{
+    public sealed class Resource : MonoBehaviour
+    {
+        // [SerializeField] private ResourceType _resourceType;
+        // [SerializeField] [ReadOnly] private string _id;
+        // [SerializeField] private int _amount;
+        //
+        // public ResourceType ResourceType => _resourceType;
+        //
+        // public string ID => _id;
+        //
+        // public int Amount => _amount;
+        //
+        // public void Setup(ResourceType resourceType, int amount, string id)
+        // {
+        //     _resourceType = resourceType;
+        //     _amount = amount;
+        //     _id = id;
+        // }
+        //
+        // [Button]
+        // private void GenerateId()
+        // {
+        //     var instanceId = GetInstanceID().ToString();
+        //     _id = IdGenerator.Generate<Resource>("RES_") + "_" + instanceId;
+        // }
+    }
+}

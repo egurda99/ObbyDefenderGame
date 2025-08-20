@@ -1,0 +1,28 @@
+namespace _UpgradePractice.Scripts
+{
+    // public sealed class OutputCapacityUpgrade : Upgrade
+    // {
+    //     private readonly OutputCapacityUpgradeConfig _outputCapacityUpgradeConfig;
+    //     private ConverterData _converterData;
+    //
+    //     public OutputCapacityUpgrade(OutputCapacityUpgradeConfig config) : base(config)
+    //     {
+    //         _outputCapacityUpgradeConfig = config;
+    //     }
+    //
+    //     [Inject]
+    //     public void Construct(ConverterDataService converterDataService)
+    //     {
+    //         _converterData = converterDataService.ConverterData;
+    //         var capacity = _outputCapacityUpgradeConfig.CapacityTable.GetCapacity(Level);
+    //         _converterData.SetOutputZoneCapacity(capacity);
+    //     }
+    //
+    //     protected override void OnUpgrade()
+    //     {
+    //         var capacity = _outputCapacityUpgradeConfig.CapacityTable.GetCapacity(Level);
+    //         _converterData.SetOutputZoneCapacity(capacity);
+    //         Debug.Log($"<color=blue>Output capacity Upgraded. New capacity: {capacity}</color>");
+    //     }
+    // }
+}
