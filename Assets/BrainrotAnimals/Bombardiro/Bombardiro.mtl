@@ -1,0 +1,44 @@
+newmtl Borbardillo0031Mtl
+Material Color
+Ka 0.907547 0.7593 0.0126637
+Kd 0.907547 0.7593 0.0126637
+Ks 0.0569441 0.0476423 0.000794586 
+
+d 1
+
+Ns 0
+
+newmtl Borbardillo0021Mtl
+Material Color
+Ka 0.000992374 0.000992374 0.000992374
+Kd 0.000992374 0.000992374 0.000992374
+Ks 6.22666e-05 6.22666e-05 6.22666e-05 
+
+d 1
+
+Ns 0
+
+newmtl Borbardillo0011Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Borbardillo0011_diff.png
+map_Kd Borbardillo0011_diff.png
+map_d Borbardillo0011_diff.png
+
+newmtl Borbardillo1Mtl
+Material Color
+Ka 0.0199178 0.0179364 0.0126637
+Kd 0.0199178 0.0179364 0.0126637
+Ks 0.00124975 0.00112542 0.000794586 
+
+d 1
+
+Ns 0
+
