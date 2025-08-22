@@ -1,0 +1,286 @@
+newmtl Meshid1691Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1691_diff.png
+map_Kd Meshid1691_diff.png
+map_d Meshid1691_diff.png
+
+map_Ns Meshid1691_spec.png
+
+newmtl Meshid371Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid371_diff.png
+map_Kd Meshid371_diff.png
+map_d Meshid371_diff.png
+
+map_Ns Meshid371_spec.png
+
+newmtl Meshid1451Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1451_diff.png
+map_Kd Meshid1451_diff.png
+map_d Meshid1451_diff.png
+
+map_Ns Meshid1451_spec.png
+
+newmtl Meshid1651Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1651_diff.png
+map_Kd Meshid1651_diff.png
+map_d Meshid1651_diff.png
+
+map_Ns Meshid1651_spec.png
+
+newmtl Meshid351Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid351_diff.png
+map_Kd Meshid351_diff.png
+map_d Meshid351_diff.png
+
+map_Ns Meshid351_spec.png
+
+newmtl Meshid1671Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1671_diff.png
+map_Kd Meshid1671_diff.png
+map_d Meshid1671_diff.png
+
+map_Ns Meshid1671_spec.png
+
+newmtl Meshid1471Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1471_diff.png
+map_Kd Meshid1471_diff.png
+map_d Meshid1471_diff.png
+
+map_Ns Meshid1471_spec.png
+
+newmtl Meshid1491Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1491_diff.png
+map_Kd Meshid1491_diff.png
+map_d Meshid1491_diff.png
+
+map_Ns Meshid1491_spec.png
+
+newmtl Meshid1431Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1431_diff.png
+map_Kd Meshid1431_diff.png
+map_d Meshid1431_diff.png
+
+map_Ns Meshid1431_spec.png
+
+newmtl Meshid1511Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1511_diff.png
+map_Kd Meshid1511_diff.png
+map_d Meshid1511_diff.png
+
+map_Ns Meshid1511_spec.png
+
+newmtl Meshid1411Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1411_diff.png
+map_Kd Meshid1411_diff.png
+map_d Meshid1411_diff.png
+
+map_Ns Meshid1411_spec.png
+
+newmtl Meshid1391Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1391_diff.png
+map_Kd Meshid1391_diff.png
+map_d Meshid1391_diff.png
+
+map_Ns Meshid1391_spec.png
+
+newmtl Meshid1371Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1371_diff.png
+map_Kd Meshid1371_diff.png
+map_d Meshid1371_diff.png
+
+map_Ns Meshid1371_spec.png
+
+newmtl Meshid1331Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1331_diff.png
+map_Kd Meshid1331_diff.png
+map_d Meshid1331_diff.png
+
+map_Ns Meshid1331_spec.png
+
+newmtl Meshid1351Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1351_diff.png
+map_Kd Meshid1351_diff.png
+map_d Meshid1351_diff.png
+
+map_Ns Meshid1351_spec.png
+
+newmtl Meshid1311Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid1311_diff.png
+map_Kd Meshid1311_diff.png
+map_d Meshid1311_diff.png
+
+map_Ns Meshid1311_spec.png
+
+newmtl Meshid841Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0322335 0.0318 0.03311 
+
+d 1
+
+Ns 255
+
+map_Ka Meshid841_diff.png
+map_Kd Meshid841_diff.png
+map_d Meshid841_diff.png
+
+map_Ns Meshid841_spec.png
+
+newmtl Cu00edrculo1Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Cu00edrculo1_diff.png
+map_Kd Cu00edrculo1_diff.png
+map_d Cu00edrculo1_diff.png
+
