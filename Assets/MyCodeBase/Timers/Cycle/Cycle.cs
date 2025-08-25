@@ -5,7 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 #endif
 
-namespace Atomic.Elements
+namespace MyCodeBase.Timers
 {
     [Serializable]
     public class Cycle : IStartable, IProgressable, ITickable, IPausable
@@ -63,7 +63,7 @@ namespace Atomic.Elements
             get { return this.GetProgress(); }
             set { this.SetProgress(value); }
         }
-        
+
         [SerializeField]
         private float duration;
 
@@ -139,7 +139,7 @@ namespace Atomic.Elements
             this.OnStarted?.Invoke();
             return true;
         }
-        
+
 #if ODIN_INSPECTOR
         [Button]
 #endif
@@ -216,7 +216,7 @@ namespace Atomic.Elements
             this.SetCurrentTime(this.currentTime - this.duration);
             this.OnCycle?.Invoke();
         }
-        
+
 #if ODIN_INSPECTOR
         [Button]
 #endif

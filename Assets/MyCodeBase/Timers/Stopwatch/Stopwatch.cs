@@ -5,7 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 #endif
 
-namespace Atomic.Elements
+namespace MyCodeBase.Timers
 {
     [Serializable]
     public class Stopwatch : IStartable, ITimeable, ITickable, IPausable
@@ -21,7 +21,7 @@ namespace Atomic.Elements
         public event Action OnStopped;
         public event Action OnPaused;
         public event Action OnResumed;
-        
+
         public event Action<float> OnCurrentTimeChanged;
         public event Action<State> OnStateChanged;
 
@@ -41,7 +41,7 @@ namespace Atomic.Elements
             get { return this.currentTime; }
             set { this.SetCurrentTime(value); }
         }
-        
+
         private State currentState = State.IDLE;
         private float currentTime;
 
@@ -49,7 +49,7 @@ namespace Atomic.Elements
         public bool IsPlaying() => this.currentState == State.PLAYING;
         public bool IsPaused() => this.currentState == State.PAUSED;
         public bool IsIdle() => this.currentState == State.IDLE;
-        
+
         public float GetCurrentTime() => this.currentTime;
 
 #if ODIN_INSPECTOR
@@ -68,7 +68,7 @@ namespace Atomic.Elements
             this.OnStarted?.Invoke();
             return true;
         }
-        
+
 #if ODIN_INSPECTOR
         [Button]
 #endif

@@ -2,7 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Atomic.Elements
+namespace MyCodeBase.Timers
 {
     [Serializable]
     public class Countdown<T> : IStartable<T>, IPausable, IEndable<T>, IProgressable, ITickable, IValue<T>
@@ -169,8 +169,8 @@ namespace Atomic.Elements
             this.OnStarted?.Invoke(value);
             return true;
         }
-        
-        
+
+
 #if ODIN_INSPECTOR
         [Button]
 #endif

@@ -4,7 +4,7 @@ using ITickable = Zenject.ITickable;
 
 namespace MyCodeBase.Timers
 {
-    public sealed class TimerTickable : ITickable
+    public sealed class TimerTickable : Zenject.ITickable
     {
         private readonly Timer _timer;
 

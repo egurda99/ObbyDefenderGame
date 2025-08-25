@@ -5,7 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 #endif
 
-namespace Atomic.Elements
+namespace MyCodeBase.Timers
 {
     [Serializable]
     public class Timer : ITimer
@@ -17,7 +17,7 @@ namespace Atomic.Elements
             PAUSED = 2,
             ENDED = 3
         }
-        
+
         public event Action OnStarted;
         public event Action OnStopped;
         public event Action OnPaused;
@@ -98,7 +98,7 @@ namespace Atomic.Elements
             this.duration = duration;
             this.loop = loop;
         }
-        
+
         public State GetCurrentState() => this.currentState;
         public bool IsIdle() => this.currentState == State.IDLE;
         public bool IsPlaying() => this.currentState == State.PLAYING;
@@ -156,7 +156,7 @@ namespace Atomic.Elements
             this.currentState = State.PLAYING;
             this.OnStateChanged?.Invoke(State.PLAYING);
             this.OnStarted?.Invoke();
-            return true; 
+            return true;
         }
 
 #if ODIN_INSPECTOR
@@ -246,7 +246,7 @@ namespace Atomic.Elements
                 this.Complete();
             }
         }
-        
+
         private void Complete()
         {
             this.currentState = State.ENDED;
@@ -258,7 +258,7 @@ namespace Atomic.Elements
                 this.Start();
             }
         }
-        
+
         public float GetProgress()
         {
             return this.currentState switch

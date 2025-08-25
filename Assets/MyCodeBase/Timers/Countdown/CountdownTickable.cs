@@ -1,10 +1,9 @@
-using Atomic.Elements;
 using UnityEngine;
 using ITickable = Zenject.ITickable;
 
 namespace MyCodeBase.Timers
 {
-    public sealed class CountdownTickable : ITickable
+    public sealed class CountdownTickable : Zenject.ITickable
     {
         private readonly Countdown _countdown;
 

@@ -1,11 +1,12 @@
 using System;
+using Atomic.Elements;
 using UnityEngine;
 
 #if ODIN_INSPECTOR
 using Sirenix.OdinInspector;
 #endif
 
-namespace Atomic.Elements
+namespace MyCodeBase.Timers
 {
     [Serializable]
     public class Countdown : IStartable, IPausable, IEndable, IProgressable, ITickable
@@ -99,7 +100,7 @@ namespace Atomic.Elements
             this.loop = loop;
         }
 
-        public State GetCurrentState() => this.currentState; 
+        public State GetCurrentState() => this.currentState;
         public bool IsIdle() => this.currentState == State.IDLE;
         public bool IsPlaying() => this.currentState == State.PLAYING;
         public bool IsPaused() => this.currentState == State.PAUSED;
@@ -143,7 +144,7 @@ namespace Atomic.Elements
             this.OnStarted?.Invoke();
             return true;
         }
-        
+
 #if ODIN_INSPECTOR
         [Button]
 #endif

@@ -5,7 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 #endif
 
-namespace Atomic.Elements
+namespace MyCodeBase.Timers
 {
     [Serializable]
     public class Timer<T> : ITimer<T>
@@ -173,7 +173,7 @@ namespace Atomic.Elements
             this.OnStarted?.Invoke(value);
             return true;
         }
-        
+
 #if ODIN_INSPECTOR
         [Button]
 #endif
@@ -187,7 +187,7 @@ namespace Atomic.Elements
             this.currentState = State.PLAYING;
             this.OnStateChanged?.Invoke(State.PLAYING);
             this.OnStarted?.Invoke(this.currentValue);
-            return true; 
+            return true;
         }
 
 #if ODIN_INSPECTOR
