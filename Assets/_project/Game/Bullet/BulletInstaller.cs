@@ -8,11 +8,13 @@ namespace ObbyDefender
         [SerializeField] private MoveToDirectionMechanic _moveToDirectionMechanic;
         [SerializeField] private DestroyByLifeTimeMechanic _destroyByLifeTimeMechanic;
         [SerializeField] private DealDamageByTriggerMechanic _dealDamageByTriggerMechanic;
+        [SerializeField] private RotateToMoveDirectionMechanic _rotateToMoveDirectionMechanic;
 
 
         public override void Install(IEntity entity)
         {
             _moveToDirectionMechanic.Install(entity);
+            _rotateToMoveDirectionMechanic.Install(entity);
             _destroyByLifeTimeMechanic.Install(entity);
             _dealDamageByTriggerMechanic.Install(entity);
 

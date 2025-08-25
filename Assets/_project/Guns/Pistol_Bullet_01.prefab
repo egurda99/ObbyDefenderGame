@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3256113843766110166}
   - component: {fileID: 7427148217551426212}
   - component: {fileID: 85713115488217388}
+  - component: {fileID: 5252741189981190191}
+  - component: {fileID: -2379236062441294716}
   - component: {fileID: 3643377175312851680}
   m_Layer: 0
   m_Name: Pistol_Bullet_01
@@ -29,12 +31,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3256113843764181270}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 11, y: 11, z: 11}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6811433727159788215}
+  - {fileID: 3429514485009709942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3256113843767108886
@@ -123,6 +126,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.03418383, y: 0.009002598, z: 0.010395304}
   m_Center: {x: 0.009251584, y: 0, z: 0}
+--- !u!114 &5252741189981190191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256113843764181270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2379236062441294716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256113843764181270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRefresh: 1
+  installOnAwake: 1
+  installPipeline:
+  - {fileID: 3643377175312851680}
+  onInstalled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3643377175312851680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +181,41 @@ MonoBehaviour:
   _dealDamageByTriggerMechanic:
     _triggerEventDispatcher: {fileID: 7427148217551426212}
     _damage: 5
+  _rotateToMoveDirectionMechanic:
+    _rootTransform: {fileID: 3256113843764208950}
+    _rotateSpeed: 1000
+    _isRotating: 0
+--- !u!1 &3737279421263731554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3429514485009709942}
+  m_Layer: 0
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3429514485009709942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737279421263731554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3256113843764208950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6811433727160186935
 PrefabInstance:
   m_ObjectHideFlags: 0

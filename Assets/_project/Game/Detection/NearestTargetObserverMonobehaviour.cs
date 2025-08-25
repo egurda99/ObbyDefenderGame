@@ -1,3 +1,4 @@
+using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
@@ -6,10 +7,13 @@ namespace Elementary
     public sealed class NearestTargetObserver : ColliderDetectionObserver
     {
          private SceneEntity _entity;
+         private readonly ReactiveVariable<Transform> _targetVar;
 
-        public NearestTargetObserver(ColliderDetection sensor, SceneEntity entity) : base(sensor)
+         public NearestTargetObserver(ColliderDetection sensor, SceneEntity entity) : base(sensor)
         {
             _entity = entity;
+            _targetVar = new ReactiveVariable<Transform>(null);
+            _entity.AddTarget(_targetVar);
         }
 
         protected override void OnCollidersUpdated(Collider[] buffer, int size)
@@ -34,17 +38,14 @@ namespace Elementary
 
             if (nearest != null)
             {
-                // обновляем Target через ChangeTargetAction
-                // _entity.GetChangeTargetAction().Invoke(nearest);
-
-                   if (_entity.GetTarget() == null)
-                   {
-                       _entity.AddTarget(nearest);
-                       return;
-                   }
-
-                    _entity.GetTarget().Value = nearest;
-
+                _targetVar.Value = nearest;
+            }
+            else
+            {
+                if (_targetVar.Value != null)
+                {
+                    _targetVar.Value = null;
+                }
             }
         }
     }

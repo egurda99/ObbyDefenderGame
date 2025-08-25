@@ -17,7 +17,6 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
     {
         entity.AddFirePoint(_firePoint);
         entity.AddBulletPrefab(_bulletPrefab);
-        entity.AddTarget(null);
 
         entity.AddShootEvent(new BaseEvent());
        entity.AddShootAction(new BaseEvent());

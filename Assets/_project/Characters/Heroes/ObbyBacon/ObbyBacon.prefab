@@ -92,7 +92,7 @@ MonoBehaviour:
     _isRotating: 0
   _autoShootToTargetMechanic:
     _firePoint: {fileID: 4085110245594637495}
-    _bulletPrefab: {fileID: 3256113843764181270, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
+    _bulletPrefab: {fileID: 4396696182697349936, guid: c71d8435fe1c55547a7818d2934bf8a9, type: 3}
     _isShooting: 0
     _canShoot: 1
   _lifeMechanic:
