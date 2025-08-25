@@ -18,6 +18,7 @@ MonoBehaviour:
   suffix: API
   imports:
   - Atomic.Elements
+  - ObbyDefender.Weapons
   categories:
   - name: Shoot
     indexes:
@@ -41,7 +42,7 @@ MonoBehaviour:
       type: GameObject
     - id: 12
       name: FirePoint
-      type: Transform
+      type: ReactiveVariable<Transform>
     - id: 13
       name: Target
       type: ReactiveVariable<Transform>
@@ -60,6 +61,12 @@ MonoBehaviour:
     - id: 43
       name: ShootFX
       type: ParticleSystem
+    - id: 32
+      name: HeroGunsView
+      type: HeroGunsView
+    - id: 35
+      name: WeaponChangerAnimator
+      type: WeaponChangerAnimatorController
   - name: Move
     indexes:
     - id: 2

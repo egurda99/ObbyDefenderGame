@@ -12,7 +12,7 @@ public sealed class ShootToTargetBehaviour : IEntityInit, IEntityDispose
 
     private GameObject _bulletPrefab;
     private ReactiveVariable<Transform> _target;
-    private Transform _firePoint;
+    private ReactiveVariable<Transform> _firePoint;
     private ReactiveVariable<bool> _isShooting;
     private AndExpression _canShoot;
 
@@ -49,13 +49,13 @@ public sealed class ShootToTargetBehaviour : IEntityInit, IEntityDispose
     {
         if (_canShoot.Value)
         {
-            var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.position, Quaternion.identity);
+            var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.Value.position, Quaternion.identity);
 
             var bulletEntity = bulletGO.GetComponent<SceneEntity>();
 
             Debug.Log("Shooted");
 
-            bulletEntity.GetMoveDirection().Value = (_target.Value.position - _firePoint.position).normalized;
+            bulletEntity.GetMoveDirection().Value = (_target.Value.position - _firePoint.Value.position).normalized;
             _shootEvent?.Invoke();
         }
 

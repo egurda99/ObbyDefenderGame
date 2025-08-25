@@ -6,6 +6,7 @@ using UnityEngine;
 using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
+using ObbyDefender.Weapons;
 
 namespace Atomic.Entities
 {

@@ -2,10 +2,7 @@
 * Code generation. Don't modify!
 **/
 
-using UnityEngine;
-using Atomic.Entities;
 using System.Runtime.CompilerServices;
-using Atomic.Elements;
 using MyCodeBase.Utils;
 
 namespace Atomic.Entities
@@ -18,13 +15,16 @@ namespace Atomic.Entities
 
         ///Extensions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static TriggerEventDispatcher GetTriggerEventDispatcher(this IEntity obj) => obj.GetValue<TriggerEventDispatcher>(TriggerEventDispatcher);
+        public static TriggerEventDispatcher GetTriggerEventDispatcher(this IEntity obj) =>
+            obj.GetValue<TriggerEventDispatcher>(TriggerEventDispatcher);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetTriggerEventDispatcher(this IEntity obj, out TriggerEventDispatcher value) => obj.TryGetValue(TriggerEventDispatcher, out value);
+        public static bool TryGetTriggerEventDispatcher(this IEntity obj, out TriggerEventDispatcher value) =>
+            obj.TryGetValue(TriggerEventDispatcher, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddTriggerEventDispatcher(this IEntity obj, TriggerEventDispatcher value) => obj.AddValue(TriggerEventDispatcher, value);
+        public static bool AddTriggerEventDispatcher(this IEntity obj, TriggerEventDispatcher value) =>
+            obj.AddValue(TriggerEventDispatcher, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasTriggerEventDispatcher(this IEntity obj) => obj.HasValue(TriggerEventDispatcher);
@@ -33,6 +33,7 @@ namespace Atomic.Entities
         public static bool DelTriggerEventDispatcher(this IEntity obj) => obj.DelValue(TriggerEventDispatcher);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetTriggerEventDispatcher(this IEntity obj, TriggerEventDispatcher value) => obj.SetValue(TriggerEventDispatcher, value);
+        public static void SetTriggerEventDispatcher(this IEntity obj, TriggerEventDispatcher value) =>
+            obj.SetValue(TriggerEventDispatcher, value);
     }
 }

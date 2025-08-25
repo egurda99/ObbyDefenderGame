@@ -30,6 +30,11 @@ public sealed class RotateToTargetBehaviour : IEntityInit, IEntityUpdate, IEntit
     {
         if (_canRotate.Value)
         {
+            var targetVar = entity.GetTarget();
+            if (targetVar == null || targetVar.Value == null)
+                return;
+
+
             var direction = (_target.Value.position - _rootTransform.position).normalized;
             var targetRotation = Quaternion.LookRotation(direction);
             var angle = Quaternion.Angle(_rootTransform.rotation, targetRotation);

@@ -6,6 +6,7 @@ using UnityEngine;
 using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
+using ObbyDefender.Weapons;
 
 namespace Atomic.Entities
 {
@@ -18,13 +19,15 @@ namespace Atomic.Entities
         public const int IsShooting = 9; // ReactiveVariable<bool>
         public const int CanShoot = 10; // AndExpression
         public const int BulletPrefab = 11; // GameObject
-        public const int FirePoint = 12; // Transform
+        public const int FirePoint = 12; // ReactiveVariable<Transform>
         public const int Target = 13; // ReactiveVariable<Transform>
         public const int ChangeTargetAction = 23; // IEvent<Transform>
         public const int IsTargetAlive = 28; // ReactiveVariable<bool>
         public const int Reloaded = 33; // IEvent
         public const int NeedReload = 34; // ReactiveVariable<bool>
         public const int ShootFX = 43; // ParticleSystem
+        public const int HeroGunsView = 32; // HeroGunsView
+        public const int WeaponChangerAnimator = 35; // WeaponChangerAnimatorController
 
 
         ///Extensions
@@ -137,13 +140,13 @@ namespace Atomic.Entities
         public static void SetBulletPrefab(this IEntity obj, GameObject value) => obj.SetValue(BulletPrefab, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Transform GetFirePoint(this IEntity obj) => obj.GetValue<Transform>(FirePoint);
+        public static ReactiveVariable<Transform> GetFirePoint(this IEntity obj) => obj.GetValue<ReactiveVariable<Transform>>(FirePoint);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetFirePoint(this IEntity obj, out Transform value) => obj.TryGetValue(FirePoint, out value);
+        public static bool TryGetFirePoint(this IEntity obj, out ReactiveVariable<Transform> value) => obj.TryGetValue(FirePoint, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddFirePoint(this IEntity obj, Transform value) => obj.AddValue(FirePoint, value);
+        public static bool AddFirePoint(this IEntity obj, ReactiveVariable<Transform> value) => obj.AddValue(FirePoint, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasFirePoint(this IEntity obj) => obj.HasValue(FirePoint);
@@ -152,7 +155,7 @@ namespace Atomic.Entities
         public static bool DelFirePoint(this IEntity obj) => obj.DelValue(FirePoint);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetFirePoint(this IEntity obj, Transform value) => obj.SetValue(FirePoint, value);
+        public static void SetFirePoint(this IEntity obj, ReactiveVariable<Transform> value) => obj.SetValue(FirePoint, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReactiveVariable<Transform> GetTarget(this IEntity obj) => obj.GetValue<ReactiveVariable<Transform>>(Target);
@@ -261,5 +264,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetShootFX(this IEntity obj, ParticleSystem value) => obj.SetValue(ShootFX, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static HeroGunsView GetHeroGunsView(this IEntity obj) => obj.GetValue<HeroGunsView>(HeroGunsView);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetHeroGunsView(this IEntity obj, out HeroGunsView value) => obj.TryGetValue(HeroGunsView, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddHeroGunsView(this IEntity obj, HeroGunsView value) => obj.AddValue(HeroGunsView, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasHeroGunsView(this IEntity obj) => obj.HasValue(HeroGunsView);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelHeroGunsView(this IEntity obj) => obj.DelValue(HeroGunsView);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetHeroGunsView(this IEntity obj, HeroGunsView value) => obj.SetValue(HeroGunsView, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static WeaponChangerAnimatorController GetWeaponChangerAnimator(this IEntity obj) => obj.GetValue<WeaponChangerAnimatorController>(WeaponChangerAnimator);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetWeaponChangerAnimator(this IEntity obj, out WeaponChangerAnimatorController value) => obj.TryGetValue(WeaponChangerAnimator, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddWeaponChangerAnimator(this IEntity obj, WeaponChangerAnimatorController value) => obj.AddValue(WeaponChangerAnimator, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasWeaponChangerAnimator(this IEntity obj) => obj.HasValue(WeaponChangerAnimator);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelWeaponChangerAnimator(this IEntity obj) => obj.DelValue(WeaponChangerAnimator);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetWeaponChangerAnimator(this IEntity obj, WeaponChangerAnimatorController value) => obj.SetValue(WeaponChangerAnimator, value);
     }
 }

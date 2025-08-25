@@ -7,13 +7,11 @@ namespace Elementary
     public sealed class NearestTargetObserver : ColliderDetectionObserver
     {
          private SceneEntity _entity;
-         private readonly ReactiveVariable<Transform> _targetVar;
 
          public NearestTargetObserver(ColliderDetection sensor, SceneEntity entity) : base(sensor)
         {
             _entity = entity;
-            _targetVar = new ReactiveVariable<Transform>(null);
-            _entity.AddTarget(_targetVar);
+
         }
 
         protected override void OnCollidersUpdated(Collider[] buffer, int size)
@@ -21,6 +19,7 @@ namespace Elementary
             Transform nearest = null;
             float minDist = float.MaxValue;
             var selfPos = _entity.GetRootTransform().position;
+            var targetVar = _entity.GetTarget();
 
             for (int i = 0; i < size; i++)
             {
@@ -38,13 +37,14 @@ namespace Elementary
 
             if (nearest != null)
             {
-                _targetVar.Value = nearest;
+
+              targetVar.Value = nearest;
             }
             else
             {
-                if (_targetVar.Value != null)
+                if (targetVar.Value != null)
                 {
-                    _targetVar.Value = null;
+                    targetVar.Value = null;
                 }
             }
         }

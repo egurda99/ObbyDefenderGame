@@ -1,12 +1,16 @@
 using Atomic.Entities;
+using ObbyDefender.Weapons;
 using UnityEngine;
 
 namespace ObbyDefender
 {
     public sealed class HeroInstaller : SceneEntityInstallerBase
     {
+        [SerializeField] private HeroGunsView _heroGunsView;
         [SerializeField] private MoveToDirectionMechanic _moveToDirectionMechanic;
         [SerializeField] private RotateToMoveDirectionMechanic _rotateToMoveDirectionMechanic;
+        [SerializeField] private RotateToTargetMechanic _rotateToTargetMechanic;
+
         [SerializeField] private AutoShootToTargetMechanic _autoShootToTargetMechanic;
 
 
@@ -22,6 +26,7 @@ namespace ObbyDefender
             _moveToDirectionMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
             _autoShootToTargetMechanic.Install(entity);
+            _rotateToTargetMechanic.Install(entity);
 
             _lifeMechanic.Install(entity);
 
@@ -29,6 +34,9 @@ namespace ObbyDefender
             _ammoRefillMechanic.Install(entity);
             _shootReloadMechanic.Install(entity);
             _stunMechanic.Install(entity);
+            _heroGunsView.Init(entity);
+
+            entity.AddHeroGunsView(_heroGunsView);
 
 
             entity.GetCanMove().Append(() => !entity.GetIsDead().Value);
@@ -39,7 +47,7 @@ namespace ObbyDefender
             entity.GetCanShoot().Append(() => !entity.GetIsAmmoEmpty().Value);
             entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
             entity.GetCanShoot().Append(() => !entity.GetIsStunned().Value);
-           // entity.GetCanShoot().Append(() => entity.GetTarget() != null);
+            // entity.GetCanShoot().Append(() => entity.GetTarget() != null);
             // entity.GetCanRotate().Append(() => !entity.GetIsStunned().Value);
         }
     }

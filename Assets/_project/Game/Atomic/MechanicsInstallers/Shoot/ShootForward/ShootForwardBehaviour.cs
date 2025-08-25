@@ -9,7 +9,7 @@ public sealed class ShootForwardBehaviour : IEntityInit, IEntityDispose
     private IEvent _shootRequested;
 
     private GameObject _bulletPrefab;
-    private Transform _firePoint;
+    private ReactiveVariable<Transform> _firePoint;
     private ReactiveVariable<bool> _isShooting;
     private AndExpression _canShoot;
     private Transform _rootTransform;
@@ -44,7 +44,7 @@ public sealed class ShootForwardBehaviour : IEntityInit, IEntityDispose
     {
         if (_canShoot.Value)
         {
-            var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.position, Quaternion.identity);
+            var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.Value.position, Quaternion.identity);
 
             var bulletEntity = bulletGO.GetComponent<SceneEntity>();
             bulletEntity.GetMoveDirection().Value = _rootTransform.forward;

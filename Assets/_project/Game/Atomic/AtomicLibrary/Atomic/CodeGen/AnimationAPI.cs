@@ -2,11 +2,9 @@
 * Code generation. Don't modify!
 **/
 
-using UnityEngine;
-using Atomic.Entities;
 using System.Runtime.CompilerServices;
-using Atomic.Elements;
 using MyCodeBase.Utils;
+using UnityEngine;
 
 namespace Atomic.Entities
 {
@@ -14,6 +12,7 @@ namespace Atomic.Entities
     {
         ///Keys
         public const int Animator = 26; // Animator
+
         public const int AnimationEventDispatcher = 27; // AnimationEventDispatcher
 
 
@@ -37,13 +36,16 @@ namespace Atomic.Entities
         public static void SetAnimator(this IEntity obj, Animator value) => obj.SetValue(Animator, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static AnimationEventDispatcher GetAnimationEventDispatcher(this IEntity obj) => obj.GetValue<AnimationEventDispatcher>(AnimationEventDispatcher);
+        public static AnimationEventDispatcher GetAnimationEventDispatcher(this IEntity obj) =>
+            obj.GetValue<AnimationEventDispatcher>(AnimationEventDispatcher);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetAnimationEventDispatcher(this IEntity obj, out AnimationEventDispatcher value) => obj.TryGetValue(AnimationEventDispatcher, out value);
+        public static bool TryGetAnimationEventDispatcher(this IEntity obj, out AnimationEventDispatcher value) =>
+            obj.TryGetValue(AnimationEventDispatcher, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddAnimationEventDispatcher(this IEntity obj, AnimationEventDispatcher value) => obj.AddValue(AnimationEventDispatcher, value);
+        public static bool AddAnimationEventDispatcher(this IEntity obj, AnimationEventDispatcher value) =>
+            obj.AddValue(AnimationEventDispatcher, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasAnimationEventDispatcher(this IEntity obj) => obj.HasValue(AnimationEventDispatcher);
@@ -52,6 +54,7 @@ namespace Atomic.Entities
         public static bool DelAnimationEventDispatcher(this IEntity obj) => obj.DelValue(AnimationEventDispatcher);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetAnimationEventDispatcher(this IEntity obj, AnimationEventDispatcher value) => obj.SetValue(AnimationEventDispatcher, value);
+        public static void SetAnimationEventDispatcher(this IEntity obj, AnimationEventDispatcher value) =>
+            obj.SetValue(AnimationEventDispatcher, value);
     }
 }

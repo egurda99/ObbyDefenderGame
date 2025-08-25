@@ -2,6 +2,7 @@ using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
+
 public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEntityDispose
 {
     private IEvent _shootAction;
@@ -9,7 +10,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
     private IEvent _shootRequested;
 
     private GameObject _bulletPrefab;
-    private Transform _firePoint;
+    private ReactiveVariable<Transform> _firePoint;
     private ReactiveVariable<bool> _isShooting;
     private AndExpression _canShoot;
     private IEntity _entity;
@@ -33,7 +34,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
 
     private void OnShootAction()
     {
-        var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.position, Quaternion.identity);
+        var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.Value.position, Quaternion.identity);
 
         var bulletEntity = bulletGO.GetComponentInChildren<SceneEntity>();
 
@@ -50,7 +51,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         }
 
         var targetPosition = targetVar.Value.position;
-        bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.position).normalized;
+        bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         _shootEvent?.Invoke();
 
         _isShooting.Value = false;
