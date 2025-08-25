@@ -1,0 +1,126 @@
+newmtl Part1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.6105 0.412457 0.0169142 
+
+d 1
+
+Ns 255
+
+map_Ka Lid1_diff.png
+map_Kd Lid1_diff.png
+map_d Lid1_diff.png
+
+map_Bump Lid1_nmap.png
+
+map_Ns Part1_spec.png
+
+newmtl Lid1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.6105 0.412457 0.0169142 
+
+d 1
+
+Ns 255
+
+map_Ka Lid1_diff.png
+map_Kd Lid1_diff.png
+map_d Lid1_diff.png
+
+map_Bump Lid1_nmap.png
+
+map_Ns Lid1_spec.png
+
+newmtl StatueHolder1Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0161167 0.0159 0.016555 
+
+d 1
+
+Ns 0
+
+map_Ka StatueHolder1_diff.png
+map_Kd StatueHolder1_diff.png
+map_d StatueHolder1_diff.png
+
+map_Bump StatueHolder1_nmap.png
+
+map_Ns StatueHolder1_spec.png
+
+newmtl Water1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.6105 0.412457 0.0169142 
+
+d 0.4
+
+Ns 255
+
+map_Ka Lid1_diff.png
+map_Kd Lid1_diff.png
+map_d Lid1_diff.png
+
+map_Bump Lid1_nmap.png
+
+map_Ns Water1_spec.png
+
+newmtl Toiletbowl1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.6105 0.412457 0.0169142 
+
+d 1
+
+Ns 255
+
+map_Ka Lid1_diff.png
+map_Kd Lid1_diff.png
+map_d Lid1_diff.png
+
+map_Bump Lid1_nmap.png
+
+map_Ns Toiletbowl1_spec.png
+
+newmtl Interactive1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.6105 0.412457 0.0169142 
+
+d 1
+
+Ns 255
+
+map_Ka Lid1_diff.png
+map_Kd Lid1_diff.png
+map_d Lid1_diff.png
+
+map_Bump Lid1_nmap.png
+
+map_Ns Interactive1_spec.png
+
+newmtl Toiletseat1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.6105 0.412457 0.0169142 
+
+d 1
+
+Ns 255
+
+map_Ka Lid1_diff.png
+map_Kd Lid1_diff.png
+map_d Lid1_diff.png
+
+map_Bump Lid1_nmap.png
+
+map_Ns Toiletseat1_spec.png
+
