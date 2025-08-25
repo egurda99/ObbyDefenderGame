@@ -1,6 +1,6 @@
 namespace Lessons.AI.HierarchicalStateMachine
 {
-    //public sealed class EnemyDetectionObserver : ColliderDetectionObserver
+    //public sealed class EnemyDetectionObserver : ColliderDetectionObserverMonobehaviour
     //{
     //    [SerializeField]
     //    private Blackboard blackboard;

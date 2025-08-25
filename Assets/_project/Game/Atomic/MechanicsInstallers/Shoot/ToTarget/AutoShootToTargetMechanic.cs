@@ -3,12 +3,10 @@ using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
-
 [Serializable]
-public sealed class ShootToTargetMechanic : IEntityInstaller
+public sealed class AutoShootToTargetMechanic : IEntityInstaller
 {
     [SerializeField] private Transform _firePoint;
-    [SerializeField] private Transform _target;
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private bool _isShooting;
@@ -19,11 +17,11 @@ public sealed class ShootToTargetMechanic : IEntityInstaller
     {
         entity.AddFirePoint(_firePoint);
         entity.AddBulletPrefab(_bulletPrefab);
-        entity.AddTarget(_target);
+        entity.AddTarget(null);
 
-        entity.AddShootRequest(new BaseEvent());
-        entity.AddShootAction(new BaseEvent());
         entity.AddShootEvent(new BaseEvent());
+       entity.AddShootAction(new BaseEvent());
+        entity.AddShootRequest(new BaseEvent());
         entity.AddChangeTargetAction(new BaseEvent<Transform>());
 
         entity.AddIsShooting(_isShooting);
@@ -31,6 +29,6 @@ public sealed class ShootToTargetMechanic : IEntityInstaller
         var canShoot = new AndExpression();
         entity.AddCanShoot(canShoot);
 
-        entity.AddBehaviour(new ShootToTargetBehaviour());
+        entity.AddBehaviour(new AutoShootToTargetBehaviour());
     }
 }

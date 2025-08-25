@@ -1,6 +1,8 @@
 //using Cysharp.Threading.Tasks;
 
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code.AppRunner
 {
@@ -14,12 +16,12 @@ namespace Code.AppRunner
 
         public override string Title => _title;
 
-        // public override async UniTask Do()
-        // {
-        //     await SceneManager.LoadSceneAsync(_nextSceneBuildIdx, LoadSceneMode.Additive);
-        //     SceneManager.UnloadSceneAsync(0);
-        //     SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(_nextSceneBuildIdx));
-        //     await UniTask.Delay((int)(_waitTime * 1000));
-        // }
+        public override async UniTask Do()
+        {
+            await SceneManager.LoadSceneAsync(_nextSceneBuildIdx, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync(0);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(_nextSceneBuildIdx));
+            await UniTask.Delay((int)(_waitTime * 1000));
+        }
     }
 }
