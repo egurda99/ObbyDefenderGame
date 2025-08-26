@@ -4,7 +4,7 @@ using Atomic.Entities;
 using UnityEngine;
 
 [Serializable]
-public sealed class RotateToMoveDirectionMechanic : IEntityInstaller
+public sealed class RotateToMoveDirectionWhenNoTargetMechanic : IEntityInstaller
 {
     [SerializeField] private Transform _rootTransform;
     [SerializeField] private float _rotateSpeed = 100f;
@@ -18,6 +18,6 @@ public sealed class RotateToMoveDirectionMechanic : IEntityInstaller
         entity.AddIsRotating(_isRotating);
         var canRotate = new AndExpression();
         entity.AddCanRotate(canRotate);
-        entity.AddBehaviour(new RotateToMoveDirectionBehaviour());
+        entity.AddBehaviour(new RotateToMoveDirectionWhenNoTargetBehaviour());
     }
 }

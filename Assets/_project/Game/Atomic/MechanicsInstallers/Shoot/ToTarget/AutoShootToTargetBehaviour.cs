@@ -10,7 +10,6 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
     private IEvent _shootEvent;
     private IEvent _shootRequested;
 
-    private ReactiveVariable<GameObject> _bulletPrefab;
     private ReactiveVariable<Transform> _firePoint;
     private ReactiveVariable<bool> _isShooting;
     private AndExpression _canShoot;
@@ -32,8 +31,6 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         _shootAction = entity.GetShootAction();
         _shootRequested = entity.GetShootRequest();
 
-
-        _bulletPrefab = entity.GetBulletPrefab();
 
         _firePoint = entity.GetFirePoint();
         _isShooting = entity.GetIsShooting();
@@ -66,6 +63,8 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         var targetPosition = targetVar.Value.position;
         // bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         bulletEntity.GetRootTransform().position = _firePoint.Value.position;
+
+        //  bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         _shootEvent?.Invoke();
 

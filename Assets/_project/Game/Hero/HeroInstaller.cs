@@ -8,8 +8,12 @@ namespace ObbyDefender
     public sealed class HeroInstaller : SceneEntityInstallerBase
     {
         [SerializeField] private HeroGunsView _heroGunsView;
+
         [SerializeField] private MoveToDirectionMechanic _moveToDirectionMechanic;
-        [SerializeField] private RotateToMoveDirectionMechanic _rotateToMoveDirectionMechanic;
+
+        //  [SerializeField] private RotateToMoveDirectionMechanic _rotateToMoveDirectionMechanic;
+        [SerializeField] private RotateToMoveDirectionWhenNoTargetMechanic _rotateToMoveDirectionMechanic;
+
         [SerializeField] private RotateToTargetMechanic _rotateToTargetMechanic;
 
         [SerializeField] private AutoShootToTargetMechanic _autoShootToTargetMechanic;
