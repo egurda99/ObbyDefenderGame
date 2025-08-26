@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 500862507274076225}
+  - component: {fileID: 8049576032344740470}
+  - component: {fileID: 3448678168452616081}
+  - component: {fileID: 8243077556956745220}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -32,6 +35,65 @@ Transform:
   - {fileID: 1776624294243769717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8049576032344740470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396696182697349936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRefresh: 1
+  installOnAwake: 1
+  installPipeline:
+  - {fileID: 8243077556956745220}
+  onInstalled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3448678168452616081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396696182697349936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8243077556956745220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396696182697349936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec37441974f42f29bdaf2dad008d283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveToDirectionMechanic:
+    _rootTransform: {fileID: 500862507274076225}
+    _speed: 3
+    _moveDirection: {x: 0, y: 0, z: 0}
+    _isMoving: 0
+    _canMove: 1
+  _destroyByLifeTimeMechanic:
+    _lifeTime: 3
+    _rootTransform: {fileID: 500862507274076225}
+  _dealDamageByTriggerMechanic:
+    _triggerEventDispatcher: {fileID: 5946259900528241383}
+    _damage: 5
+  _rotateToMoveDirectionMechanic:
+    _rootTransform: {fileID: 500862507274076225}
+    _rotateSpeed: 1000
+    _isRotating: 0
 --- !u!1001 &3861797286903724099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40,6 +102,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 500862507274076225}
     m_Modifications:
+    - target: {fileID: -2379236062441294716, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3256113843764181270, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
       propertyPath: m_Name
       value: Pistol_Bullet_01
@@ -85,6 +151,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3643377175312851680, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643377175312851680, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
       propertyPath: _moveToDirectionMechanic._rootTransform
       value: 
       objectReference: {fileID: 500862507274076225}
@@ -96,6 +166,10 @@ PrefabInstance:
       propertyPath: _rotateToMoveDirectionMechanic._rootTransform
       value: 
       objectReference: {fileID: 500862507274076225}
+    - target: {fileID: 5252741189981190191, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -106,3 +180,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3256113843764208950, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
   m_PrefabInstance: {fileID: 3861797286903724099}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5946259900528241383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427148217551426212, guid: 063579173dd7df443a305b1c6d6e4a9d, type: 3}
+  m_PrefabInstance: {fileID: 3861797286903724099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b12f05cdec84506b4caa284a43aedc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

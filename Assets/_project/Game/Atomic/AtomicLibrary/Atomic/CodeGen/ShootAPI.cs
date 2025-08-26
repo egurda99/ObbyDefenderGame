@@ -28,6 +28,7 @@ namespace Atomic.Entities
         public const int ShootFX = 43; // ParticleSystem
         public const int HeroGunsView = 32; // HeroGunsView
         public const int WeaponChangerAnimator = 35; // WeaponChangerAnimatorController
+        public const int WeaponType = 36; // ReactiveVariable<WeaponType>
 
 
         ///Extensions
@@ -300,5 +301,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetWeaponChangerAnimator(this IEntity obj, WeaponChangerAnimatorController value) => obj.SetValue(WeaponChangerAnimator, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<WeaponType> GetWeaponType(this IEntity obj) => obj.GetValue<ReactiveVariable<WeaponType>>(WeaponType);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetWeaponType(this IEntity obj, out ReactiveVariable<WeaponType> value) => obj.TryGetValue(WeaponType, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddWeaponType(this IEntity obj, ReactiveVariable<WeaponType> value) => obj.AddValue(WeaponType, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasWeaponType(this IEntity obj) => obj.HasValue(WeaponType);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelWeaponType(this IEntity obj) => obj.DelValue(WeaponType);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetWeaponType(this IEntity obj, ReactiveVariable<WeaponType> value) => obj.SetValue(WeaponType, value);
     }
 }

@@ -67,6 +67,9 @@ MonoBehaviour:
     - id: 35
       name: WeaponChangerAnimator
       type: WeaponChangerAnimatorController
+    - id: 36
+      name: WeaponType
+      type: ReactiveVariable<WeaponType>
   - name: Move
     indexes:
     - id: 2

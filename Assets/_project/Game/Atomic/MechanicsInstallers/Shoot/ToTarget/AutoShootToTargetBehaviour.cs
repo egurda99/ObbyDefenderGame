@@ -1,5 +1,7 @@
 using Atomic.Elements;
 using Atomic.Entities;
+using ObbyDefender;
+using ObbyDefender.Weapons;
 using UnityEngine;
 
 public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEntityDispose
@@ -14,6 +16,15 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
     private AndExpression _canShoot;
     private IEntity _entity;
 
+    private readonly BulletFactory _bulletFactory;
+    private ReactiveVariable<WeaponType> _weaponType;
+
+    public AutoShootToTargetBehaviour(BulletFactory bulletFactory)
+    {
+        _bulletFactory = bulletFactory;
+        Debug.Log("Inited AutoShoot");
+    }
+
     public void Init(IEntity entity)
     {
         _entity = entity;
@@ -27,6 +38,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         _firePoint = entity.GetFirePoint();
         _isShooting = entity.GetIsShooting();
         _canShoot = entity.GetCanShoot();
+        _weaponType = entity.GetWeaponType();
 
         _shootAction.Subscribe(OnShootAction);
     }
@@ -40,14 +52,20 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         }
 
 
-        var bulletGO = Object.Instantiate(_bulletPrefab.Value, _firePoint.Value.position, Quaternion.identity);
+        //  var bulletGO = Object.Instantiate(_bulletPrefab.Value, _firePoint.Value.position, Quaternion.identity);
 
-        var bulletEntity = bulletGO.GetComponentInChildren<SceneEntity>();
+        //  var bulletEntity = bulletGO.GetComponentInChildren<SceneEntity>();
+
+        var bullet = _bulletFactory.GetBullet(_weaponType.Value);
+        var bulletEntity = bullet.GetComponent<SceneEntity>();
+        //bullet.Init(direction, speed);
 
         Debug.Log("Shooted");
 
 
         var targetPosition = targetVar.Value.position;
+        // bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
+        bulletEntity.GetRootTransform().position = _firePoint.Value.position;
         bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         _shootEvent?.Invoke();
 

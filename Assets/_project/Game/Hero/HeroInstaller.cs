@@ -1,6 +1,7 @@
 using Atomic.Entities;
 using ObbyDefender.Weapons;
 using UnityEngine;
+using Zenject;
 
 namespace ObbyDefender
 {
@@ -15,25 +16,31 @@ namespace ObbyDefender
 
 
         [SerializeField] private LifeMechanic _lifeMechanic;
-        [SerializeField] private AmmoMechanic _ammoMechanic;
-        [SerializeField] private AmmoRefillMechanic _ammoRefillMechanic;
+
         [SerializeField] private ShootReloadMechanic _shootReloadMechanic;
         [SerializeField] private StunMechanic _stunMechanic;
+        private BulletFactory _bulletFactory;
 
+
+        [Inject]
+        public void Construct(BulletFactory bulletFactory)
+        {
+            _bulletFactory = bulletFactory;
+        }
 
         public override void Install(IEntity entity)
         {
             _moveToDirectionMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
             _autoShootToTargetMechanic.Install(entity);
+            _autoShootToTargetMechanic.Init(_bulletFactory);
             _rotateToTargetMechanic.Install(entity);
 
             _lifeMechanic.Install(entity);
 
-            _ammoMechanic.Install(entity);
-            _ammoRefillMechanic.Install(entity);
             _shootReloadMechanic.Install(entity);
             _stunMechanic.Install(entity);
+            entity.AddWeaponType(WeaponType.None);
 
             entity.AddHeroGunsView(_heroGunsView);
 
@@ -41,13 +48,11 @@ namespace ObbyDefender
             entity.GetCanMove().Append(() => !entity.GetIsDead().Value);
             entity.GetCanRotate().Append(() => !entity.GetIsDead().Value);
             entity.GetCanMove().Append(() => !entity.GetIsStunned().Value);
-            entity.GetCanRefill().Append(() => !entity.GetIsDead().Value);
+
             entity.GetCanShoot().Append(() => !entity.GetIsDead().Value);
-            entity.GetCanShoot().Append(() => !entity.GetIsAmmoEmpty().Value);
+
             entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
             entity.GetCanShoot().Append(() => !entity.GetIsStunned().Value);
-            // entity.GetCanShoot().Append(() => entity.GetTarget() != null);
-            // entity.GetCanRotate().Append(() => !entity.GetIsStunned().Value);
         }
     }
 }

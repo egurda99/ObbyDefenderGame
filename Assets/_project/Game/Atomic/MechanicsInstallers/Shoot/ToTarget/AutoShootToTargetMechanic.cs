@@ -1,6 +1,7 @@
 using System;
 using Atomic.Elements;
 using Atomic.Entities;
+using ObbyDefender;
 using UnityEngine;
 
 [Serializable]
@@ -11,18 +12,20 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
 
     [SerializeField] private bool _isShooting;
     [SerializeField] private bool _canShoot = true;
+    private IEntity _entity;
 
 
     public void Install(IEntity entity)
     {
+        _entity = entity;
         entity.AddFirePoint(_firePoint);
         entity.AddBulletPrefab(_bulletPrefab);
 
 
-         entity.AddTarget(new ReactiveVariable<Transform>());
+        entity.AddTarget(new ReactiveVariable<Transform>());
 
         entity.AddShootEvent(new BaseEvent());
-       entity.AddShootAction(new BaseEvent());
+        entity.AddShootAction(new BaseEvent());
         entity.AddShootRequest(new BaseEvent());
         entity.AddChangeTargetAction(new BaseEvent<Transform>());
 
@@ -31,6 +34,11 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
         var canShoot = new AndExpression();
         entity.AddCanShoot(canShoot);
 
-        entity.AddBehaviour(new AutoShootToTargetBehaviour());
+        // entity.AddBehaviour(new AutoShootToTargetBehaviour());
+    }
+
+    public void Init(BulletFactory bulletPool)
+    {
+        _entity.AddBehaviour(new AutoShootToTargetBehaviour(bulletPool));
     }
 }

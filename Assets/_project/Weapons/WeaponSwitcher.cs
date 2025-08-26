@@ -10,7 +10,7 @@ namespace ObbyDefender.Weapons
     {
         private readonly HeroGunsView _gunsView;
         private readonly WeaponChangerAnimatorController _changerAnimatorController;
-        [ShowInInspector] [ReadOnly] private WeaponType _currentWeapon = WeaponType.None;
+        [ShowInInspector] [ReadOnly] private ReactiveVariable<WeaponType> _currentWeapon = WeaponType.None;
         private readonly ReactiveVariable<Transform> _firePoint;
         private readonly ReactiveVariable<GameObject> _bulletPrefab;
 
@@ -21,6 +21,7 @@ namespace ObbyDefender.Weapons
             _changerAnimatorController = playerService.Player.GetWeaponChangerAnimator();
             _firePoint = playerService.Player.GetFirePoint();
             _bulletPrefab = playerService.Player.GetBulletPrefab();
+            _currentWeapon = playerService.Player.GetWeaponType();
 
 
             SwitchWeapon(WeaponType.Pistol);
@@ -29,16 +30,17 @@ namespace ObbyDefender.Weapons
         [Button]
         public void SwitchWeapon(WeaponType type)
         {
-            if (_currentWeapon == type)
+            if (_currentWeapon.Value == type)
                 return;
 
+            _currentWeapon.Value = type;
             _gunsView.SetActiveWeapon(type);
             _firePoint.Value = _gunsView.ActiveWeapon.FirePoint.transform;
             _bulletPrefab.Value = _gunsView.ActiveWeapon.BulletPrefab;
 
             _changerAnimatorController.SetWeapon(type);
 
-            _currentWeapon = type;
+            //_currentWeapon = type;
         }
 
         public Transform GetActiveFirePoint()

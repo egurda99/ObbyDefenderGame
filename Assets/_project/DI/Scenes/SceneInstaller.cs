@@ -11,12 +11,31 @@ namespace ObbyDefender.DI
     {
         [SerializeField] private SceneInstallerHelper _sceneInstallerHelper;
 
+
         public override void InstallBindings()
         {
+            BindBulletPool();
             BindCycleManager();
             BindPlayer();
             BindWeaponSwitcher();
             BindInput();
+        }
+
+        private void BindBulletPool()
+        {
+            Container.BindMemoryPool<BulletInstaller, BulletPool>()
+                .WithId(WeaponType.Pistol)
+                .WithInitialSize(25)
+                .FromComponentInNewPrefab(_sceneInstallerHelper.PistolBulletPrefab)
+                .UnderTransform(_sceneInstallerHelper.BulletContainer);
+
+            Container.BindMemoryPool<BulletInstaller, BulletPool>()
+                .WithId(WeaponType.M16)
+                .WithInitialSize(25)
+                .FromComponentInNewPrefab(_sceneInstallerHelper.M16BulletPrefab)
+                .UnderTransform(_sceneInstallerHelper.BulletContainer);
+
+            Container.Bind<BulletFactory>().AsSingle();
         }
 
         private void BindCycleManager()

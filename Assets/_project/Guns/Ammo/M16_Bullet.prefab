@@ -206,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3848695586349619397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ec37441974f42f29bdaf2dad008d283, type: 3}
   m_Name: 
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3848695586349619397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
   m_Name: 
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3848695586349619397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
   m_Name: 
@@ -279,6 +279,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8227780381354242315}
+  - component: {fileID: 8092135444367051691}
+  - component: {fileID: 8105262836460890544}
+  - component: {fileID: 4987717992817977825}
   m_Layer: 0
   m_Name: M16_Bullet
   m_TagString: Untagged
@@ -302,3 +305,62 @@ Transform:
   - {fileID: 2109253435230055448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8092135444367051691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853450160986573223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec37441974f42f29bdaf2dad008d283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveToDirectionMechanic:
+    _rootTransform: {fileID: 8227780381354242315}
+    _speed: 5
+    _moveDirection: {x: 0, y: 0, z: 0}
+    _isMoving: 0
+    _canMove: 1
+  _destroyByLifeTimeMechanic:
+    _lifeTime: 5
+    _rootTransform: {fileID: 8227780381354242315}
+  _dealDamageByTriggerMechanic:
+    _triggerEventDispatcher: {fileID: 2649205117089795750}
+    _damage: 2
+  _rotateToMoveDirectionMechanic:
+    _rootTransform: {fileID: 8227780381354242315}
+    _rotateSpeed: 1000
+    _isRotating: 0
+--- !u!114 &8105262836460890544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853450160986573223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRefresh: 1
+  installOnAwake: 1
+  installPipeline:
+  - {fileID: 2072471263254829630}
+  onInstalled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4987717992817977825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853450160986573223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
