@@ -98,10 +98,7 @@ GameObject:
   - component: {fileID: 846599780502480385}
   - component: {fileID: 9125680608266126793}
   - component: {fileID: 4271191195730747012}
-  - component: {fileID: 2072471263254829630}
   - component: {fileID: 2649205117089795750}
-  - component: {fileID: 2210359601105218585}
-  - component: {fileID: 1966373036636976618}
   m_Layer: 0
   m_Name: M16_Bullet_04
   m_TagString: Untagged
@@ -199,34 +196,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06448859, y: 0.006444496, z: 0.006444496}
   m_Center: {x: 0.017336857, y: 4.656613e-10, z: 0}
---- !u!114 &2072471263254829630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3848695586349619397}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec37441974f42f29bdaf2dad008d283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveToDirectionMechanic:
-    _rootTransform: {fileID: 8227780381354242315}
-    _speed: 5
-    _moveDirection: {x: 0, y: 0, z: 0}
-    _isMoving: 0
-    _canMove: 1
-  _destroyByLifeTimeMechanic:
-    _lifeTime: 5
-    _rootTransform: {fileID: 8227780381354242315}
-  _dealDamageByTriggerMechanic:
-    _triggerEventDispatcher: {fileID: 2649205117089795750}
-    _damage: 2
-  _rotateToMoveDirectionMechanic:
-    _rootTransform: {fileID: 8227780381354242315}
-    _rotateSpeed: 1000
-    _isRotating: 0
 --- !u!114 &2649205117089795750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,37 +206,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b12f05cdec84506b4caa284a43aedc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2210359601105218585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3848695586349619397}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3142498ee69840069f3a93c11b1e1f75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoRefresh: 1
-  installOnAwake: 1
-  installPipeline:
-  - {fileID: 2072471263254829630}
-  onInstalled:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1966373036636976618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3848695586349619397}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6853450160986573223
@@ -348,7 +286,7 @@ MonoBehaviour:
   autoRefresh: 1
   installOnAwake: 1
   installPipeline:
-  - {fileID: 2072471263254829630}
+  - {fileID: 8092135444367051691}
   onInstalled:
     m_PersistentCalls:
       m_Calls: []
