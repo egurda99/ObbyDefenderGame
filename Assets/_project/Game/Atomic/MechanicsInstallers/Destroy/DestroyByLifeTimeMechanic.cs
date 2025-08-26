@@ -13,6 +13,7 @@ public sealed class DestroyByLifeTimeMechanic : IEntityInstaller
     public void Install(IEntity entity)
     {
         entity.AddLifeTime(_lifeTime);
+        entity.AddDestroyRequest(new BaseEvent());
         entity.AddRootTransform(_rootTransform);
         entity.AddCanStartTimer(new AndExpression());
         entity.AddLifetimeTimer(new Timer());

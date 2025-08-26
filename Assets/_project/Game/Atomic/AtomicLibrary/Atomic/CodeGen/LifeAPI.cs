@@ -18,6 +18,7 @@ namespace Atomic.Entities
         public const int TakeDamageAction = 16; // IEvent<float>
         public const int HealAction = 17; // IEvent<float>
         public const int TakeDamageFX = 48; // ParticleSystem
+        public const int DestroyRequest = 37; // IEvent
 
 
         ///Extensions
@@ -110,5 +111,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetTakeDamageFX(this IEntity obj, ParticleSystem value) => obj.SetValue(TakeDamageFX, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEvent GetDestroyRequest(this IEntity obj) => obj.GetValue<IEvent>(DestroyRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDestroyRequest(this IEntity obj, out IEvent value) => obj.TryGetValue(DestroyRequest, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDestroyRequest(this IEntity obj, IEvent value) => obj.AddValue(DestroyRequest, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDestroyRequest(this IEntity obj) => obj.HasValue(DestroyRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDestroyRequest(this IEntity obj) => obj.DelValue(DestroyRequest);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDestroyRequest(this IEntity obj, IEvent value) => obj.SetValue(DestroyRequest, value);
     }
 }

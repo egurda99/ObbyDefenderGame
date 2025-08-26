@@ -12,6 +12,7 @@ public sealed class DestroyBulletByLifeTimeBehaviour : IEntityInit, IEntityDisab
     private Timer _timer;
     private IMemoryPool _bulletPool;
 
+
     public void Init(IEntity entity)
     {
         _lifeTime = entity.GetLifeTime();

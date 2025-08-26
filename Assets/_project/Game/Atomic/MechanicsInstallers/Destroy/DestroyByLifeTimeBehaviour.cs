@@ -1,19 +1,18 @@
 using Atomic.Elements;
 using Atomic.Entities;
-using UnityEngine;
 
-public sealed class DestroyByLifeTimeBehaviour : IEntityInit, IEntityDisable, IEntityUpdate
+public sealed class DestroyByLifeTimeBehaviour : IEntityInit, IEntityDisable, IEntityEnable, IEntityUpdate
 {
     private ReactiveVariable<float> _lifeTime;
-    private Transform _rootTransform;
     private AndExpression _canStartTimer;
     private Timer _timer;
+    private IEvent _destroyRequest;
 
     public void Init(IEntity entity)
     {
         _lifeTime = entity.GetLifeTime();
-        _rootTransform = entity.GetRootTransform();
         _canStartTimer = entity.GetCanStartTimer();
+        _destroyRequest = entity.GetDestroyRequest();
 
         _timer = entity.GetLifetimeTimer();
         _timer.SetDuration(_lifeTime.Value);
@@ -23,7 +22,21 @@ public sealed class DestroyByLifeTimeBehaviour : IEntityInit, IEntityDisable, IE
 
     private void OnTimerEnded()
     {
-        Object.Destroy(_rootTransform.gameObject);
+        _destroyRequest.Invoke();
+        //Object.Destroy(_rootTransform.gameObject);
+    }
+
+    private void Reset()
+    {
+        _timer.Stop();
+        _timer.SetDuration(_lifeTime.Value);
+        _timer.Start();
+    }
+
+    public void Enable(IEntity entity)
+    {
+        _timer.OnEnded += OnTimerEnded;
+        Reset();
     }
 
 

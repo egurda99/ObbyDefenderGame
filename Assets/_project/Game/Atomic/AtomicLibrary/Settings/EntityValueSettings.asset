@@ -107,6 +107,9 @@ MonoBehaviour:
     - id: 48
       name: TakeDamageFX
       type: ParticleSystem
+    - id: 37
+      name: DestroyRequest
+      type: IEvent
   - name: Rotation
     indexes:
     - id: 18

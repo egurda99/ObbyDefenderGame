@@ -14,10 +14,9 @@ namespace ObbyDefender
         protected override void OnSpawned(BulletInstaller item)
         {
             item.gameObject.SetActive(true);
-            item.SetPool(this);
 
             var sceneEntity = item.GetComponent<SceneEntity>();
-            var behaviour = sceneEntity.GetBehaviour<DestroyBulletByLifeTimeBehaviour>();
+            var behaviour = sceneEntity.GetBehaviour<ReturnBulletToPoolBehaviour>();
             behaviour.SetPool(this);
         }
 
