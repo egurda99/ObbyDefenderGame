@@ -2,14 +2,13 @@ using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
-
 public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEntityDispose
 {
     private IEvent _shootAction;
     private IEvent _shootEvent;
     private IEvent _shootRequested;
 
-    private GameObject _bulletPrefab;
+    private ReactiveVariable<GameObject> _bulletPrefab;
     private ReactiveVariable<Transform> _firePoint;
     private ReactiveVariable<bool> _isShooting;
     private AndExpression _canShoot;
@@ -34,21 +33,19 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
 
     private void OnShootAction()
     {
-        var bulletGO = Object.Instantiate(_bulletPrefab, _firePoint.Value.position, Quaternion.identity);
+        var targetVar = _entity.GetTarget();
+        if (targetVar == null || targetVar.Value == null)
+        {
+            return;
+        }
+
+
+        var bulletGO = Object.Instantiate(_bulletPrefab.Value, _firePoint.Value.position, Quaternion.identity);
 
         var bulletEntity = bulletGO.GetComponentInChildren<SceneEntity>();
 
         Debug.Log("Shooted");
 
-        var targetVar = _entity.GetTarget();
-        if (targetVar == null || targetVar.Value == null)
-        {
-            bulletEntity.GetMoveDirection().Value = Vector3.forward;
-            _shootEvent?.Invoke();
-
-            _isShooting.Value = false;
-            return;
-        }
 
         var targetPosition = targetVar.Value.position;
         bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
@@ -59,7 +56,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
 
     public void OnUpdate(IEntity entity, float deltaTime)
     {
-        if (_canShoot.Value && entity.GetTarget() != null && entity.GetTarget() .Value != null)
+        if (_canShoot.Value && entity.GetTarget() != null && entity.GetTarget().Value != null)
         {
             _shootRequested.Invoke();
             _isShooting.Value = true;
@@ -70,6 +67,4 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
     {
         _shootAction.Unsubscribe(OnShootAction);
     }
-
-
 }

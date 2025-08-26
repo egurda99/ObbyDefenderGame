@@ -36,7 +36,9 @@ public sealed class RotateToTargetBehaviour : IEntityInit, IEntityUpdate, IEntit
 
 
             var direction = (_target.Value.position - _rootTransform.position).normalized;
-            var targetRotation = Quaternion.LookRotation(direction);
+            var newDirection = new Vector3(direction.x, 0f, direction.z);
+
+            var targetRotation = Quaternion.LookRotation(newDirection);
             var angle = Quaternion.Angle(_rootTransform.rotation, targetRotation);
 
             if (angle > _minAngleForRotate)

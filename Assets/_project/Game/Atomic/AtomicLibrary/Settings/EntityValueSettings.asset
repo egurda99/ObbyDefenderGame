@@ -39,7 +39,7 @@ MonoBehaviour:
       type: AndExpression
     - id: 11
       name: BulletPrefab
-      type: GameObject
+      type: ReactiveVariable<GameObject>
     - id: 12
       name: FirePoint
       type: ReactiveVariable<Transform>

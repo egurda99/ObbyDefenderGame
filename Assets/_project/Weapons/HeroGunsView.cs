@@ -1,6 +1,5 @@
 using System;
 using Atomic.Elements;
-using Atomic.Entities;
 using UnityEngine;
 
 namespace ObbyDefender.Weapons
@@ -13,10 +12,8 @@ namespace ObbyDefender.Weapons
         private WeaponSlot _activeWeapon;
         private ReactiveVariable<Transform> _firePoint;
 
-        public void Init(IEntity sceneEntity)
-        {
-            _firePoint = sceneEntity.GetFirePoint();
-        }
+        public WeaponSlot ActiveWeapon => _activeWeapon;
+
 
         public void SetActiveWeapon(WeaponType type)
         {
@@ -24,8 +21,7 @@ namespace ObbyDefender.Weapons
             {
                 var isActive = slot.Type == type;
                 slot.Weapon.SetActive(isActive);
-                slot.FirePoint.SetActive(isActive);
-                _firePoint.Value = slot.FirePoint.transform;
+                //              slot.FirePoint.SetActive(isActive);
 
                 if (isActive)
                     _activeWeapon = slot;

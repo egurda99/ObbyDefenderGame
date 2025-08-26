@@ -8,6 +8,7 @@ namespace ObbyDefender.Weapons
     {
         public WeaponType Type;
         public GameObject Weapon;
+        public GameObject BulletPrefab;
         public GameObject FirePoint;
     }
 }

@@ -21,7 +21,6 @@ public sealed class RotateToMoveDirectionBehaviour : IEntityInit, IEntityUpdate
         _rotateSpeed = entity.GetRotationSpeed();
         _isRotating = entity.GetIsRotating();
         _canRotate = entity.GetCanRotate();
-
     }
 
 
@@ -29,11 +28,12 @@ public sealed class RotateToMoveDirectionBehaviour : IEntityInit, IEntityUpdate
     {
         if (_canRotate.Value)
         {
-            Vector3 direction = _targetDirection.Value;
+            var direction = _targetDirection.Value;
 
             if (direction.sqrMagnitude > 0.0001f)
             {
-                var targetRotation = Quaternion.LookRotation(direction);
+                var newDirection = new Vector3(direction.x, 0f, direction.z);
+                var targetRotation = Quaternion.LookRotation(newDirection);
                 var angle = Quaternion.Angle(_rootTransform.rotation, targetRotation);
 
                 if (angle > _minAngleForRotate)

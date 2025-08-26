@@ -18,7 +18,7 @@ namespace Atomic.Entities
         public const int ShootEvent = 8; // IEvent
         public const int IsShooting = 9; // ReactiveVariable<bool>
         public const int CanShoot = 10; // AndExpression
-        public const int BulletPrefab = 11; // GameObject
+        public const int BulletPrefab = 11; // ReactiveVariable<GameObject>
         public const int FirePoint = 12; // ReactiveVariable<Transform>
         public const int Target = 13; // ReactiveVariable<Transform>
         public const int ChangeTargetAction = 23; // IEvent<Transform>
@@ -122,13 +122,13 @@ namespace Atomic.Entities
         public static void SetCanShoot(this IEntity obj, AndExpression value) => obj.SetValue(CanShoot, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static GameObject GetBulletPrefab(this IEntity obj) => obj.GetValue<GameObject>(BulletPrefab);
+        public static ReactiveVariable<GameObject> GetBulletPrefab(this IEntity obj) => obj.GetValue<ReactiveVariable<GameObject>>(BulletPrefab);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetBulletPrefab(this IEntity obj, out GameObject value) => obj.TryGetValue(BulletPrefab, out value);
+        public static bool TryGetBulletPrefab(this IEntity obj, out ReactiveVariable<GameObject> value) => obj.TryGetValue(BulletPrefab, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddBulletPrefab(this IEntity obj, GameObject value) => obj.AddValue(BulletPrefab, value);
+        public static bool AddBulletPrefab(this IEntity obj, ReactiveVariable<GameObject> value) => obj.AddValue(BulletPrefab, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool HasBulletPrefab(this IEntity obj) => obj.HasValue(BulletPrefab);
@@ -137,7 +137,7 @@ namespace Atomic.Entities
         public static bool DelBulletPrefab(this IEntity obj) => obj.DelValue(BulletPrefab);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetBulletPrefab(this IEntity obj, GameObject value) => obj.SetValue(BulletPrefab, value);
+        public static void SetBulletPrefab(this IEntity obj, ReactiveVariable<GameObject> value) => obj.SetValue(BulletPrefab, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ReactiveVariable<Transform> GetFirePoint(this IEntity obj) => obj.GetValue<ReactiveVariable<Transform>>(FirePoint);

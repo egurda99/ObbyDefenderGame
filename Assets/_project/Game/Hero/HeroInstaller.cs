@@ -34,7 +34,6 @@ namespace ObbyDefender
             _ammoRefillMechanic.Install(entity);
             _shootReloadMechanic.Install(entity);
             _stunMechanic.Install(entity);
-            _heroGunsView.Init(entity);
 
             entity.AddHeroGunsView(_heroGunsView);
 
