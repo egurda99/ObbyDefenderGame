@@ -1,6 +1,7 @@
 using Atomic.Entities;
 using Elementary;
 using ObbyDefender.Weapons;
+using ShootEmUp;
 using UnityEngine;
 using Zenject;
 
@@ -12,8 +13,15 @@ namespace ObbyDefender.DI
 
         public override void InstallBindings()
         {
+            BindCycleManager();
             BindPlayer();
+            BindWeaponSwitcher();
             BindInput();
+        }
+
+        private void BindCycleManager()
+        {
+            Container.Bind<GameCycleManager>().FromComponentInHierarchy().AsSingle();
         }
 
 
@@ -30,7 +38,10 @@ namespace ObbyDefender.DI
             var sensor = player.GetComponentInChildren<ColliderDetectionOverlapSphere>();
 
             Container.BindInterfacesTo<NearestTargetObserver>().AsSingle().WithArguments(sensor, player);
+        }
 
+        private void BindWeaponSwitcher()
+        {
             Container.Bind<WeaponSwitcher>().AsSingle();
         }
 

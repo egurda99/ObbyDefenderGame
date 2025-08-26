@@ -7,12 +7,14 @@ using UnityEngine;
 
 namespace Atomic.Entities
 {
-    internal sealed class SceneEntityUpdater : MonoBehaviour
+    public sealed class SceneEntityUpdater : MonoBehaviour
     {
         private const string OBJECT_NAME = "SceneEntityUpdater";
 
         private static SceneEntityUpdater _instance;
         private static bool installed;
+
+        public static SceneEntityUpdater Instance => instance;
 
         private static SceneEntityUpdater instance
         {
@@ -20,7 +22,7 @@ namespace Atomic.Entities
             {
                 if (_instance == null && !installed)
                 {
-                    GameObject go = new GameObject(OBJECT_NAME);
+                    var go = new GameObject(OBJECT_NAME);
                     DontDestroyOnLoad(go);
                     _instance = go.AddComponent<SceneEntityUpdater>();
                     installed = true;
@@ -59,62 +61,99 @@ namespace Atomic.Entities
 
         #region Unity
 
-        private void Update()
+        // private void Update()
+        // {
+        //     var deltaTime = Time.deltaTime;
+        //     var count = entities.Count;
+        //     if (count == 0)
+        //     {
+        //         return;
+        //     }
+        //
+        //     _entities.Clear();
+        //     _entities.AddRange(entities);
+        //
+        //     for (var i = 0; i < count; i++)
+        //     {
+        //         var entity = _entities[i];
+        //         entity.OnUpdate(deltaTime);
+        //     }
+        // }
+        //
+        // private void FixedUpdate()
+        // {
+        //     var deltaTime = Time.fixedDeltaTime;
+        //     var count = entities.Count;
+        //     if (count == 0)
+        //     {
+        //         return;
+        //     }
+        //
+        //     _entities.Clear();
+        //     _entities.AddRange(entities);
+        //
+        //     for (var i = 0; i < count; i++)
+        //     {
+        //         var entity = _entities[i];
+        //         entity.OnFixedUpdate(deltaTime);
+        //     }
+        // }
+        //
+        //
+        // private void LateUpdate()
+        // {
+        //     var deltaTime = Time.deltaTime;
+        //     var count = entities.Count;
+        //     if (count == 0)
+        //     {
+        //         return;
+        //     }
+        //
+        //     _entities.Clear();
+        //     _entities.AddRange(entities);
+        //
+        //     for (var i = 0; i < count; i++)
+        //     {
+        //         var entity = _entities[i];
+        //         entity.OnLateUpdate(deltaTime);
+        //     }
+        // }
+
+        public void UpdateEntities(float deltaTime)
         {
-            float deltaTime = Time.deltaTime;
-            int count = this.entities.Count;
+            var count = entities.Count;
             if (count == 0)
-            {
                 return;
-            }
 
             _entities.Clear();
-            _entities.AddRange(this.entities);
+            _entities.AddRange(entities);
 
-            for (int i = 0; i < count; i++)
-            {
-                IEntity entity = _entities[i];
-                entity.OnUpdate(deltaTime);
-            }
+            for (var i = 0; i < count; i++)
+                _entities[i].OnUpdate(deltaTime);
         }
 
-        private void FixedUpdate()
+        public void FixedUpdateEntities(float deltaTime)
         {
-            float deltaTime = Time.fixedDeltaTime;
-            int count = this.entities.Count;
-            if (count == 0)
-            {
-                return;
-            }
+            var count = entities.Count;
+            if (count == 0) return;
 
             _entities.Clear();
-            _entities.AddRange(this.entities);
+            _entities.AddRange(entities);
 
-            for (int i = 0; i < count; i++)
-            {
-                IEntity entity = _entities[i];
-                entity.OnFixedUpdate(deltaTime);
-            }
+            for (var i = 0; i < count; i++)
+                _entities[i].OnFixedUpdate(deltaTime);
         }
 
-
-        private void LateUpdate()
+        public void LateUpdateEntities(float deltaTime)
         {
-            float deltaTime = Time.deltaTime;
-            int count = this.entities.Count;
-            if (count == 0)
-            {
-                return;
-            }
+            var count = entities.Count;
+            if (count == 0) return;
 
             _entities.Clear();
-            _entities.AddRange(this.entities);
+            _entities.AddRange(entities);
 
-            for (int i = 0; i < count; i++)
-            {
-                IEntity entity = _entities[i];
-                entity.OnLateUpdate(deltaTime);
-            }
+            for (var i = 0; i < count; i++)
+                _entities[i].OnLateUpdate(deltaTime);
         }
 
         #endregion

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Atomic.Entities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -44,6 +45,11 @@ namespace ShootEmUp
             }
         }
 
+        private void Start()
+        {
+            StartGame();
+        }
+
         private void Update()
         {
             if (_gameState != GameState.PLAYING)
@@ -57,6 +63,8 @@ namespace ShootEmUp
                 var listener = _gameUpdateListeners[i];
                 listener.OnUpdate(deltaTime);
             }
+
+            SceneEntityUpdater.Instance.UpdateEntities(deltaTime);
         }
 
         private void FixedUpdate()
@@ -72,6 +80,8 @@ namespace ShootEmUp
                 var listener = _gameFixedUpdateListeners[i];
                 listener.OnFixedUpdate(deltaTime);
             }
+
+            SceneEntityUpdater.Instance.FixedUpdateEntities(deltaTime);
         }
 
         private void LateUpdate()
@@ -83,6 +93,8 @@ namespace ShootEmUp
                 var listener = _gameLateUpdateListeners[i];
                 listener.OnLateUpdate(deltaTime);
             }
+
+            SceneEntityUpdater.Instance.LateUpdateEntities(deltaTime);
         }
 
         [Button]
