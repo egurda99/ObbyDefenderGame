@@ -2,6 +2,7 @@ using System;
 using Atomic.Entities;
 using Zenject;
 
+
 [Serializable]
 public sealed class ReturnBulletToPoolMechanic : IEntityInstaller
 {
