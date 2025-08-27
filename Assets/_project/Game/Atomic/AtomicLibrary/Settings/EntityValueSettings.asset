@@ -236,3 +236,6 @@ MonoBehaviour:
     - id: 43
       name: ShootAmmoFX
       type: ParticleSystem
+    - id: 48
+      name: DieFX
+      type: ParticleSystem

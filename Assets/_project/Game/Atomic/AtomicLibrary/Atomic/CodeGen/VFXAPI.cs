@@ -16,6 +16,7 @@ namespace Atomic.Entities
         public const int ShootFX = 38; // ParticleSystem
         public const int TakeDamageFX = 39; // ParticleSystem
         public const int ShootAmmoFX = 43; // ParticleSystem
+        public const int DieFX = 48; // ParticleSystem
 
 
         ///Extensions
@@ -72,5 +73,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetShootAmmoFX(this IEntity obj, ParticleSystem value) => obj.SetValue(ShootAmmoFX, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ParticleSystem GetDieFX(this IEntity obj) => obj.GetValue<ParticleSystem>(DieFX);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDieFX(this IEntity obj, out ParticleSystem value) => obj.TryGetValue(DieFX, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDieFX(this IEntity obj, ParticleSystem value) => obj.AddValue(DieFX, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDieFX(this IEntity obj) => obj.HasValue(DieFX);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDieFX(this IEntity obj) => obj.DelValue(DieFX);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDieFX(this IEntity obj, ParticleSystem value) => obj.SetValue(DieFX, value);
     }
 }

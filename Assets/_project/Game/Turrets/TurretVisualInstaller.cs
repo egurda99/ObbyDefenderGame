@@ -9,6 +9,8 @@ namespace ObbyDefender
         [SerializeField] private DieAnimationMechanic _dieAnimationMechanic;
 
         [SerializeField] private ShootVFXMechanic _shootVFXMechanic;
+        [SerializeField] private DieFXMechanic _dieFXMechanic;
+
         [SerializeField] private ShootAmmoVFXMechanic _shootAmmoVFXMechanic;
 
 
@@ -21,6 +23,7 @@ namespace ObbyDefender
             _shootAmmoVFXMechanic.Install(entity);
             _dieAnimationMechanic.Install(entity);
             _shootVFXMechanic.Install(entity);
+            _dieFXMechanic.Install(entity);
             _takeDamageVFXMechanic.Install(entity);
         }
     }
