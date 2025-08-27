@@ -25,7 +25,6 @@ namespace Atomic.Entities
         public const int IsTargetAlive = 28; // ReactiveVariable<bool>
         public const int Reloaded = 33; // IEvent
         public const int NeedReload = 34; // ReactiveVariable<bool>
-        public const int ShootFX = 43; // ParticleSystem
         public const int HeroGunsView = 32; // HeroGunsView
         public const int WeaponChangerAnimator = 35; // WeaponChangerAnimatorController
         public const int WeaponType = 36; // ReactiveVariable<WeaponType>
@@ -247,24 +246,6 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetNeedReload(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(NeedReload, value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ParticleSystem GetShootFX(this IEntity obj) => obj.GetValue<ParticleSystem>(ShootFX);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetShootFX(this IEntity obj, out ParticleSystem value) => obj.TryGetValue(ShootFX, out value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddShootFX(this IEntity obj, ParticleSystem value) => obj.AddValue(ShootFX, value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasShootFX(this IEntity obj) => obj.HasValue(ShootFX);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelShootFX(this IEntity obj) => obj.DelValue(ShootFX);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetShootFX(this IEntity obj, ParticleSystem value) => obj.SetValue(ShootFX, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static HeroGunsView GetHeroGunsView(this IEntity obj) => obj.GetValue<HeroGunsView>(HeroGunsView);

@@ -17,7 +17,6 @@ namespace Atomic.Entities
         public const int HitPoints = 15; // ReactiveVariable<float>
         public const int TakeDamageAction = 16; // IEvent<float>
         public const int HealAction = 17; // IEvent<float>
-        public const int TakeDamageFX = 48; // ParticleSystem
         public const int DestroyRequest = 37; // IEvent
 
 
@@ -93,24 +92,6 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetHealAction(this IEntity obj, IEvent<float> value) => obj.SetValue(HealAction, value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ParticleSystem GetTakeDamageFX(this IEntity obj) => obj.GetValue<ParticleSystem>(TakeDamageFX);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetTakeDamageFX(this IEntity obj, out ParticleSystem value) => obj.TryGetValue(TakeDamageFX, out value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddTakeDamageFX(this IEntity obj, ParticleSystem value) => obj.AddValue(TakeDamageFX, value);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasTakeDamageFX(this IEntity obj) => obj.HasValue(TakeDamageFX);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelTakeDamageFX(this IEntity obj) => obj.DelValue(TakeDamageFX);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetTakeDamageFX(this IEntity obj, ParticleSystem value) => obj.SetValue(TakeDamageFX, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static IEvent GetDestroyRequest(this IEntity obj) => obj.GetValue<IEvent>(DestroyRequest);

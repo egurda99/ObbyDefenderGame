@@ -6,6 +6,7 @@ using UnityEngine;
 public sealed class DieAnimationMechanic : IEntityInstaller
 {
     [SerializeField] private Animator _animator;
+
     public void Install(IEntity entity)
     {
         entity.AddAnimator(_animator);

@@ -58,9 +58,6 @@ MonoBehaviour:
     - id: 34
       name: NeedReload
       type: ReactiveVariable<bool>
-    - id: 43
-      name: ShootFX
-      type: ParticleSystem
     - id: 32
       name: HeroGunsView
       type: HeroGunsView
@@ -104,9 +101,6 @@ MonoBehaviour:
     - id: 17
       name: HealAction
       type: IEvent<float>
-    - id: 48
-      name: TakeDamageFX
-      type: ParticleSystem
     - id: 37
       name: DestroyRequest
       type: IEvent
@@ -231,3 +225,14 @@ MonoBehaviour:
     - id: 66
       name: CanRefill
       type: AndExpression
+  - name: VFX
+    indexes:
+    - id: 38
+      name: ShootFX
+      type: ParticleSystem
+    - id: 39
+      name: TakeDamageFX
+      type: ParticleSystem
+    - id: 43
+      name: ShootAmmoFX
+      type: ParticleSystem
