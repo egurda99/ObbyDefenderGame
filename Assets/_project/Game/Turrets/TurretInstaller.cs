@@ -1,28 +1,26 @@
 using Atomic.Entities;
+using Elementary;
 using ObbyDefender.Weapons;
 using UnityEngine;
 using Zenject;
 
 namespace ObbyDefender
 {
-    public sealed class HeroInstaller : SceneEntityInstallerBase
+    public sealed class TurretInstaller : SceneEntityInstallerBase
     {
-        [SerializeField] private HeroGunsView _heroGunsView;
+        [SerializeField] private ColliderDetectionOverlapSphere _colliderDetectionOverlapSphere;
 
-        [SerializeField] private MoveToDirectionMechanic _moveToDirectionMechanic;
-
-        [SerializeField] private RotateToMoveDirectionWhenNoTargetMechanic _rotateToMoveDirectionMechanic;
 
         [SerializeField] private RotateToTargetMechanic _rotateToTargetMechanic;
 
         [SerializeField] private AutoShootToTargetMechanic _autoShootToTargetMechanic;
 
-
         [SerializeField] private LifeMechanic _lifeMechanic;
 
         [SerializeField] private ShootReloadMechanic _shootReloadMechanic;
-        [SerializeField] private StunMechanic _stunMechanic;
+
         private BulletFactory _bulletFactory;
+        private NearestTargetObserver _nearestTargetObserver;
 
 
         [Inject]
@@ -33,8 +31,6 @@ namespace ObbyDefender
 
         public override void Install(IEntity entity)
         {
-            _moveToDirectionMechanic.Install(entity);
-            _rotateToMoveDirectionMechanic.Install(entity);
             _autoShootToTargetMechanic.Install(entity);
             _autoShootToTargetMechanic.Init(_bulletFactory);
             _rotateToTargetMechanic.Install(entity);
@@ -42,20 +38,18 @@ namespace ObbyDefender
             _lifeMechanic.Install(entity);
 
             _shootReloadMechanic.Install(entity);
-            _stunMechanic.Install(entity);
-            entity.AddWeaponType(WeaponType.None);
 
-            entity.AddHeroGunsView(_heroGunsView);
+            _nearestTargetObserver =
+                new NearestTargetObserver(_colliderDetectionOverlapSphere, GetComponent<SceneEntity>());
+
+            entity.AddWeaponType(WeaponType.M16);
 
 
-            entity.GetCanMove().Append(() => !entity.GetIsDead().Value);
             entity.GetCanRotate().Append(() => !entity.GetIsDead().Value);
-            entity.GetCanMove().Append(() => !entity.GetIsStunned().Value);
 
             entity.GetCanShoot().Append(() => !entity.GetIsDead().Value);
-
+            entity.GetCanShoot().Append(() => !entity.GetIsRotating().Value);
             entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
-            entity.GetCanShoot().Append(() => !entity.GetIsStunned().Value);
         }
     }
 }

@@ -32,7 +32,11 @@ public sealed class RotateToTargetBehaviour : IEntityInit, IEntityUpdate, IEntit
         {
             var targetVar = entity.GetTarget();
             if (targetVar == null || targetVar.Value == null)
+            {
+                _isRotating.Value = false;
                 return;
+            }
+
             var direction = (_target.Value.position - _rootTransform.position).normalized;
             var newDirection = new Vector3(direction.x, 0, direction.z);
 
@@ -47,11 +51,14 @@ public sealed class RotateToTargetBehaviour : IEntityInit, IEntityUpdate, IEntit
                     targetRotation,
                     _rotateSpeed.Value * deltaTime);
             }
-
             else
             {
                 _isRotating.Value = false;
             }
+        }
+        else
+        {
+            _isRotating.Value = false;
         }
     }
 
