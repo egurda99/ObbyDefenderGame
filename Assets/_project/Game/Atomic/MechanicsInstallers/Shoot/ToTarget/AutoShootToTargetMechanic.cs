@@ -11,7 +11,6 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private bool _isShooting;
-    [SerializeField] private bool _canShoot = true;
     private IEntity _entity;
 
 

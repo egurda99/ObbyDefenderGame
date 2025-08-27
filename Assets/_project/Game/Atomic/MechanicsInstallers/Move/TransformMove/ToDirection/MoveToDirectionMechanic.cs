@@ -10,7 +10,6 @@ public class MoveToDirectionMechanic : IEntityInstaller
     [SerializeField] private float _speed = 1f;
     [SerializeField] private Vector3 _moveDirection = Vector3.zero;
     [SerializeField] private bool _isMoving;
-    [SerializeField] private bool _canMove = true;
 
     public void Install(IEntity entity)
     {

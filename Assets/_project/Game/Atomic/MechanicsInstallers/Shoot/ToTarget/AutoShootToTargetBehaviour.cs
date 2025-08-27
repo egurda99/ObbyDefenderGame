@@ -21,7 +21,6 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
     public AutoShootToTargetBehaviour(BulletFactory bulletFactory)
     {
         _bulletFactory = bulletFactory;
-        Debug.Log("Inited AutoShoot");
     }
 
     public void Init(IEntity entity)
@@ -48,23 +47,17 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
             return;
         }
 
-
-        //  var bulletGO = Object.Instantiate(_bulletPrefab.Value, _firePoint.Value.position, Quaternion.identity);
-
-        //  var bulletEntity = bulletGO.GetComponentInChildren<SceneEntity>();
-
         var bullet = _bulletFactory.GetBullet(_weaponType.Value);
         var bulletEntity = bullet.GetComponent<SceneEntity>();
-        //bullet.Init(direction, speed);
+
 
         Debug.Log("Shooted");
 
 
         var targetPosition = targetVar.Value.position;
-        // bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         bulletEntity.GetRootTransform().position = _firePoint.Value.position;
 
-        //  bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
+
         bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;
         _shootEvent?.Invoke();
 

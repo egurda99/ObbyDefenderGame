@@ -3,7 +3,6 @@ using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
-
 [Serializable]
 public sealed class ShootToTargetMechanic : IEntityInstaller
 {
@@ -12,7 +11,6 @@ public sealed class ShootToTargetMechanic : IEntityInstaller
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private bool _isShooting;
-    [SerializeField] private bool _canShoot = true;
 
 
     public void Install(IEntity entity)

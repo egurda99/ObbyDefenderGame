@@ -10,7 +10,6 @@ public sealed class ShootForwardMechanic : IEntityInstaller
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private bool _isShooting;
-    [SerializeField] private bool _canShoot = true;
 
 
     public void Install(IEntity entity)

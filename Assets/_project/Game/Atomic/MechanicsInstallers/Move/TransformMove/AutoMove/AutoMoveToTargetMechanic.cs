@@ -12,7 +12,6 @@ public class AutoMoveToTargetMechanic : IEntityInstaller
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _stopDistance = 0.1f;
     [SerializeField] private bool _isMoving;
-    [SerializeField] private bool _canMove = true;
 
     public void Install(IEntity entity)
     {
