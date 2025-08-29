@@ -1,5 +1,6 @@
 using System;
 using MyCodeBase;
+using UnityEngine;
 
 namespace ObbyDefender
 {
@@ -8,10 +9,11 @@ namespace ObbyDefender
         private readonly TurretBuildZoneView _view;
         private readonly int _price;
         private readonly MoneyStorage _moneyStorage;
-        private int _timeForBuild;
-        public event Action<TurretBuildZoneView> OnZoneBuildRequested;
+        private float _timeForBuild;
+        public event Action<Vector3> OnZoneBuildRequested;
 
-        public TurretBuildZoneAdapter(int price, int timeForBuild, TurretBuildZoneView view, MoneyStorage moneyStorage)
+        public TurretBuildZoneAdapter(int price, float timeForBuild, TurretBuildZoneView view,
+            MoneyStorage moneyStorage)
         {
             _timeForBuild = timeForBuild;
             _moneyStorage = moneyStorage;
@@ -28,7 +30,7 @@ namespace ObbyDefender
 
         private void OnBuildCompleted()
         {
-            OnZoneBuildRequested?.Invoke(_view);
+            OnZoneBuildRequested?.Invoke(_view.transform.position);
         }
 
         private void OnPlayerExited()
