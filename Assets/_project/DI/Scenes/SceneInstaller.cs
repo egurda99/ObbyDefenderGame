@@ -11,7 +11,6 @@ namespace ObbyDefender.DI
     {
         [SerializeField] private SceneInstallerHelper _sceneInstallerHelper;
 
-
         public override void InstallBindings()
         {
             BindBulletPool();
@@ -19,6 +18,19 @@ namespace ObbyDefender.DI
             BindPlayer();
             BindWeaponSwitcher();
             BindInput();
+            BindTurrets();
+        }
+
+        private void BindTurrets()
+        {
+            Container.BindInterfacesAndSelfTo<TurretBuilderSystem>().AsSingle().WithArguments(
+                _sceneInstallerHelper.TurretsConfig, _sceneInstallerHelper.TurretBuildZoneView,
+                _sceneInstallerHelper.TurretZoneContainer);
+
+            Container.Bind<TurretsManager>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<TurretSpawner>().AsSingle()
+                .WithArguments(_sceneInstallerHelper.TurretZoneContainer, _sceneInstallerHelper.TurretPrefab).NonLazy();
         }
 
         private void BindBulletPool()

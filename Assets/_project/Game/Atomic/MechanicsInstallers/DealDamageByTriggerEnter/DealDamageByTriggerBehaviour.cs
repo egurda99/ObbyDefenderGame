@@ -8,6 +8,12 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDispose
     private TriggerEventDispatcher _triggerEventDispatcher;
     private ReactiveVariable<float> _damage;
     private Transform _root;
+    private readonly bool _canDamagePlayer;
+
+    public DealDamageByTriggerBehaviour(bool canDamagePlayer)
+    {
+        _canDamagePlayer = canDamagePlayer;
+    }
 
 
     public void Init(IEntity entity)
@@ -23,6 +29,11 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDispose
     {
         if (other.TryGetComponent(out SceneEntityProxy entity))
         {
+            if (!_canDamagePlayer && entity.HasPlayerTag())
+            {
+                return;
+            }
+
             entity.GetTakeDamageAction().Invoke(_damage.Value);
             Object.Destroy(_root.gameObject);
         }

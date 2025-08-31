@@ -1,3 +1,4 @@
+using MyCodeBase;
 using Zenject;
 
 namespace ObbyDefender.DI
@@ -7,6 +8,7 @@ namespace ObbyDefender.DI
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<KeyboardInput>().AsSingle();
+            Container.Bind<MoneyStorage>().AsSingle();
         }
     }
 }

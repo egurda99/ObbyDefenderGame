@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: TurretsConfig
   m_EditorClassIdentifier: 
   _turretsInfoHolder:
-  - _position: {fileID: 0}
-    _priceToBuild: 0
-    _timeToBuild: 0
+  - _position: {fileID: 6092954086185893848, guid: 131df4631730a81439a16ff40971aa33, type: 3}
+    _priceToBuild: 100
+    _timeToBuild: 1
+  - _position: {fileID: 5247230719184967682, guid: b1a01a4caa42ebf488349cbcd7ad6ac4, type: 3}
+    _priceToBuild: 100
+    _timeToBuild: 1
+  - _position: {fileID: 4213489881914211241, guid: 5ba48db89c6db5a43a20f59cee30a574, type: 3}
+    _priceToBuild: 150
+    _timeToBuild: 1
+  - _position: {fileID: 4722933243838278080, guid: 49941bd6659dc0348b22a3418360992d, type: 3}
+    _priceToBuild: 100
+    _timeToBuild: 1

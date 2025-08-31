@@ -2,7 +2,6 @@ using Atomic.Entities;
 using Elementary;
 using ObbyDefender.Weapons;
 using UnityEngine;
-using Zenject;
 
 namespace ObbyDefender
 {
@@ -23,16 +22,15 @@ namespace ObbyDefender
         private NearestTargetObserver _nearestTargetObserver;
 
 
-        [Inject]
-        public void Construct(BulletFactory bulletFactory)
+        public void SetBulletFactory(BulletFactory bulletFactory)
         {
             _bulletFactory = bulletFactory;
+            _autoShootToTargetMechanic.Init(_bulletFactory);
         }
 
         public override void Install(IEntity entity)
         {
             _autoShootToTargetMechanic.Install(entity);
-            _autoShootToTargetMechanic.Init(_bulletFactory);
             _rotateToTargetMechanic.Install(entity);
 
             _lifeMechanic.Install(entity);

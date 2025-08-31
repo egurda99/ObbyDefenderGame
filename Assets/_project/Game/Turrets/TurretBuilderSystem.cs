@@ -28,7 +28,8 @@ namespace ObbyDefender
             Initialize();
         }
 
-        public void Initialize()
+
+        private void Initialize()
         {
             foreach (var turretInfo in _turretsConfig.TurretsInfoHolder)
             {
@@ -47,6 +48,24 @@ namespace ObbyDefender
                 adapter.OnZoneBuildRequested += OnZoneBuildRequested;
                 adapter.Start();
             }
+        }
+
+
+        public void OnTurretSpawned(Vector3 position)
+        {
+            var holder = _entries.Find(h => h.Transform.position == position);
+
+            if (holder == null)
+            {
+                Debug.LogWarning($"[TurretBuilderSystem] Не найден BuildZoneHolder для позиции {position}");
+                return;
+            }
+
+            holder.Adapter.Stop();
+
+            Object.Destroy(holder.View.gameObject);
+
+            _entries.Remove(holder);
         }
 
         private void OnZoneBuildRequested(Vector3 position)
@@ -69,13 +88,13 @@ namespace ObbyDefender
         {
             public TurretBuildZoneAdapter Adapter { get; }
             public TurretBuildZoneView View { get; }
-            public Transform Position { get; }
+            public Transform Transform { get; }
 
-            public BuildZoneHolder(TurretBuildZoneAdapter adapter, TurretBuildZoneView view, Transform position)
+            public BuildZoneHolder(TurretBuildZoneAdapter adapter, TurretBuildZoneView view, Transform transform)
             {
                 Adapter = adapter;
                 View = view;
-                Position = position;
+                Transform = transform;
             }
         }
     }

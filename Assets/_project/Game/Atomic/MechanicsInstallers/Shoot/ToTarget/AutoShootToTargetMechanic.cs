@@ -32,8 +32,6 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
 
         var canShoot = new AndExpression();
         entity.AddCanShoot(canShoot);
-
-        // entity.AddBehaviour(new AutoShootToTargetBehaviour());
     }
 
     public void Init(BulletFactory bulletPool)

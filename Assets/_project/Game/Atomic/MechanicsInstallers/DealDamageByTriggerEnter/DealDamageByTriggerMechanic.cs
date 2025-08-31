@@ -8,6 +8,7 @@ public sealed class DealDamageByTriggerMechanic : IEntityInstaller
 {
     [SerializeField] private TriggerEventDispatcher _triggerEventDispatcher;
     [SerializeField] private float _damage;
+    [SerializeField] private bool _canDamagePlayer;
 
 
     public void Install(IEntity entity)
@@ -15,6 +16,7 @@ public sealed class DealDamageByTriggerMechanic : IEntityInstaller
         entity.AddTriggerEventDispatcher(_triggerEventDispatcher);
         entity.AddAttackDamage(_damage);
 
-        entity.AddBehaviour(new DealDamageByTriggerBehaviour());
+
+        entity.AddBehaviour(new DealDamageByTriggerBehaviour(_canDamagePlayer));
     }
 }

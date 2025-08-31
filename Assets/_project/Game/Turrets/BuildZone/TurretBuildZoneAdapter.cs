@@ -9,7 +9,7 @@ namespace ObbyDefender
         private readonly TurretBuildZoneView _view;
         private readonly int _price;
         private readonly MoneyStorage _moneyStorage;
-        private float _timeForBuild;
+        private readonly float _timeForBuild;
         public event Action<Vector3> OnZoneBuildRequested;
 
         public TurretBuildZoneAdapter(int price, float timeForBuild, TurretBuildZoneView view,
@@ -26,11 +26,14 @@ namespace ObbyDefender
             _view.OnBuildCompleted += OnBuildCompleted;
             _view.OnPlayerEntered += OnPlayerEntered;
             _view.OnPlayerExited += OnPlayerExited;
+
+            _view.Init(_timeForBuild);
         }
 
         private void OnBuildCompleted()
         {
             OnZoneBuildRequested?.Invoke(_view.transform.position);
+            Debug.Log("<color=red>Requested</color>");
         }
 
         private void OnPlayerExited()

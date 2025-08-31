@@ -13,9 +13,9 @@ namespace ObbyDefender
 
 
         private Timer _timer;
-        private int _timeForBuild;
+        private float _timeForBuild;
 
-        public void Init(int timeForBuild)
+        public void Init(float timeForBuild)
         {
             _timeForBuild = timeForBuild;
             _timer = new Timer(_timeForBuild);

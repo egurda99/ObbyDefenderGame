@@ -5,7 +5,7 @@ namespace MyCodeBase
 {
     public sealed class MoneyStorage
     {
-        private int _money;
+        [ShowInInspector] [ReadOnly] private int _money;
 
 
         public event Action<int> OnMoneyChanged;
