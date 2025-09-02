@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 860758224612771009}
   - component: {fileID: 6473754718639014587}
   - component: {fileID: 7254533742841345048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon_Up_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3299511840295104901}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3759960242240022786}
   - component: {fileID: 2121113638820018471}
   - component: {fileID: 1049170316798892274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon_Up_Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 7611024017317131864}
   - component: {fileID: 444093034422095758}
   - component: {fileID: 4598470900327193317}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: '[Visual]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 9009159334375779969}
   - component: {fileID: 6535289818729620578}
   - component: {fileID: 4603259332366681698}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon_Up_Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 8334499635785048501}
   - component: {fileID: 222131158528926649}
   - component: {fileID: 4475073112735658934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077600521065406388}
   - component: {fileID: 6605118707592380461}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6798505071210668875}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: '[FX]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 414145708790033568}
   - component: {fileID: 6013462969963258168}
   - component: {fileID: 2151304382616273735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon_Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 2423948604549844550}
   - component: {fileID: 1415156134385665679}
   - component: {fileID: 2168591308324115125}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,9 +875,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6798505071210668875}
     m_Modifications:
+    - target: {fileID: 105278, guid: 7d5f662386482604ea58f4ad730c648c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 150980, guid: 7d5f662386482604ea58f4ad730c648c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 195742, guid: 7d5f662386482604ea58f4ad730c648c, type: 3}
       propertyPath: m_Name
       value: BulletExplosionFire (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195742, guid: 7d5f662386482604ea58f4ad730c648c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 437254, guid: 7d5f662386482604ea58f4ad730c648c, type: 3}
       propertyPath: m_LocalScale.x
@@ -1016,9 +1028,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6798505071210668875}
     m_Modifications:
+    - target: {fileID: 128774, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 153796, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 175222, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 188992, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 195466, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
       propertyPath: m_Name
       value: ToonBodySlam
+      objectReference: {fileID: 0}
+    - target: {fileID: 195466, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 428660, guid: 2021682c5d54902408911e03ffd2725f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1175,9 +1207,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6798505071210668875}
     m_Modifications:
+    - target: {fileID: 142286, guid: 53df28085c04af0428fce81e8ccc1468, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 159656, guid: 53df28085c04af0428fce81e8ccc1468, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 191512, guid: 53df28085c04af0428fce81e8ccc1468, type: 3}
       propertyPath: m_Name
       value: SoftFightAction2
+      objectReference: {fileID: 0}
+    - target: {fileID: 191512, guid: 53df28085c04af0428fce81e8ccc1468, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 421954, guid: 53df28085c04af0428fce81e8ccc1468, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1289,6 +1333,10 @@ PrefabInstance:
     - target: {fileID: 1614187493028106, guid: 57f256b4c2789344481d9bcc248a87a2, type: 3}
       propertyPath: m_Name
       value: FX_Shell_Ejection_Repeating_Large_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614187493028106, guid: 57f256b4c2789344481d9bcc248a87a2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4206286571569514, guid: 57f256b4c2789344481d9bcc248a87a2, type: 3}
       propertyPath: m_LocalScale.x

@@ -25,7 +25,7 @@ public sealed class AutoMoveToTargetBehaviour : IEntityInit, IEntityUpdate
 
     public void OnUpdate(IEntity entity, float deltaTime)
     {
-        if (_canMove.Value)
+        if (_canMove.Value && entity.GetTarget() != null && entity.GetTarget().Value != null)
         {
             var worldDirection = _target.Value.position - _root.position;
 

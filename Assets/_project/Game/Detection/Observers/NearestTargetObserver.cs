@@ -3,10 +3,14 @@ using UnityEngine;
 
 namespace Elementary
 {
-    public sealed class NearestTargetObserverMonobehaviour : ColliderDetectionObserverMonobehaviour
+    public sealed class NearestTargetObserver : ColliderDetectionObserver
     {
-        [SerializeField] private SceneEntity _entity;
+        private readonly SceneEntity _entity;
 
+        public NearestTargetObserver(ColliderDetection sensor, SceneEntity entity) : base(sensor)
+        {
+            _entity = entity;
+        }
 
         protected override void OnCollidersUpdated(Collider[] buffer, int size)
         {
@@ -20,10 +24,6 @@ namespace Elementary
                 var col = buffer[i];
                 if (col == null)
                     continue;
-
-                if (!col.TryGetComponent(out SceneEntityProxy entityProxy))
-                    continue;
-
 
                 var dist = Vector3.SqrMagnitude(col.transform.position - selfPos);
                 if (dist < minDist)

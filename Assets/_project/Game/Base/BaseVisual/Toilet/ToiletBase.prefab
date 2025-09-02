@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1004937349915817613}
   - component: {fileID: 4791143754142775011}
   - component: {fileID: 209100382009910335}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2135050881068962642}
   - component: {fileID: 6228149622116668285}
   - component: {fileID: 6791913970984037340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GrenadeExplosionFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4921,7 +4921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3069093496782658138}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: '[FX]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4956,7 +4956,7 @@ GameObject:
   - component: {fileID: 1739663974210678925}
   - component: {fileID: 6746728727514375822}
   - component: {fileID: 1426279468547356722}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StatueHolder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5042,7 +5042,7 @@ GameObject:
   - component: {fileID: 6077327388787843513}
   - component: {fileID: 2605018172835227480}
   - component: {fileID: 429209783786523496}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PunchSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9873,7 +9873,7 @@ GameObject:
   - component: {fileID: 3607204156757303925}
   - component: {fileID: 3104054836379295344}
   - component: {fileID: 6777751607693350159}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: '[Visual]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9947,7 +9947,7 @@ GameObject:
   - component: {fileID: 907557772411091451}
   - component: {fileID: 5710741594290803265}
   - component: {fileID: 7872630177767859677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Interactive1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10033,7 +10033,7 @@ GameObject:
   - component: {fileID: 6306117173434357965}
   - component: {fileID: 7246067220941054918}
   - component: {fileID: 5449519528381981034}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14846,7 +14846,7 @@ GameObject:
   - component: {fileID: 437141255765665269}
   - component: {fileID: 6182006555099873646}
   - component: {fileID: 5012266155166112714}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14930,7 +14930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2299035765811469850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: toilet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14970,7 +14970,7 @@ GameObject:
   - component: {fileID: 1597801412586097727}
   - component: {fileID: 8808297835662332969}
   - component: {fileID: 6962294897518681162}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19801,7 +19801,7 @@ GameObject:
   - component: {fileID: 6581093106823804564}
   - component: {fileID: 8761250742452151793}
   - component: {fileID: 7871294770910480966}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24641,7 +24641,7 @@ GameObject:
   - component: {fileID: 2323784809897302648}
   - component: {fileID: 5857035059225446978}
   - component: {fileID: 7181543806529834333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29472,7 +29472,7 @@ GameObject:
   - component: {fileID: 6286026952829281736}
   - component: {fileID: 2994060624061163890}
   - component: {fileID: 652792421438201395}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Toiletbowl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29558,7 +29558,7 @@ GameObject:
   - component: {fileID: 1774377694181280698}
   - component: {fileID: 3331301015105225840}
   - component: {fileID: 7755103934267158434}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Toiletseat1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29645,7 +29645,7 @@ GameObject:
   - component: {fileID: 4142926369869410857}
   - component: {fileID: 7952635637666164291}
   - component: {fileID: 1083781709757816075}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ToiletBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29727,7 +29727,7 @@ GameObject:
   - component: {fileID: 293434000840082676}
   - component: {fileID: 3948642565138930120}
   - component: {fileID: 1690831477052523451}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29813,7 +29813,7 @@ GameObject:
   - component: {fileID: 4906912919179706998}
   - component: {fileID: 2209614879487719296}
   - component: {fileID: 2019888311113977010}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SoftFightAction2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34637,7 +34637,7 @@ GameObject:
   - component: {fileID: 7819583401873119527}
   - component: {fileID: 1100609231320347436}
   - component: {fileID: 8430123834167002735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

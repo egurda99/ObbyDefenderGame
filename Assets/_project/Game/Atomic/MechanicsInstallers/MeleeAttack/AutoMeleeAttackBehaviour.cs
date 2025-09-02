@@ -61,6 +61,9 @@ public sealed class AutoMeleeAttackBehaviour : IEntityInit, IEntityUpdate, IEnti
 
     public void OnUpdate(IEntity entity, float deltaTime)
     {
+        if (!(entity.GetTarget() != null && entity.GetTarget().Value != null))
+            return;
+
         if (_distanceToAttack.Value >= (_target.Value.position - _rootTransform.position).magnitude && _canAttack.Value)
         {
             _attackRequest.Invoke();

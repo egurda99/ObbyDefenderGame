@@ -4,23 +4,22 @@ namespace Elementary
 {
     public abstract class ColliderDetectionObserverMonobehaviour : MonoBehaviour
     {
-        [SerializeField]
-        private ColliderDetection sensor;
+        [SerializeField] private ColliderDetection _sensor;
 
         protected virtual void OnEnable()
         {
-            this.sensor.OnCollidersUpdated += this.OnCollidersUpdated;
+            _sensor.OnCollidersUpdated += OnCollidersUpdated;
         }
 
         protected virtual void OnDisable()
         {
-            this.sensor.OnCollidersUpdated -= this.OnCollidersUpdated;
+            _sensor.OnCollidersUpdated -= OnCollidersUpdated;
         }
 
         protected void OnCollidersUpdated()
         {
-            this.sensor.GetCollidersUnsafe(out var buffer, out var size);
-            this.OnCollidersUpdated(buffer, size);
+            _sensor.GetCollidersUnsafe(out var buffer, out var size);
+            OnCollidersUpdated(buffer, size);
         }
 
         protected abstract void OnCollidersUpdated(Collider[] buffer, int size);

@@ -7,7 +7,6 @@ using UnityEngine;
 public class AutoMoveToTargetMechanic : IEntityInstaller
 {
     [SerializeField] private Transform _rootTransform;
-    [SerializeField] private Transform _target;
 
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _stopDistance = 0.1f;
@@ -17,7 +16,7 @@ public class AutoMoveToTargetMechanic : IEntityInstaller
     {
         entity.AddRootTransform(_rootTransform);
         entity.AddMoveSpeed(_speed);
-        entity.AddTarget(_target);
+        entity.AddTarget(new ReactiveVariable<Transform>());
         entity.AddMoveDirection(new ReactiveVariable<Vector3>());
         entity.AddStopDistance(_stopDistance);
 
