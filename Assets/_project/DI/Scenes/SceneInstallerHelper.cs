@@ -28,6 +28,19 @@ namespace ObbyDefender.DI
         [SerializeField] private TurretBuildZoneView _turretBuildZoneView;
         [SerializeField] private Transform _turretZoneContainer;
 
+        [Space] [Header("Base")] [SerializeField]
+        private Transform _basePrefab;
+
+        [SerializeField] private Transform _baseSpawnPoint;
+        [SerializeField] private Transform _baseContainer;
+
+
+        public Transform BasePrefab => _basePrefab;
+
+        public Transform BaseSpawnPoint => _baseSpawnPoint;
+
+        public Transform BaseContainer => _baseContainer;
+
         public Transform TurretPrefab => _turretPrefab;
 
         public TurretsConfig TurretsConfig => _turretsConfig;

@@ -1129,6 +1129,9 @@ MonoBehaviour:
   _turretPrefab: {fileID: 3449513943817875967, guid: 09d44f0408e5368469b778bd6c2cb4ee, type: 3}
   _turretBuildZoneView: {fileID: 4379547387098918816, guid: 1afe39743936fb74c917d5b4ad272d40, type: 3}
   _turretZoneContainer: {fileID: 634029711}
+  _basePrefab: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
+  _baseSpawnPoint: {fileID: 879507958}
+  _baseContainer: {fileID: 437298080}
 --- !u!1001 &208601395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2244,8 +2247,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1758611000}
+  m_Children: []
   m_Father: {fileID: 1925307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &445496719
@@ -4245,7 +4247,7 @@ Transform:
   m_GameObject: {fileID: 879507957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 0, z: -2.87}
+  m_LocalPosition: {x: 1.87, y: 0, z: -2.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8458,11 +8460,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1925307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1758611000 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-  m_PrefabInstance: {fileID: 4823852799826801394}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1758922157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10204,63 +10201,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49941bd6659dc0348b22a3418360992d, type: 3}
---- !u!1001 &4823852799826801394
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 437298080}
-    m_Modifications:
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4292768669570280318, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428178242886657401, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
-      propertyPath: m_Name
-      value: ToiletBase
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0bbed57efd6984b4e85c4cd53d72ee1e, type: 3}
 --- !u!1001 &6511134703177012858
 PrefabInstance:
   m_ObjectHideFlags: 0

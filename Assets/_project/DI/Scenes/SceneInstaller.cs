@@ -19,6 +19,13 @@ namespace ObbyDefender.DI
             BindWeaponSwitcher();
             BindInput();
             BindTurrets();
+            ConfigureBase();
+        }
+
+        private void ConfigureBase()
+        {
+            Instantiate(_sceneInstallerHelper.BasePrefab, _sceneInstallerHelper.BaseSpawnPoint.position,
+                Quaternion.identity, _sceneInstallerHelper.BaseContainer);
         }
 
         private void BindTurrets()
