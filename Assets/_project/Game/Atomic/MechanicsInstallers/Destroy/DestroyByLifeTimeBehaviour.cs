@@ -23,7 +23,6 @@ public sealed class DestroyByLifeTimeBehaviour : IEntityInit, IEntityDisable, IE
     private void OnTimerEnded()
     {
         _destroyRequest.Invoke();
-        //Object.Destroy(_rootTransform.gameObject);
     }
 
     private void Reset()
