@@ -475,6 +475,8 @@ MonoBehaviour:
     _animationEventDispatcher: {fileID: 3520493315897472430}
   _dieAnimationMechanic:
     _animator: {fileID: 2119701593856815356}
+  _destroyRequestAfterAnimationMechanic:
+    _animationEventDispatcher: {fileID: 3520493315897472430}
   _takeDamageAnimationMechanic:
     _animator: {fileID: 2119701593856815356}
   _takeDamageVFXMechanic:
@@ -600,7 +602,7 @@ MonoBehaviour:
   _autoMoveToTargetByControllerMechanic:
     _characterController: {fileID: 3934630368362606494}
     _speed: 3
-    _stopDistance: 4.5
+    _stopDistance: 3
     _isMoving: 0
   _rotateToMoveDirectionMechanic:
     _rootTransform: {fileID: 8227471176483641421}
@@ -611,8 +613,10 @@ MonoBehaviour:
     _attackDamage: 1
   _meleeReloadMechanic:
     _reloadTime: 1
+  _setConcrentTargetMechanic:
+    _target: {fileID: 0}
   _lifeMechanic:
-    _hitPoints: 75
+    _hitPoints: 35
     _isDead: 0
 --- !u!1 &5338908246175169899
 GameObject:

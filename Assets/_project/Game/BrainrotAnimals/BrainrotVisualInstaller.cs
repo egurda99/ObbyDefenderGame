@@ -10,6 +10,8 @@ namespace ObbyDefender
 
 
         [SerializeField] private DieAnimationMechanic _dieAnimationMechanic;
+        [SerializeField] private DestroyRequestAfterAnimationMechanic _destroyRequestAfterAnimationMechanic;
+
         [SerializeField] private TakeDamageAnimationMechanic _takeDamageAnimationMechanic;
 
 
@@ -21,6 +23,7 @@ namespace ObbyDefender
             _moveAnimationMechanic.Install(entity);
             _dieAnimationMechanic.Install(entity);
             _meleeAttackAnimationMechanic.Install(entity);
+            _destroyRequestAfterAnimationMechanic.Install(entity);
 
 
             _takeDamageVFXMechanic.Install(entity);

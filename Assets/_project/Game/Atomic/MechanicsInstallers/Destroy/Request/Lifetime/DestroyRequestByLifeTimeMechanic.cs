@@ -4,7 +4,7 @@ using Atomic.Entities;
 using UnityEngine;
 
 [Serializable]
-public sealed class DestroyByLifeTimeMechanic : IEntityInstaller
+public sealed class DestroyRequestByLifeTimeMechanic : IEntityInstaller
 {
     [SerializeField] private float _lifeTime;
     [SerializeField] private Transform _rootTransform;
@@ -19,6 +19,6 @@ public sealed class DestroyByLifeTimeMechanic : IEntityInstaller
         entity.AddLifetimeTimer(new Timer());
 
 
-        entity.AddBehaviour(new DestroyByLifeTimeBehaviour());
+        entity.AddBehaviour(new DestroyRequestByLifeTimeBehaviour());
     }
 }

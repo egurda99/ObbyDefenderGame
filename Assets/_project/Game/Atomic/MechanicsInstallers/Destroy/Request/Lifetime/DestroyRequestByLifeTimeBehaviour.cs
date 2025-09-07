@@ -1,7 +1,7 @@
 using Atomic.Elements;
 using Atomic.Entities;
 
-public sealed class DestroyByLifeTimeBehaviour : IEntityInit, IEntityDisable, IEntityEnable, IEntityUpdate
+public sealed class DestroyRequestByLifeTimeBehaviour : IEntityInit, IEntityDisable, IEntityEnable, IEntityUpdate
 {
     private ReactiveVariable<float> _lifeTime;
     private AndExpression _canStartTimer;

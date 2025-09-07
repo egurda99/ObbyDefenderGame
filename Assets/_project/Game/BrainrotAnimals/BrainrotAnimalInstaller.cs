@@ -15,12 +15,17 @@ namespace ObbyDefender
         [SerializeField] private AutoMeleeAttackMechanic _autoMeleeAttackMechanic;
         [SerializeField] private MeleeReloadMechanic _meleeReloadMechanic;
         [SerializeField] private CheckTargetAliveMechanic _checkTargetAliveMechanic;
+        [SerializeField] private SetConcrentTargetMechanic _setConcrentTargetMechanic;
 
 
         [SerializeField] private LifeMechanic _lifeMechanic;
+        [SerializeField] private DestroyEntityMechanic _destroyEntityMechanic;
+        // [SerializeField] private DestroyRequestAfterDeathMechanic _destroyRequestAfterDeathMechanic;
 
 
         private NearestAliveTargetObserver _nearestAliveTargetObserver;
+        private readonly int _enemyLayer = 6;
+        private readonly int _bulletsLayer = 7;
 
         public override void Install(IEntity entity)
         {
@@ -31,8 +36,12 @@ namespace ObbyDefender
             _meleeReloadMechanic.Install(entity);
             _checkTargetAliveMechanic.Install(entity);
 
-            Physics.IgnoreLayerCollision(6, 7, true);
+            _setConcrentTargetMechanic.Install(entity);
+            _destroyEntityMechanic.Install(entity);
+
+            Physics.IgnoreLayerCollision(_enemyLayer, _bulletsLayer, true);
             _lifeMechanic.Install(entity);
+            // _destroyRequestAfterDeathMechanic.Install(entity);
             _nearestAliveTargetObserver =
                 new NearestAliveTargetObserver(_colliderDetectionOverlapSphere, GetComponent<SceneEntity>());
 

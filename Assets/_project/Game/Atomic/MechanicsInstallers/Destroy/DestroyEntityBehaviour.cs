@@ -17,7 +17,17 @@ public sealed class DestroyEntityBehaviour : IEntityInit, IEntityEnable, IEntity
 
     private void OnDestroyRequested()
     {
-        Object.Destroy(_rootTransform.gameObject);
+        var sceneEntityRoot = _rootTransform.GetComponentInParent<SceneEntity>()?.gameObject;
+
+        if (sceneEntityRoot != null)
+        {
+            Object.Destroy(sceneEntityRoot);
+        }
+        else
+        {
+            // Ќа вс€кий случай уничтожаем хот€ бы сам root
+            Object.Destroy(_rootTransform.gameObject);
+        }
     }
 
     public void Enable(IEntity entity)
