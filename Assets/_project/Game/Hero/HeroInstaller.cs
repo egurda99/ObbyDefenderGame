@@ -22,6 +22,9 @@ namespace ObbyDefender
 
         [SerializeField] private ShootReloadMechanic _shootReloadMechanic;
         [SerializeField] private StunMechanic _stunMechanic;
+
+        [SerializeField] private CheckTargetAliveMechanic _checkTargetAliveMechanic;
+
         private BulletFactory _bulletFactory;
 
 
@@ -42,6 +45,7 @@ namespace ObbyDefender
             _rotateToTargetMechanic.Install(entity);
 
             _lifeMechanic.Install(entity);
+            _checkTargetAliveMechanic.Install(entity);
 
             _shootReloadMechanic.Install(entity);
             _stunMechanic.Install(entity);
@@ -58,6 +62,7 @@ namespace ObbyDefender
 
             entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
             entity.GetCanShoot().Append(() => !entity.GetIsStunned().Value);
+            entity.GetCanShoot().Append(() => entity.GetIsTargetAlive().Value);
         }
     }
 }

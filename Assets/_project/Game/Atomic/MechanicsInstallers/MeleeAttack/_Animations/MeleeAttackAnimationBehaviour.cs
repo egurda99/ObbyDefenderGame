@@ -5,7 +5,7 @@ using UnityEngine;
 
 public sealed class MeleeAttackAnimationBehaviour : IEntityInit, IEntityDispose
 {
-    private static readonly int Attack = Animator.StringToHash("Attack");
+    private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
     private Animator _animator;
     private AnimationEventDispatcher _animationEventDispatcher;
@@ -19,9 +19,10 @@ public sealed class MeleeAttackAnimationBehaviour : IEntityInit, IEntityDispose
         _animationEventDispatcher = entity.GetAnimationEventDispatcher();
 
         _attackRequsted = entity.GetAttackRequest();
+        _isAttacking = entity.GetIsAttacking();
         _attackAction = entity.GetAttackAction();
 
-        _attackRequsted.Subscribe(OnAttackRequsted);
+        _attackRequsted.Subscribe(OnAttackRequested);
         _animationEventDispatcher.OnEventReceived += OnEventReceived;
     }
 
@@ -32,16 +33,22 @@ public sealed class MeleeAttackAnimationBehaviour : IEntityInit, IEntityDispose
         {
             _attackAction.Invoke();
         }
+
+        if (eventName == "EndedAttack")
+        {
+            _isAttacking.Value = false;
+            _animator.SetBool(IsAttacking, false);
+        }
     }
 
-    private void OnAttackRequsted()
+    private void OnAttackRequested()
     {
-        _animator.SetTrigger(Attack);
+        _animator.SetBool(IsAttacking, true);
     }
 
     public void Dispose(IEntity entity)
     {
-        _attackRequsted.Unsubscribe(OnAttackRequsted);
+        _attackRequsted.Unsubscribe(OnAttackRequested);
         _animationEventDispatcher.OnEventReceived -= OnEventReceived;
     }
 }

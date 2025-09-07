@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3998603947474227500}
   - component: {fileID: 3998603947475227628}
   - component: {fileID: 6811777146767402851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet_01_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8049576032344740470}
   - component: {fileID: 3448678168452616081}
   - component: {fileID: 8243077556956745220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PistolBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,13 +192,13 @@ MonoBehaviour:
     _speed: 3
     _moveDirection: {x: 0, y: 0, z: 0}
     _isMoving: 0
-    _canMove: 1
   _destroyByLifeTimeMechanic:
     _lifeTime: 3
     _rootTransform: {fileID: 500862507274076225}
   _dealDamageByTriggerMechanic:
     _triggerEventDispatcher: {fileID: 4998000600503297507}
     _damage: 5
+    _canDamagePlayer: 0
   _rotateToMoveDirectionMechanic:
     _rootTransform: {fileID: 500862507274076225}
     _rotateSpeed: 1000
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 4957053281442010221}
   - component: {fileID: 3101902428363451736}
   - component: {fileID: 4998000600503297507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

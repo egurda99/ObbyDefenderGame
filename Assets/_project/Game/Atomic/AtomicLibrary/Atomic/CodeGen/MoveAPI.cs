@@ -19,6 +19,7 @@ namespace Atomic.Entities
         public const int IsMoving = 5; // ReactiveVariable<bool>
         public const int CanMove = 6; // AndExpression
         public const int StopDistance = 50; // ReactiveVariable<float>
+        public const int CharacterController = 51; // CharacterController
 
 
         ///Extensions
@@ -129,5 +130,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetStopDistance(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(StopDistance, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static CharacterController GetCharacterController(this IEntity obj) => obj.GetValue<CharacterController>(CharacterController);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCharacterController(this IEntity obj, out CharacterController value) => obj.TryGetValue(CharacterController, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCharacterController(this IEntity obj, CharacterController value) => obj.AddValue(CharacterController, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCharacterController(this IEntity obj) => obj.HasValue(CharacterController);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCharacterController(this IEntity obj) => obj.DelValue(CharacterController);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCharacterController(this IEntity obj, CharacterController value) => obj.SetValue(CharacterController, value);
     }
 }

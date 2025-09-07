@@ -87,6 +87,9 @@ MonoBehaviour:
     - id: 50
       name: StopDistance
       type: ReactiveVariable<float>
+    - id: 51
+      name: CharacterController
+      type: CharacterController
   - name: Life
     indexes:
     - id: 14
@@ -189,6 +192,9 @@ MonoBehaviour:
     - id: 49
       name: AttackDamage
       type: ReactiveVariable<float>
+    - id: 67
+      name: IsAttacking
+      type: ReactiveVariable<bool>
   - name: Physics
     indexes:
     - id: 52

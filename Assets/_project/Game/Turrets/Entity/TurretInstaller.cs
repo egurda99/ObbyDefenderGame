@@ -19,7 +19,7 @@ namespace ObbyDefender
         [SerializeField] private ShootReloadMechanic _shootReloadMechanic;
 
         private BulletFactory _bulletFactory;
-        private NearestTargetObserver _nearestTargetObserver;
+        private NearestAliveTargetObserver _nearestAliveTargetObserver;
 
 
         public void SetBulletFactory(BulletFactory bulletFactory)
@@ -37,8 +37,8 @@ namespace ObbyDefender
 
             _shootReloadMechanic.Install(entity);
 
-            _nearestTargetObserver =
-                new NearestTargetObserver(_colliderDetectionOverlapSphere, GetComponent<SceneEntity>());
+            _nearestAliveTargetObserver =
+                new NearestAliveTargetObserver(_colliderDetectionOverlapSphere, GetComponent<SceneEntity>());
 
             entity.AddWeaponType(WeaponType.M16);
 

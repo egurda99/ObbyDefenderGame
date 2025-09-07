@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4932055854796725162}
   - component: {fileID: 635725595514118542}
   - component: {fileID: 4786273847757571928}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet_04_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 9125680608266126793}
   - component: {fileID: 4271191195730747012}
   - component: {fileID: 2649205117089795750}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: M16_Bullet_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 8092135444367051691}
   - component: {fileID: 8105262836460890544}
   - component: {fileID: 4987717992817977825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: M16_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,13 +260,13 @@ MonoBehaviour:
     _speed: 5
     _moveDirection: {x: 0, y: 0, z: 0}
     _isMoving: 0
-    _canMove: 1
   _destroyByLifeTimeMechanic:
     _lifeTime: 5
     _rootTransform: {fileID: 8227780381354242315}
   _dealDamageByTriggerMechanic:
     _triggerEventDispatcher: {fileID: 2649205117089795750}
     _damage: 2
+    _canDamagePlayer: 0
   _rotateToMoveDirectionMechanic:
     _rootTransform: {fileID: 8227780381354242315}
     _rotateSpeed: 1000

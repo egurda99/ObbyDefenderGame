@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Elementary
 {
-    public sealed class NearestTargetObserver : ColliderDetectionObserver
+    public sealed class NearestAliveTargetObserver : ColliderDetectionObserver
     {
         private readonly SceneEntity _entity;
 
-        public NearestTargetObserver(ColliderDetection sensor, SceneEntity entity) : base(sensor)
+        public NearestAliveTargetObserver(ColliderDetection sensor, SceneEntity entity) : base(sensor)
         {
             _entity = entity;
         }
@@ -25,25 +25,23 @@ namespace Elementary
                 if (col == null)
                     continue;
 
-                var dist = Vector3.SqrMagnitude(col.transform.position - selfPos);
-                if (dist < minDist)
+                var tr = col.transform;
+                var dist = Vector3.SqrMagnitude(tr.position - selfPos);
+
+                if (IsAliveTarget(tr) && dist < minDist)
                 {
                     minDist = dist;
-                    nearest = col.transform;
+                    nearest = tr;
                 }
             }
 
-            if (nearest != null)
-            {
-                targetVar.Value = nearest;
-            }
-            else
-            {
-                if (targetVar.Value != null)
-                {
-                    targetVar.Value = null;
-                }
-            }
+            targetVar.Value = nearest;
+        }
+
+        private static bool IsAliveTarget(Transform tr)
+        {
+            return (tr.TryGetComponent(out SceneEntity entity) && !entity.GetIsDead().Value) ||
+                   (tr.TryGetComponent(out SceneEntityProxy proxy) && !proxy.GetIsDead().Value);
         }
     }
 }

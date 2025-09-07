@@ -75,7 +75,7 @@ namespace ObbyDefender.DI
 
             var sensor = player.GetComponentInChildren<ColliderDetectionOverlapSphere>();
 
-            Container.BindInterfacesTo<NearestTargetObserver>().AsSingle().WithArguments(sensor, player);
+            Container.BindInterfacesTo<NearestAliveTargetObserver>().AsSingle().WithArguments(sensor, player);
         }
 
         private void BindWeaponSwitcher()

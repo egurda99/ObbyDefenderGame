@@ -19,6 +19,7 @@ namespace Atomic.Entities
         public const int AttackAction = 45; // IEvent
         public const int AttackEvent = 46; // IEvent
         public const int AttackDamage = 49; // ReactiveVariable<float>
+        public const int IsAttacking = 67; // ReactiveVariable<bool>
 
 
         ///Extensions
@@ -129,5 +130,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetAttackDamage(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(AttackDamage, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetIsAttacking(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsAttacking);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsAttacking(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsAttacking, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsAttacking(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsAttacking, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsAttacking(this IEntity obj) => obj.HasValue(IsAttacking);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsAttacking(this IEntity obj) => obj.DelValue(IsAttacking);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsAttacking(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsAttacking, value);
     }
 }

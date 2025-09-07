@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 7209496199637560526}
   - component: {fileID: 6098230260876067294}
   - component: {fileID: 4952243809590245700}
-  - component: {fileID: 7611024017317131864}
   - component: {fileID: 444093034422095758}
   - component: {fileID: 4598470900327193317}
   m_Layer: 3
@@ -317,27 +316,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &7611024017317131864
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2719496837209696240}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.0090408, y: 0.4267593, z: 3.00904}
-  m_Center: {x: 0, y: 0.21337947, z: -0.00000011920929}
 --- !u!114 &444093034422095758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,7 +635,6 @@ GameObject:
   - component: {fileID: 9064592072038992417}
   - component: {fileID: 414145708790033568}
   - component: {fileID: 6013462969963258168}
-  - component: {fileID: 2151304382616273735}
   m_Layer: 3
   m_Name: Cannon_Turret
   m_TagString: Untagged
@@ -735,27 +712,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2151304382616273735
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6496730615773388490}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1798615, y: 1.8637557, z: 1.9226867}
-  m_Center: {x: -0.00000044703484, y: 1.4466889, z: 0.02245301}
 --- !u!1 &7671782410186252515
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +724,7 @@ GameObject:
   - component: {fileID: 2423948604549844550}
   - component: {fileID: 1415156134385665679}
   - component: {fileID: 2168591308324115125}
+  - component: {fileID: 7931928363226735469}
   m_Layer: 3
   m_Name: Cannon
   m_TagString: Untagged
@@ -867,6 +824,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.36451, y: 2.1323237, z: 4.533176}
   m_Center: {x: -0.27961454, y: -0.29398337, z: 0.8642883}
+--- !u!114 &7931928363226735469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671782410186252515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82752fed00d948f7a053c09fe615802c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 8334499635785048501}
 --- !u!1001 &2705411199687719021
 PrefabInstance:
   m_ObjectHideFlags: 0

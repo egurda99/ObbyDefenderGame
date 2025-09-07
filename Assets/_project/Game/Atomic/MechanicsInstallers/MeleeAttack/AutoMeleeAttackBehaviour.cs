@@ -18,9 +18,12 @@ public sealed class AutoMeleeAttackBehaviour : IEntityInit, IEntityUpdate, IEnti
     private Transform _rootTransform;
     private ReactiveVariable<bool> _needReload;
     private IEvent _attackEvent;
+    private IEntity _entity;
+    private ReactiveVariable<bool> _isAttacking;
 
     public void Init(IEntity entity)
     {
+        _entity = entity;
         _canAttack = entity.GetCanAttack();
         _distanceToAttack = entity.GetDistanceToAttack();
         _target = entity.GetTarget();
@@ -32,6 +35,7 @@ public sealed class AutoMeleeAttackBehaviour : IEntityInit, IEntityUpdate, IEnti
         _attackAction = entity.GetAttackAction();
         _attackEvent = entity.GetAttackEvent();
         _attackDamage = entity.GetAttackDamage();
+        _isAttacking = entity.GetIsAttacking();
 
 
         _attackAction.Subscribe(OnAttackAction);
@@ -39,6 +43,12 @@ public sealed class AutoMeleeAttackBehaviour : IEntityInit, IEntityUpdate, IEnti
 
     private void OnAttackAction()
     {
+        var targetVar = _entity.GetTarget();
+        if (targetVar == null || targetVar.Value == null)
+        {
+            return;
+        }
+
         if (_distanceToAttack.Value >= (_target.Value.position - _rootTransform.position).magnitude)
         {
             if (_target.Value.TryGetComponent(out SceneEntityProxy proxy))
@@ -67,6 +77,7 @@ public sealed class AutoMeleeAttackBehaviour : IEntityInit, IEntityUpdate, IEnti
         if (_distanceToAttack.Value >= (_target.Value.position - _rootTransform.position).magnitude && _canAttack.Value)
         {
             _attackRequest.Invoke();
+            _isAttacking.Value = true;
             _needReload.Value = true;
         }
     }

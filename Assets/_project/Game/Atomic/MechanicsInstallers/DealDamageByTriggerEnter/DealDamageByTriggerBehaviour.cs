@@ -7,8 +7,8 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDispose
 {
     private TriggerEventDispatcher _triggerEventDispatcher;
     private ReactiveVariable<float> _damage;
-    private Transform _root;
     private readonly bool _canDamagePlayer;
+    private IEvent _destroyRequest;
 
     public DealDamageByTriggerBehaviour(bool canDamagePlayer)
     {
@@ -20,7 +20,7 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDispose
     {
         _triggerEventDispatcher = entity.GetTriggerEventDispatcher();
         _damage = entity.GetAttackDamage();
-        _root = entity.GetRootTransform();
+        _destroyRequest = entity.GetDestroyRequest();
 
         _triggerEventDispatcher.OnTriggerEntered += OnTriggerEntered;
     }
@@ -35,7 +35,8 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDispose
             }
 
             entity.GetTakeDamageAction().Invoke(_damage.Value);
-            Object.Destroy(_root.gameObject);
+            Debug.Log("<color=red>Deal damage by bullet</color>");
+            _destroyRequest.Invoke();
         }
     }
 

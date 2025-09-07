@@ -15,6 +15,7 @@ public sealed class AutoMeleeAttackMechanic : IEntityInstaller
         entity.AddDistanceToAttack(_distanceToAttack);
         entity.AddTarget(new ReactiveVariable<Transform>());
         entity.AddCanAttack(new AndExpression());
+        entity.AddIsAttacking(new ReactiveVariable<bool>());
 
         entity.AddAttackRequest(new BaseEvent());
         entity.AddAttackAction(new BaseEvent());
