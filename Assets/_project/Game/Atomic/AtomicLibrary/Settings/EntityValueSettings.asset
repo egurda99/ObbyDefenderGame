@@ -67,6 +67,9 @@ MonoBehaviour:
     - id: 36
       name: WeaponType
       type: ReactiveVariable<WeaponType>
+    - id: 68
+      name: CanDamagePlayer
+      type: ReactiveVariable<bool>
   - name: Move
     indexes:
     - id: 2

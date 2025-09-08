@@ -15,8 +15,9 @@ public sealed class DealDamageByTriggerMechanic : IEntityInstaller
     {
         entity.AddTriggerEventDispatcher(_triggerEventDispatcher);
         entity.AddAttackDamage(_damage);
+        entity.AddCanDamagePlayer(_canDamagePlayer);
 
 
-        entity.AddBehaviour(new DealDamageByTriggerBehaviour(_canDamagePlayer));
+        entity.AddBehaviour(new DealDamageByTriggerBehaviour());
     }
 }

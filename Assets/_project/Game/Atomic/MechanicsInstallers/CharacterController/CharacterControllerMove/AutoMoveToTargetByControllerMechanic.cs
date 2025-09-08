@@ -4,7 +4,7 @@ using Atomic.Entities;
 using UnityEngine;
 
 [Serializable]
-public class AutoMoveToTargetByControllerMechanic : IEntityInstaller
+public sealed class AutoMoveToTargetByControllerMechanic : IEntityInstaller
 {
     [SerializeField] private CharacterController _characterController;
 
@@ -14,7 +14,6 @@ public class AutoMoveToTargetByControllerMechanic : IEntityInstaller
 
     public void Install(IEntity entity)
     {
-        //  entity.AddRootTransform(_rootTransform);
         entity.AddCharacterController(_characterController);
         entity.AddMoveSpeed(_speed);
         entity.AddTarget(new ReactiveVariable<Transform>());

@@ -1,18 +1,25 @@
 using Atomic.Entities;
 using Elementary;
+using ObbyDefender.Weapons;
 using UnityEngine;
+using Zenject;
 
 namespace ObbyDefender
 {
-    public sealed class BrainrotAnimalInstaller : SceneEntityInstallerBase
+    public sealed class RangeBrainrotAnimalInstaller : SceneEntityInstallerBase
     {
         [SerializeField] private ColliderDetectionOverlapSphere _colliderDetectionOverlapSphere;
 
         [SerializeField] private AutoMoveToTargetByControllerMechanic _autoMoveToTargetByControllerMechanic;
 
         [SerializeField] private RotateToMoveDirectionMechanic _rotateToMoveDirectionMechanic;
-        [SerializeField] private AutoMeleeAttackMechanic _autoMeleeAttackMechanic;
-        [SerializeField] private MeleeReloadMechanic _meleeReloadMechanic;
+
+        // [SerializeField] private AutoMeleeAttackMechanic _autoMeleeAttackMechanic;
+        [SerializeField] private AutoShootToTargetMechanic _autoShootToTargetMechanic;
+        [SerializeField] private ShootReloadMechanic _shootReloadMechanic;
+
+
+        // [SerializeField] private MeleeReloadMechanic _meleeReloadMechanic;
         [SerializeField] private CheckTargetAliveMechanic _checkTargetAliveMechanic;
         [SerializeField] private SetConcrentTargetMechanic _setConcrentTargetMechanic;
 
@@ -25,13 +32,23 @@ namespace ObbyDefender
         private NearestAliveTargetObserver _nearestAliveTargetObserver;
         private readonly int _enemyLayer = 6;
         private readonly int _bulletsLayer = 7;
+        private BulletFactory _bulletFactory;
+
+        [Inject]
+        public void Construct(BulletFactory bulletFactory)
+        {
+            _bulletFactory = bulletFactory;
+        }
 
         public override void Install(IEntity entity)
         {
             _autoMoveToTargetByControllerMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
-            _autoMeleeAttackMechanic.Install(entity);
-            _meleeReloadMechanic.Install(entity);
+            //   _autoMeleeAttackMechanic.Install(entity);
+            _autoShootToTargetMechanic.Install(entity);
+            _autoShootToTargetMechanic.Init(_bulletFactory);
+            _shootReloadMechanic.Install(entity);
+            // _meleeReloadMechanic.Install(entity);
             _checkTargetAliveMechanic.Install(entity);
 
             _setConcrentTargetMechanic.Install(entity);
@@ -43,12 +60,15 @@ namespace ObbyDefender
             _nearestAliveTargetObserver =
                 new NearestAliveTargetObserver(_colliderDetectionOverlapSphere, GetComponent<SceneEntity>());
 
+            entity.AddWeaponType(WeaponType.Pistol);
+
+
             entity.GetCanMove().Append(() => !entity.GetIsDead().Value);
-            entity.GetCanMove().Append(() => !entity.GetIsAttacking().Value);
             entity.GetCanRotate().Append(() => !entity.GetIsDead().Value);
-            entity.GetCanAttack().Append(() => !entity.GetIsDead().Value);
-            entity.GetCanAttack().Append(() => !entity.GetIsMoving().Value);
-            entity.GetCanAttack().Append(() => entity.GetIsTargetAlive().Value);
+            entity.GetCanShoot().Append(() => !entity.GetIsDead().Value);
+
+            entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
+            entity.GetCanShoot().Append(() => entity.GetIsTargetAlive().Value);
         }
     }
 }

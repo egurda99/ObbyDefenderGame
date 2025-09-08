@@ -530,6 +530,7 @@ MonoBehaviour:
     _firePoint: {fileID: 3299511840295104901}
     _bulletPrefab: {fileID: 6853450160986573223, guid: cdb0fa9c08ab7894d809b53d76c65b30, type: 3}
     _isShooting: 0
+    _canDamagePlayer: 0
   _lifeMechanic:
     _hitPoints: 5
     _isDead: 0
@@ -725,6 +726,7 @@ GameObject:
   - component: {fileID: 1415156134385665679}
   - component: {fileID: 2168591308324115125}
   - component: {fileID: 7931928363226735469}
+  - component: {fileID: 4731297819133750478}
   m_Layer: 3
   m_Name: Cannon
   m_TagString: Untagged
@@ -837,6 +839,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 8334499635785048501}
+--- !u!54 &4731297819133750478
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671782410186252515}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2705411199687719021
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private bool _isShooting;
+    [SerializeField] private bool _canDamagePlayer;
     private IEntity _entity;
 
 
@@ -36,6 +37,6 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
 
     public void Init(BulletFactory bulletPool)
     {
-        _entity.AddBehaviour(new AutoShootToTargetBehaviour(bulletPool));
+        _entity.AddBehaviour(new AutoShootToTargetBehaviour(bulletPool, _canDamagePlayer));
     }
 }

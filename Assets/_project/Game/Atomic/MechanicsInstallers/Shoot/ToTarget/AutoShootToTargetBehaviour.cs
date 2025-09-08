@@ -17,10 +17,12 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
 
     private readonly BulletFactory _bulletFactory;
     private ReactiveVariable<WeaponType> _weaponType;
+    private readonly bool _canDamagePlayer;
 
-    public AutoShootToTargetBehaviour(BulletFactory bulletFactory)
+    public AutoShootToTargetBehaviour(BulletFactory bulletFactory, bool canDamagePlayer)
     {
         _bulletFactory = bulletFactory;
+        _canDamagePlayer = canDamagePlayer;
     }
 
     public void Init(IEntity entity)
@@ -50,12 +52,12 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         var bullet = _bulletFactory.GetBullet(_weaponType.Value);
         var bulletEntity = bullet.GetComponent<SceneEntity>();
 
-
         Debug.Log("Shooted");
 
 
         var targetPosition = targetVar.Value.position;
         bulletEntity.GetRootTransform().position = _firePoint.Value.position;
+        bulletEntity.GetCanDamagePlayer().Value = _canDamagePlayer;
 
 
         bulletEntity.GetMoveDirection().Value = (targetPosition - _firePoint.Value.position).normalized;

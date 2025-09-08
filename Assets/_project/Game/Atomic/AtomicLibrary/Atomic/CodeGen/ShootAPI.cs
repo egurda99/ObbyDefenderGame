@@ -28,6 +28,7 @@ namespace Atomic.Entities
         public const int HeroGunsView = 32; // HeroGunsView
         public const int WeaponChangerAnimator = 35; // WeaponChangerAnimatorController
         public const int WeaponType = 36; // ReactiveVariable<WeaponType>
+        public const int CanDamagePlayer = 68; // ReactiveVariable<bool>
 
 
         ///Extensions
@@ -300,5 +301,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetWeaponType(this IEntity obj, ReactiveVariable<WeaponType> value) => obj.SetValue(WeaponType, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetCanDamagePlayer(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(CanDamagePlayer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanDamagePlayer(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(CanDamagePlayer, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanDamagePlayer(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(CanDamagePlayer, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanDamagePlayer(this IEntity obj) => obj.HasValue(CanDamagePlayer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanDamagePlayer(this IEntity obj) => obj.DelValue(CanDamagePlayer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanDamagePlayer(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(CanDamagePlayer, value);
     }
 }
