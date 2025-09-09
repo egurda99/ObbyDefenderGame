@@ -12,14 +12,14 @@ namespace ObbyDefender
 
         [SerializeField] private AutoMoveToTargetByControllerMechanic _autoMoveToTargetByControllerMechanic;
 
-        [SerializeField] private RotateToMoveDirectionMechanic _rotateToMoveDirectionMechanic;
+        [SerializeField] private RotateToMoveDirectionWhenNoTargetMechanic _rotateToMoveDirectionMechanic;
 
-        // [SerializeField] private AutoMeleeAttackMechanic _autoMeleeAttackMechanic;
+        [SerializeField] private RotateToTargetMechanic _rotateToTargetMechanic;
+
         [SerializeField] private AutoShootToTargetMechanic _autoShootToTargetMechanic;
         [SerializeField] private ShootReloadMechanic _shootReloadMechanic;
 
 
-        // [SerializeField] private MeleeReloadMechanic _meleeReloadMechanic;
         [SerializeField] private CheckTargetAliveMechanic _checkTargetAliveMechanic;
         [SerializeField] private SetConcrentTargetMechanic _setConcrentTargetMechanic;
 
@@ -44,11 +44,11 @@ namespace ObbyDefender
         {
             _autoMoveToTargetByControllerMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
-            //   _autoMeleeAttackMechanic.Install(entity);
+            _rotateToTargetMechanic.Install(entity);
             _autoShootToTargetMechanic.Install(entity);
             _autoShootToTargetMechanic.Init(_bulletFactory);
             _shootReloadMechanic.Install(entity);
-            // _meleeReloadMechanic.Install(entity);
+
             _checkTargetAliveMechanic.Install(entity);
 
             _setConcrentTargetMechanic.Install(entity);
@@ -60,7 +60,7 @@ namespace ObbyDefender
             _nearestAliveTargetObserver =
                 new NearestAliveTargetObserver(_colliderDetectionOverlapSphere, GetComponent<SceneEntity>());
 
-            entity.AddWeaponType(WeaponType.Pistol);
+            entity.AddWeaponType(WeaponType.RangeAnimal);
 
 
             entity.GetCanMove().Append(() => !entity.GetIsDead().Value);

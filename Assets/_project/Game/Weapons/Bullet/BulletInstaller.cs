@@ -15,6 +15,9 @@ namespace ObbyDefender
 
         [SerializeField] private ReturnBulletToPoolMechanic _returnBulletToPoolMechanic;
 
+        [SerializeField] private DestroyRequestAfterVFXMechanic _destroyRequestAfterVFXMechanic;
+
+
         public override void Install(IEntity entity)
         {
             _moveToDirectionMechanic.Install(entity);
@@ -23,6 +26,8 @@ namespace ObbyDefender
             _returnBulletToPoolMechanic.Install(entity);
 
             _dealDamageByTriggerMechanic.Install(entity);
+            _destroyRequestAfterVFXMechanic.Install(entity);
+
 
             entity.GetCanStartTimer().Append(() => true);
         }

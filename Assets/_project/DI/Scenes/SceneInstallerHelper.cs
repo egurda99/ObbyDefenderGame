@@ -17,6 +17,8 @@ namespace ObbyDefender.DI
         private Transform _pistolBulletPrefab;
 
         [SerializeField] private Transform _m16BulletPrefab;
+        [SerializeField] private Transform _rangeAnimalBulletPrefab;
+
         [SerializeField] private Transform _bulletContainer;
 
         [Space] [Header("Turrets")] [SerializeField]
@@ -40,6 +42,8 @@ namespace ObbyDefender.DI
         public Transform BaseSpawnPoint => _baseSpawnPoint;
 
         public Transform BaseContainer => _baseContainer;
+
+        public Transform RangeAnimalBulletPrefab => _rangeAnimalBulletPrefab;
 
         public Transform TurretPrefab => _turretPrefab;
 

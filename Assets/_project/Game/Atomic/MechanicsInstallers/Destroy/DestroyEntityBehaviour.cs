@@ -25,7 +25,6 @@ public sealed class DestroyEntityBehaviour : IEntityInit, IEntityEnable, IEntity
         }
         else
         {
-            // Ќа вс€кий случай уничтожаем хот€ бы сам root
             Object.Destroy(_rootTransform.gameObject);
         }
     }

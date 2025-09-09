@@ -4,6 +4,7 @@ namespace ObbyDefender.Weapons
     {
         None,
         Pistol,
-        M16
+        M16,
+        RangeAnimal
     }
 }

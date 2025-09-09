@@ -9,12 +9,14 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDisable, 
     private ReactiveVariable<float> _damage;
     private ReactiveVariable<bool> _canDamagePlayer;
     private IEvent _destroyRequest;
+    private IEvent _triggerEnteredEvent;
 
     public void Init(IEntity entity)
     {
         _triggerEventDispatcher = entity.GetTriggerEventDispatcher();
         _damage = entity.GetAttackDamage();
         _destroyRequest = entity.GetDestroyRequest();
+        _triggerEnteredEvent = entity.GetEnteredTriggerEvent();
         _canDamagePlayer = entity.GetCanDamagePlayer();
 
         _triggerEventDispatcher.OnTriggerEntered += OnTriggerEntered;
@@ -24,16 +26,15 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDisable, 
     {
         if (other.TryGetComponent(out SceneEntityProxy entity))
         {
-            Debug.Log($"<color=red>_canDamagePlayer : {_canDamagePlayer.Value}</color>");
-
             if (!_canDamagePlayer.Value && entity.HasPlayerTag())
             {
                 return;
             }
 
             entity.GetTakeDamageAction().Invoke(_damage.Value);
-            Debug.Log("<color=red>Deal damage by bullet</color>");
-            _destroyRequest.Invoke();
+            //  Debug.Log("<color=red>Deal damage by bullet</color>");
+            _triggerEnteredEvent.Invoke();
+            // _destroyRequest.Invoke();
         }
     }
 

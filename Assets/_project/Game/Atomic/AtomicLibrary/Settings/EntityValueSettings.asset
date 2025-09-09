@@ -19,6 +19,7 @@ MonoBehaviour:
   imports:
   - Atomic.Elements
   - ObbyDefender.Weapons
+  - MyCodeBase.Utils
   categories:
   - name: Shoot
     indexes:
@@ -203,6 +204,9 @@ MonoBehaviour:
     - id: 52
       name: TriggerEventDispatcher
       type: TriggerEventDispatcher
+    - id: 70
+      name: EnteredTriggerEvent
+      type: IEvent
   - name: Stun
     indexes:
     - id: 59
@@ -248,3 +252,9 @@ MonoBehaviour:
     - id: 48
       name: DieFX
       type: ParticleSystem
+    - id: 69
+      name: DestroyFX
+      type: ParticleSystem
+    - id: 71
+      name: IsFXEnded
+      type: ReactiveVariable<bool>

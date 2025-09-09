@@ -1,4 +1,5 @@
 using System;
+using Atomic.Elements;
 using Atomic.Entities;
 using MyCodeBase.Utils;
 using UnityEngine;
@@ -16,6 +17,7 @@ public sealed class DealDamageByTriggerMechanic : IEntityInstaller
         entity.AddTriggerEventDispatcher(_triggerEventDispatcher);
         entity.AddAttackDamage(_damage);
         entity.AddCanDamagePlayer(_canDamagePlayer);
+        entity.AddEnteredTriggerEvent(new BaseEvent());
 
 
         entity.AddBehaviour(new DealDamageByTriggerBehaviour());

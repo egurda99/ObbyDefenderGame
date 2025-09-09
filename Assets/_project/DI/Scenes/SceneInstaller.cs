@@ -54,6 +54,12 @@ namespace ObbyDefender.DI
                 .FromComponentInNewPrefab(_sceneInstallerHelper.M16BulletPrefab)
                 .UnderTransform(_sceneInstallerHelper.BulletContainer);
 
+            Container.BindMemoryPool<BulletInstaller, BulletPool>()
+                .WithId(WeaponType.RangeAnimal)
+                .WithInitialSize(25)
+                .FromComponentInNewPrefab(_sceneInstallerHelper.RangeAnimalBulletPrefab)
+                .UnderTransform(_sceneInstallerHelper.BulletContainer);
+
             Container.Bind<BulletFactory>().AsSingle();
         }
 
