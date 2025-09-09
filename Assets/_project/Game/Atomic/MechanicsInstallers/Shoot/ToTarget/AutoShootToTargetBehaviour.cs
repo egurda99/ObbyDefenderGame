@@ -52,7 +52,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         var bullet = _bulletFactory.GetBullet(_weaponType.Value);
         var bulletEntity = bullet.GetComponent<SceneEntity>();
 
-        Debug.Log("Shooted");
+        //  Debug.Log("Shooted");
 
 
         var targetPosition = targetVar.Value.position;

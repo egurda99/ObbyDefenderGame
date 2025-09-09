@@ -18,3 +18,5 @@ MonoBehaviour:
   items:
   - id: 1
     type: Player
+  - id: 2
+    type: Enemy

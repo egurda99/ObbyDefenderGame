@@ -31,10 +31,17 @@ public sealed class DealDamageByTriggerBehaviour : IEntityInit, IEntityDisable, 
                 return;
             }
 
-            entity.GetTakeDamageAction().Invoke(_damage.Value);
-            //  Debug.Log("<color=red>Deal damage by bullet</color>");
+            if (_canDamagePlayer.Value && entity.HasEnemyTag())
+            {
+                return;
+            }
+
+            if (!entity.GetIsDead().Value)
+            {
+                entity.GetTakeDamageAction().Invoke(_damage.Value);
+            }
+
             _triggerEnteredEvent.Invoke();
-            // _destroyRequest.Invoke();
         }
     }
 

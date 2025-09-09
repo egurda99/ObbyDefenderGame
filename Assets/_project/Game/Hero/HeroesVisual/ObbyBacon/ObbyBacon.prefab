@@ -432,7 +432,7 @@ MonoBehaviour:
     _isShooting: 0
     _canDamagePlayer: 0
   _lifeMechanic:
-    _hitPoints: 5
+    _hitPoints: 15000
     _isDead: 0
   _shootReloadMechanic:
     _reloadTime: 1
@@ -520,7 +520,7 @@ MonoBehaviour:
   maxScanPeriod: 1
   bufferCapacity: 64
   centerPoint: {fileID: 2196337263955371591}
-  radius: 8.31
+  radius: 15
   layerMask:
     serializedVersion: 2
     m_Bits: 64

@@ -28,6 +28,7 @@ namespace ObbyDefender
 
         public override void Install(IEntity entity)
         {
+            entity.AddEnemyTag();
             _autoMoveToTargetByControllerMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
             _autoMeleeAttackMechanic.Install(entity);
