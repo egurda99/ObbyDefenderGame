@@ -12,21 +12,14 @@ namespace Elementary
     {
         public event Action OnCollidersUpdated;
 
-        [Space]
-        [SerializeField]
-        [FormerlySerializedAs("playOnAwake")]
+        [Space] [SerializeField] [FormerlySerializedAs("playOnAwake")]
         private bool playOnStart;
-        
-        [Space]
-        [SerializeField]
-        private float minScanPeriod = 0.1f;
 
-        [SerializeField]
-        private float maxScanPeriod = 0.2f;
+        [Space] [SerializeField] private float minScanPeriod = 0.1f;
 
-        [Space]
-        [SerializeField]
-        private int bufferCapacity = 64;
+        [SerializeField] private float maxScanPeriod = 0.2f;
+
+        [Space] [SerializeField] private int bufferCapacity = 64;
 
         [Title("Debug")]
         [PropertyOrder(10)]
@@ -34,12 +27,10 @@ namespace Elementary
         [ShowInInspector]
         public bool IsPlaying
         {
-            get { return this.coroutine != null; }
+            get { return coroutine != null; }
         }
 
-        [PropertyOrder(11)]
-        [ReadOnly]
-        [ShowInInspector]
+        [PropertyOrder(11)] [ReadOnly] [ShowInInspector]
         private Collider[] buffer;
 
         private int bufferSize;
@@ -47,78 +38,79 @@ namespace Elementary
         private Coroutine coroutine;
 
         private readonly List<IColliderDetectionHandler> listeners = new();
-        
+
         private void Start()
         {
-            this.buffer = new Collider[this.bufferCapacity];
-            if (this.playOnStart)
+            buffer = new Collider[bufferCapacity];
+            if (playOnStart)
             {
-                this.Play();
+                Play();
             }
         }
 
         public void GetCollidersNonAlloc(Collider[] buffer, out int size)
         {
-            size = this.bufferSize;
+            size = bufferSize;
             Array.Copy(this.buffer, buffer, size);
         }
 
         public void GetCollidersUnsafe(out Collider[] buffer, out int size)
         {
             buffer = this.buffer;
-            size = this.bufferSize;
+            size = bufferSize;
         }
 
         public void Play()
         {
-            if (this.coroutine == null)
+            if (coroutine == null)
             {
-                this.coroutine = this.StartCoroutine(this.UpdateColliders());
+                coroutine = StartCoroutine(UpdateColliders());
             }
         }
 
         public void Stop()
         {
-            if (this.coroutine != null)
+            if (coroutine != null)
             {
-                this.StopCoroutine(this.coroutine);
-                this.coroutine = null;
+                StopCoroutine(coroutine);
+                coroutine = null;
             }
         }
 
         public void AddListener(IColliderDetectionHandler handler)
         {
-            this.listeners.Add(handler);
+            listeners.Add(handler);
         }
 
         public void RemoveListener(IColliderDetectionHandler handler)
         {
-            this.listeners.Remove(handler);
+            listeners.Remove(handler);
         }
 
         private IEnumerator UpdateColliders()
         {
             while (true)
             {
-                float period = Random.Range(this.minScanPeriod, this.maxScanPeriod);
+                var period = Random.Range(minScanPeriod, maxScanPeriod);
                 yield return new WaitForSeconds(period);
 
-                Array.Clear(this.buffer, 0, this.buffer.Length);
-                this.bufferSize = this.Detect(this.buffer);
-                
-                this.InvokeCollidersUpdated(this.bufferSize, this.buffer);
+                Array.Clear(buffer, 0, buffer.Length);
+                bufferSize = Detect(buffer);
+
+                InvokeCollidersUpdated(bufferSize, buffer);
             }
         }
 
         private void InvokeCollidersUpdated(int size, Collider[] buffer)
         {
-            for (int i = 0, count = this.listeners.Count; i < count; i++)
+            for (int i = 0, count = listeners.Count; i < count; i++)
             {
-                var listener = this.listeners[i];
+                var listener = listeners[i];
                 listener.OnCollidersUpdated(buffer, size);
             }
-            
-            this.OnCollidersUpdated?.Invoke();
+
+            OnCollidersUpdated?.Invoke();
+            //    Debug.Log($"<color=green>SensorUpdated {GetType().Name}, parent: {transform.parent?.name}</color>");
         }
 
         protected abstract int Detect(Collider[] buffer);

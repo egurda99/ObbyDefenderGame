@@ -4,7 +4,7 @@ using ObbyDefender;
 using UnityEngine;
 using Zenject;
 
-public sealed class ReturnMeleeAnimalToPoolBehaviour : IEntityInit, IEntityEnable, IEntityDisable
+public sealed class ReturnAnimalToPoolBehaviour : IEntityInit, IEntityEnable, IEntityDisable
 {
     private IEvent _destroyRequest;
     private IMemoryPool _animalPool;
@@ -29,14 +29,24 @@ public sealed class ReturnMeleeAnimalToPoolBehaviour : IEntityInit, IEntityEnabl
             return;
         }
 
-        var installer = _rootTransform.GetComponentInParent<MeleeBrainrotAnimalInstaller>();
-        if (installer == null)
+        var meleeInstaller = _rootTransform.GetComponentInParent<MeleeBrainrotAnimalInstaller>();
+        var rangeInstaller = _rootTransform.GetComponentInParent<RangeBrainrotAnimalInstaller>();
+        //var installer = _rootTransform.GetComponentInParent<SceneEntityInstallerBase>();
+        if (meleeInstaller == null && rangeInstaller == null)
         {
-            Debug.LogError("MeleeBrainrotAnimalInstaller не найден среди родителей");
+            Debug.LogError("Installer не найден среди родителей");
             return;
         }
 
-        _animalPool.Despawn(installer);
+        if (meleeInstaller != null)
+        {
+            _animalPool.Despawn(meleeInstaller);
+        }
+
+        if (rangeInstaller != null)
+        {
+            _animalPool.Despawn(rangeInstaller);
+        }
     }
 
     public void Enable(IEntity entity)

@@ -1,6 +1,6 @@
 namespace ObbyDefender
 {
-    public enum EnemyType
+    public enum AnimalType
     {
         // Melee
         Ballerina,

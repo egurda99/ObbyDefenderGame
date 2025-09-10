@@ -12,7 +12,6 @@ namespace MyCodeBase.Utils
         {
             var index = Random.Range(0, _animationVariants);
             animator.SetFloat($"{_parameterName}", index);
-            Debug.Log($"<color=red>{_parameterName} set to {index}</color>");
         }
     }
 }

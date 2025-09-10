@@ -14596,7 +14596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f92de638314a94bb1d70a8a4b909f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyType: 7
+  _animalType: 7
   _colliderDetectionOverlapSphere: {fileID: 8888639511900411923}
   _autoMoveToTargetByControllerMechanic:
     _characterController: {fileID: 5033337335560537610}
@@ -19506,13 +19506,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.72
-  m_Radius: 0.8
+  m_Height: 2.3
+  m_Radius: 1.42
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2.17, z: 0}
+  m_Center: {x: 0, y: 0.29, z: 0}
 --- !u!114 &6343197955077531100
 MonoBehaviour:
   m_ObjectHideFlags: 0

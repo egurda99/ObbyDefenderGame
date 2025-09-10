@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 312183810360848696}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.120000005, z: 0}
+  m_LocalPosition: {x: 0.15, y: -1.65, z: 0}
   m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73e00ebea9348fa961bf74054338d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyType: 1
+  _animalType: 1
   _colliderDetectionOverlapSphere: {fileID: 6715647566990398661}
   _autoMoveToTargetByControllerMechanic:
     _characterController: {fileID: 2786541150716308138}
@@ -5502,7 +5502,7 @@ Transform:
   m_GameObject: {fileID: 4576071988863009609}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.29, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5557,8 +5557,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5097187071801881114}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15, y: -1.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5583,10 +5583,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6743474
   m_Height: 2.46
   m_Direction: 1
-  m_Center: {x: 0, y: 1.23, z: 0}
+  m_Center: {x: 0, y: 1.23, z: 0.1743474}
 --- !u!54 &5765943593733968537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5817,7 +5817,7 @@ Transform:
   m_GameObject: {fileID: 7501495476195331153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.29, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5889,7 +5889,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.35, z: 0}
+  m_Center: {x: 0.11, y: 0.06, z: 0}
 --- !u!1 &8007813418009528023
 GameObject:
   m_ObjectHideFlags: 0
@@ -6074,8 +6074,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9149314097787366513}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15, y: -1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

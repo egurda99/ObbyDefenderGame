@@ -1,9 +1,11 @@
+using Zenject;
+
 namespace ObbyDefender
 {
     public interface IEnemy
     {
-        EnemyType EnemyType { get; }
-        void OnSpawned(MeleeEnemyPool meleeEnemyPool);
+        AnimalType AnimalType { get; }
+        void OnSpawned(IMemoryPool rangeEnemyPool);
         void OnDespawned();
     }
 }

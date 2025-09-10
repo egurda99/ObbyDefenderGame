@@ -4,30 +4,47 @@ using Zenject;
 
 namespace ObbyDefender
 {
-    public class EnemyInstaller : MonoInstaller
+    public sealed class EnemyInstaller : MonoInstaller
     {
-        [Header("Ближние враги")] [SerializeField]
+        [Header("Melee animals")] [SerializeField]
         private List<MeleeBrainrotAnimalInstaller> _meleePrefabs;
+
+        [Header("Range animals")] [SerializeField]
+        private List<RangeBrainrotAnimalInstaller> _rangePrefabs;
 
         [SerializeField] private Transform _enemyContainer;
 
         public override void InstallBindings()
         {
-            // Создаём пулы для каждого типа ближника с уникальным ID
             foreach (var prefab in _meleePrefabs)
             {
-                Container.BindMemoryPool<MeleeBrainrotAnimalInstaller, MeleeEnemyPool>()
-                    .WithId(prefab.EnemyType)
+                Container.BindMemoryPool<MeleeBrainrotAnimalInstaller, MeleeAnimalPool>()
+                    .WithId(prefab.AnimalType)
                     .WithInitialSize(3)
                     .FromComponentInNewPrefab(prefab)
                     .UnderTransform(_enemyContainer)
-                    .AsCached();
+                    .AsCached()
+                    .NonLazy();
             }
 
-            // Биндим фабрику и передаём только префабы, контейнер внедряется автоматически
-            Container.Bind<MeleeEnemyFactory>()
+            foreach (var prefab in _rangePrefabs)
+            {
+                Container.BindMemoryPool<RangeBrainrotAnimalInstaller, RangeAnimalPool>()
+                    .WithId(prefab.AnimalType)
+                    .WithInitialSize(3)
+                    .FromComponentInNewPrefab(prefab)
+                    .UnderTransform(_enemyContainer)
+                    .AsCached()
+                    .NonLazy();
+            }
+
+            Container.Bind<MeleeAnimalFactory>()
                 .AsSingle()
                 .WithArguments(_meleePrefabs);
+
+            Container.Bind<RangeAnimalFactory>()
+                .AsSingle()
+                .WithArguments(_rangePrefabs);
         }
     }
 }

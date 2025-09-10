@@ -4976,7 +4976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73e00ebea9348fa961bf74054338d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyType: 5
+  _animalType: 5
   _colliderDetectionOverlapSphere: {fileID: 389343424285187633}
   _autoMoveToTargetByControllerMechanic:
     _characterController: {fileID: 227203137569052198}

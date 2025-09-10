@@ -10016,7 +10016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f92de638314a94bb1d70a8a4b909f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyType: 8
+  _animalType: 8
   _colliderDetectionOverlapSphere: {fileID: 8493031826669964019}
   _autoMoveToTargetByControllerMechanic:
     _characterController: {fileID: 1031744002289089012}

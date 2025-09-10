@@ -14,7 +14,7 @@ namespace Elementary
 
         protected override void OnCollidersUpdated(Collider[] buffer, int size)
         {
-            Debug.Log("Colliders updated " + _entity.Name);
+            // Debug.Log("Colliders updated " + _entity.Name);
             Transform nearest = null;
             var minDist = float.MaxValue;
             var selfPos = _entity.GetRootTransform().position;
