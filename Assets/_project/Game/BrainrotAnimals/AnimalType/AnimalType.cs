@@ -2,7 +2,7 @@ namespace ObbyDefender
 {
     public enum AnimalType
     {
-        // Melee
+        // MeleeEntity
         Ballerina,
         DinDinDon,
         Gorillo,

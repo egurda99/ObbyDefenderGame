@@ -2,7 +2,7 @@ using Zenject;
 
 namespace ObbyDefender
 {
-    public interface IEnemy
+    public interface IAnimal
     {
         AnimalType AnimalType { get; }
         void OnSpawned(IMemoryPool rangeEnemyPool);
