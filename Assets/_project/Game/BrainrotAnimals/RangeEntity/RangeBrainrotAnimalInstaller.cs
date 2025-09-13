@@ -22,7 +22,7 @@ namespace ObbyDefender
 
 
         [SerializeField] private CheckTargetAliveMechanic _checkTargetAliveMechanic;
-        [SerializeField] private SetConcrentTargetMechanic _setConcrentTargetMechanic;
+        [SerializeField] private SetGlobalTargetMechanic _setGlobalTargetMechanic;
 
 
         [SerializeField] private LifeMechanic _lifeMechanic;
@@ -61,7 +61,7 @@ namespace ObbyDefender
 
             _checkTargetAliveMechanic.Install(entity);
 
-            _setConcrentTargetMechanic.Install(entity);
+            _setGlobalTargetMechanic.Install(entity);
             //  _destroyEntityMechanic.Install(entity);
 
             Physics.IgnoreLayerCollision(_enemyLayer, _bulletsLayer, true);
@@ -106,7 +106,7 @@ namespace ObbyDefender
             _entity.GetIsTargetAlive().Value = false;
             _entity.GetCharacterController().enabled = true;
 
-            _entity.GetTarget().Value = null;
+            //  _entity.GetTarget().Value = null;
         }
     }
 }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDatabase: {fileID: 11400000, guid: 604aeb4740f516d4e81bbf08b0b8c4b0, type: 2}
   FormulaConfig: {fileID: 11400000, guid: 065a51f94d57be84eaca5eb1f181f9df, type: 2}
-  WaveCount: 100
+  WaveCount: 10

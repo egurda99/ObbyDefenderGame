@@ -102,7 +102,7 @@ namespace ObbyDefender
             {
                 Container.BindMemoryPool<MeleeBrainrotAnimalInstaller, MeleeAnimalPool>()
                     .WithId(prefab.AnimalType)
-                    .WithInitialSize(3)
+                    .WithInitialSize(5)
                     .FromComponentInNewPrefab(prefab)
                     .UnderTransform(_enemyContainer)
                     .AsCached()

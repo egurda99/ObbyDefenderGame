@@ -532,7 +532,7 @@ MonoBehaviour:
     _isShooting: 0
     _canDamagePlayer: 0
   _lifeMechanic:
-    _hitPoints: 5
+    _hitPoints: 500
     _isDead: 0
   _shootReloadMechanic:
     _reloadTime: 0.5

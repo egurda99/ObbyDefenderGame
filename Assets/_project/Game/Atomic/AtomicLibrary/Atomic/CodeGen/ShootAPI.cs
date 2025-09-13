@@ -30,6 +30,7 @@ namespace Atomic.Entities
         public const int WeaponChangerAnimator = 35; // WeaponChangerAnimatorController
         public const int WeaponType = 36; // ReactiveVariable<WeaponType>
         public const int CanDamagePlayer = 68; // ReactiveVariable<bool>
+        public const int GlobalTarget = 72; // ReactiveVariable<Transform>
 
 
         ///Extensions
@@ -320,5 +321,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetCanDamagePlayer(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(CanDamagePlayer, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<Transform> GetGlobalTarget(this IEntity obj) => obj.GetValue<ReactiveVariable<Transform>>(GlobalTarget);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetGlobalTarget(this IEntity obj, out ReactiveVariable<Transform> value) => obj.TryGetValue(GlobalTarget, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddGlobalTarget(this IEntity obj, ReactiveVariable<Transform> value) => obj.AddValue(GlobalTarget, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasGlobalTarget(this IEntity obj) => obj.HasValue(GlobalTarget);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelGlobalTarget(this IEntity obj) => obj.DelValue(GlobalTarget);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetGlobalTarget(this IEntity obj, ReactiveVariable<Transform> value) => obj.SetValue(GlobalTarget, value);
     }
 }

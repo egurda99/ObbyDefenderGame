@@ -6431,7 +6431,7 @@ Transform:
   m_GameObject: {fileID: 1271446619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 55, y: 0, z: -0.8}
+  m_LocalPosition: {x: 51.9, y: 0, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9721,8 +9721,8 @@ MonoBehaviour:
   - {fileID: 1950396008}
   - {fileID: 1271446621}
   _basePosition: {fileID: 879507958}
-  _minSpawnDelay: 1
-  _maxSpawnDelay: 2
+  _minSpawnDelay: 5
+  _maxSpawnDelay: 7
 --- !u!4 &2002565834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6092954086185893848, guid: 131df4631730a81439a16ff40971aa33, type: 3}
@@ -10864,21 +10864,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DinDinDon
       objectReference: {fileID: 0}
-    - target: {fileID: 2710853233608625745, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796149888709055914, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}
-      propertyPath: _setConcrentTargetMechanic._target
-      value: 
-      objectReference: {fileID: 879507958}
     - target: {fileID: 5902583520959608662, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}
       propertyPath: m_LocalPosition.x
       value: -44.33
       objectReference: {fileID: 0}
     - target: {fileID: 5902583520959608662, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5902583520959608662, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10990,17 +10982,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5080853805388603601, guid: c3beccb725edfd64fab0c2a7d48acc5b, type: 3}
-      propertyPath: _setConcrentTargetMechanic._target
-      value: 
-      objectReference: {fileID: 879507958}
     - target: {fileID: 6439718860987454882, guid: c3beccb725edfd64fab0c2a7d48acc5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -44.33
       objectReference: {fileID: 0}
     - target: {fileID: 6439718860987454882, guid: c3beccb725edfd64fab0c2a7d48acc5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6439718860987454882, guid: c3beccb725edfd64fab0c2a7d48acc5b, type: 3}
       propertyPath: m_LocalPosition.z

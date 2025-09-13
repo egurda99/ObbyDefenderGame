@@ -17,7 +17,7 @@ namespace ObbyDefender
         [SerializeField] private AutoMeleeAttackMechanic _autoMeleeAttackMechanic;
         [SerializeField] private MeleeReloadMechanic _meleeReloadMechanic;
         [SerializeField] private CheckTargetAliveMechanic _checkTargetAliveMechanic;
-        [SerializeField] private SetConcrentTargetMechanic _setConcrentTargetMechanic;
+        [SerializeField] private SetGlobalTargetMechanic _setGlobalTargetMechanic;
 
 
         [SerializeField] private LifeMechanic _lifeMechanic;
@@ -38,14 +38,13 @@ namespace ObbyDefender
             _entity = entity;
             entity.AddEnemyTag();
 
-
             _autoMoveToTargetByControllerMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
             _autoMeleeAttackMechanic.Install(entity);
             _meleeReloadMechanic.Install(entity);
             _checkTargetAliveMechanic.Install(entity);
 
-            _setConcrentTargetMechanic.Install(entity);
+            _setGlobalTargetMechanic.Install(entity);
             //  _destroyEntityMechanic.Install(entity);
 
             Physics.IgnoreLayerCollision(_enemyLayer, _bulletsLayer, true);
@@ -90,8 +89,10 @@ namespace ObbyDefender
             _entity.GetIsTargetAlive().Value = false;
             _entity.GetIsAttacking().Value = false;
             _entity.GetCharacterController().enabled = true;
+            Debug.Log("Configured Melee Installer");
 
-            _entity.GetTarget().Value = null;
+
+            //  _entity.GetTarget().Value = null;
         }
     }
 }

@@ -111,12 +111,15 @@ namespace ObbyDefender
         {
             var sceneEntity = enemyGO.GetComponent<SceneEntity>();
             var controller = sceneEntity.GetCharacterController();
+            controller.enabled = false;
 
             enemyGO.transform.position = position;
-            sceneEntity.GetTarget().Value = _basePosition;
 
-            controller.enabled = false;
-            sceneEntity.GetRootTransform().position = position;
+
+            sceneEntity.GetGlobalTarget().Value = _basePosition;
+            var offset = sceneEntity.GetRootTransform().position;
+
+            sceneEntity.GetRootTransform().position = new Vector3(position.x, offset.y, position.z);
             controller.enabled = true;
         }
 

@@ -35,14 +35,3 @@ MonoBehaviour:
       SpeedGrowthPerWave: 1.01
       AttackGrowthPerWave: 1.03
       DifficultyWeight: 1
-  - EnemyId: 6
-    EnemyType: 1
-    Stats:
-      EnemyId: 0
-      BaseHealth: 120
-      BaseSpeed: 4
-      BaseAttackPower: 11
-      HealthGrowthPerWave: 1.05
-      SpeedGrowthPerWave: 1.01
-      AttackGrowthPerWave: 1.03
-      DifficultyWeight: 1.5

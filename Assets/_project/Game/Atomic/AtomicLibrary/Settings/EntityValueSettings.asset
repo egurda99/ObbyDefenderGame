@@ -71,6 +71,9 @@ MonoBehaviour:
     - id: 68
       name: CanDamagePlayer
       type: ReactiveVariable<bool>
+    - id: 72
+      name: GlobalTarget
+      type: ReactiveVariable<Transform>
   - name: Move
     indexes:
     - id: 2
