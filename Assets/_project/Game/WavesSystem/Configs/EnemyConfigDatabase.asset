@@ -15,8 +15,8 @@ MonoBehaviour:
   Enemies:
   - EnemyId: 0
     EnemyType: 0
-    Stats:
-      _baseHealth: 20
+    BaseBalanceStats:
+      _baseHealth: 15
       _baseSpeed: 5
       _baseAttackPower: 5
       _healthGrowthPerWave: 1.05
@@ -25,21 +25,21 @@ MonoBehaviour:
       _difficultyWeight: 1
   - EnemyId: 6
     EnemyType: 1
-    Stats:
-      _baseHealth: 20
-      _baseSpeed: 10
-      _baseAttackPower: 10
-      _healthGrowthPerWave: 1.05
-      _speedGrowthPerWave: 1.01
-      _attackGrowthPerWave: 1.05
-      _difficultyWeight: 2
-  - EnemyId: 1
-    EnemyType: 0
-    Stats:
-      _baseHealth: 16
-      _baseSpeed: 4
-      _baseAttackPower: 4
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 5
+      _baseAttackPower: 5
       _healthGrowthPerWave: 1.05
       _speedGrowthPerWave: 1.01
       _attackGrowthPerWave: 1.05
       _difficultyWeight: 1
+  - EnemyId: 1
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 5
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 2

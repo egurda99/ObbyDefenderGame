@@ -19,13 +19,13 @@ namespace ObbyDefender
             [TableColumnWidth(100, Resizable = false)] [LabelText("Òèï")]
             public AnimalAttackType EnemyType;
 
-            [InlineProperty] [HideLabel] public EnemyStats Stats;
+            [InlineProperty] [HideLabel] public EnemyBaseBalanceStats BaseBalanceStats;
         }
 
-        public EnemyStats GetStats(AnimalType id)
+        public EnemyBaseBalanceStats GetStats(AnimalType id)
         {
             var config = Enemies.Find(e => e.EnemyId == id);
-            return config?.Stats;
+            return config?.BaseBalanceStats;
         }
     }
 }

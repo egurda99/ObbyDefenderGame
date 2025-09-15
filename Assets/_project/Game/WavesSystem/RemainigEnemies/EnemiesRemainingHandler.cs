@@ -31,6 +31,7 @@ namespace ObbyDefender
             if (_enemiesRemaining <= 0)
             {
                 Debug.Log("<color=red>Enemies ended. Game ENDED</color>");
+                Debug.Log($"<color=orange>reward is {_wavesSystem.GetCurrentWave().Reward}</color>");
             }
         }
 

@@ -429,6 +429,7 @@ MonoBehaviour:
   _autoShootToTargetMechanic:
     _firePoint: {fileID: 4085110245594637495}
     _bulletPrefab: {fileID: 4396696182697349936, guid: c71d8435fe1c55547a7818d2934bf8a9, type: 3}
+    _attackDamage: 5
     _isShooting: 0
     _canDamagePlayer: 0
   _lifeMechanic:

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ObbyDefender
 {
-    public class WaveBalancer
+    public sealed class WaveBalancer
     {
         private readonly EnemyConfigDatabase _enemyDatabase;
         private readonly BalanceFormulaConfig _formula;
@@ -29,7 +29,7 @@ namespace ObbyDefender
 
         private Wave GenerateWave(int waveIndex)
         {
-            var wave = new Wave { WaveIndex = waveIndex };
+            var enemies = new List<EnemyEntry>();
 
             // 1. Считаем сколько врагов в этой волне
             var enemyCount = Mathf.RoundToInt(
@@ -41,66 +41,53 @@ namespace ObbyDefender
             var rangeCount = enemyCount - meleeCount;
 
             // 3. Выбираем врагов случайно из базы
-            var meleeEnemies = _enemyDatabase.Enemies.FindAll(e => e.EnemyType == AnimalAttackType.Melee);
-            var rangeEnemies = _enemyDatabase.Enemies.FindAll(e => e.EnemyType == AnimalAttackType.Range);
+            var meleeEnemies = _enemyDatabase.Enemies
+                .FindAll(e => e.EnemyType == AnimalAttackType.Melee);
+            var rangeEnemies = _enemyDatabase.Enemies
+                .FindAll(e => e.EnemyType == AnimalAttackType.Range);
 
             // Добавляем ближников
-            AddEnemiesToWave(wave, meleeEnemies, meleeCount, waveIndex);
+            AddEnemiesToWave(enemies, meleeEnemies, meleeCount, waveIndex);
             // Добавляем дальников
-            AddEnemiesToWave(wave, rangeEnemies, rangeCount, waveIndex);
+            AddEnemiesToWave(enemies, rangeEnemies, rangeCount, waveIndex);
 
             // 4. Подсчёт сложности
-            wave.TotalDifficulty = CalculateWaveDifficulty(wave);
-            wave.Reward = Mathf.RoundToInt(wave.TotalDifficulty * _formula.RewardFactor);
+            var totalDifficulty = CalculateWaveDifficulty(enemies);
+            var reward = Mathf.RoundToInt(totalDifficulty * _formula.RewardFactor);
 
-            return wave;
+            // 5. Возвращаем собранную волну
+            return new Wave(waveIndex, totalDifficulty, reward, enemies);
         }
 
-        private void AddEnemiesToWave(Wave wave, List<EnemyConfigDatabase.EnemyConfig> candidates, int count,
+        private void AddEnemiesToWave(List<EnemyEntry> targetList, List<EnemyConfigDatabase.EnemyConfig> candidates,
+            int count,
             int waveIndex)
         {
-            if (candidates.Count == 0 || count <= 0)
-                return;
-
             for (var i = 0; i < count; i++)
             {
-                var config = candidates[Random.Range(0, candidates.Count)];
-
-                var scaledStats = ScaleStats(config.Stats, waveIndex);
-
-                wave.Enemies.Add(new EnemyEntry
-                {
-                    EnemyId = config.EnemyId,
-                    Count = 1, // один враг
-                    Stats = scaledStats
-                });
+                var enemy = candidates[Random.Range(0, candidates.Count)];
+                var scaledStats = ScaleStats(enemy.BaseBalanceStats, waveIndex);
+                targetList.Add(new EnemyEntry(enemy.EnemyId, 1, scaledStats));
             }
         }
 
-        private EnemyStats ScaleStats(EnemyStats baseStats, int waveIndex)
+        private EnemyRealStats ScaleStats(EnemyBaseBalanceStats baseBaseBalanceStats, int waveIndex)
         {
-            // return new EnemyStats
-            // {
-            //     //EnemyId = baseStats.EnemyId,
-            //     EnemyId = baseStats.SetAnimalType(baseStats.EnemyId),
-            //     BaseHealth = baseStats.BaseHealth * Mathf.Pow(baseStats.HealthGrowthPerWave, waveIndex),
-            //     BaseSpeed = baseStats.BaseSpeed * Mathf.Pow(baseStats.SpeedGrowthPerWave, waveIndex),
-            //     BaseAttackPower = baseStats.BaseAttackPower * Mathf.Pow(baseStats.AttackGrowthPerWave, waveIndex),
-            //     DifficultyWeight = baseStats.DifficultyWeight
-            // };
-
-            return new EnemyStats(baseStats.EnemyId,
-                baseStats.DifficultyWeight,
-                baseStats.BaseHealth * Mathf.Pow(baseStats.HealthGrowthPerWave, waveIndex),
-                baseStats.BaseSpeed * Mathf.Pow(baseStats.SpeedGrowthPerWave, waveIndex),
-                baseStats.BaseAttackPower * Mathf.Pow(baseStats.AttackGrowthPerWave, waveIndex));
+            var scaled = new EnemyRealStats(
+                baseBaseBalanceStats.EnemyId,
+                baseBaseBalanceStats.DifficultyWeight,
+                baseBaseBalanceStats.BaseHealth * Mathf.Pow(baseBaseBalanceStats.HealthGrowthPerWave, waveIndex),
+                baseBaseBalanceStats.BaseSpeed * Mathf.Pow(baseBaseBalanceStats.SpeedGrowthPerWave, waveIndex),
+                baseBaseBalanceStats.BaseAttackPower * Mathf.Pow(baseBaseBalanceStats.AttackGrowthPerWave, waveIndex)
+            );
+            return scaled;
         }
 
-        private float CalculateWaveDifficulty(Wave wave)
+        private float CalculateWaveDifficulty(List<EnemyEntry> wave)
         {
             var difficulty = 0f;
 
-            foreach (var enemy in wave.Enemies)
+            foreach (var enemy in wave)
             {
                 difficulty += CalculateEnemyDifficulty(enemy.Stats) * enemy.Count;
             }
@@ -108,13 +95,13 @@ namespace ObbyDefender
             return difficulty;
         }
 
-        private float CalculateEnemyDifficulty(EnemyStats stats)
+        private float CalculateEnemyDifficulty(EnemyRealStats realStats)
         {
             return
-                stats.BaseHealth * _formula.HealthWeight +
-                stats.BaseAttackPower * _formula.AttackWeight +
-                stats.BaseSpeed * _formula.SpeedWeight
-                                * stats.DifficultyWeight;
+                realStats.CurrentHealth * _formula.HealthWeight +
+                realStats.CurrentAttackPower * _formula.AttackWeight +
+                realStats.CurrentSpeed * _formula.SpeedWeight
+                                       * realStats.DifficultyWeight;
         }
     }
 }

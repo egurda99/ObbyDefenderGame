@@ -82,8 +82,7 @@ namespace ObbyDefender
             OnWaveSpawnEnded?.Invoke();
         }
 
-        // ? Спавн конкретного врага из волны
-        private void SpawnEnemy(AnimalType enemyType, EnemyStats entryStats)
+        private void SpawnEnemy(AnimalType enemyType, EnemyRealStats entryRealStats)
         {
             var zone = GetRandomFreeZone();
             if (zone == null)
@@ -106,12 +105,11 @@ namespace ObbyDefender
             if (enemyGO != null)
             {
                 var sceneEntity = enemyGO.GetComponent<SceneEntity>();
-                ConfigureEnemy(zone.SpawnPoint.position, sceneEntity, entryStats);
+                ConfigureEnemy(zone.SpawnPoint.position, sceneEntity, entryRealStats);
                 OnEnemySpawned?.Invoke(sceneEntity);
             }
         }
 
-        // ? Выбираем случайную свободную зону
         private AnimalSpawnZone GetRandomFreeZone()
         {
             var freeZones = _zones.FindAll(z => !z.IsOccupied);
@@ -120,13 +118,13 @@ namespace ObbyDefender
             return freeZones[Random.Range(0, freeZones.Count)];
         }
 
-        private void ConfigureEnemy(Vector3 position, SceneEntity sceneEntity, EnemyStats entryStats)
+        private void ConfigureEnemy(Vector3 position, SceneEntity sceneEntity, EnemyRealStats entryRealStats)
         {
             var controller = sceneEntity.GetCharacterController();
 
-            sceneEntity.GetHitPoints().Value = entryStats.CurrentHealth;
-            sceneEntity.GetMoveSpeed().Value = entryStats.CurrentSpeed;
-            sceneEntity.GetAttackDamage().Value = entryStats.CurrentAttackPower;
+            sceneEntity.GetHitPoints().Value = entryRealStats.CurrentHealth;
+            sceneEntity.GetMoveSpeed().Value = entryRealStats.CurrentSpeed;
+            sceneEntity.GetAttackDamage().Value = entryRealStats.CurrentAttackPower;
 
             controller.enabled = false;
 
