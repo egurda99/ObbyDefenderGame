@@ -261,3 +261,8 @@ MonoBehaviour:
     - id: 71
       name: IsFXEnded
       type: ReactiveVariable<bool>
+  - name: Meta
+    indexes:
+    - id: 73
+      name: PointsValue
+      type: ReactiveVariable<int>

@@ -355,7 +355,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2215146122877644278}
-  - {fileID: 1656831396979375921}
+  - {fileID: 1595667023841219665}
   - {fileID: 4602632200313313864}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade8290347263a646bd3833113fab809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemiesSensor: {fileID: 6834456717887966127}
+  _coinsSensor: {fileID: 4971785745262969070}
   _heroGunsView:
     _weapons:
     - Type: 1
@@ -439,6 +441,60 @@ MonoBehaviour:
     _reloadTime: 1
   _stunMechanic:
     _stunTime: 1
+--- !u!1 &4138785503959292448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6668181851603827693}
+  - component: {fileID: 4971785745262969070}
+  m_Layer: 3
+  m_Name: CoinsSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6668181851603827693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138785503959292448}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1595667023841219665}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4971785745262969070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138785503959292448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24a9520ba7781348b0942e1696315fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnStart: 1
+  minScanPeriod: 1
+  maxScanPeriod: 2
+  bufferCapacity: 64
+  centerPoint: {fileID: 2196337263955371591}
+  radius: 11.84
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  triggerInteraction: 0
 --- !u!1 &4977767405020215337
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +539,7 @@ GameObject:
   - component: {fileID: 1656831396979375921}
   - component: {fileID: 6834456717887966127}
   m_Layer: 3
-  m_Name: Sensor
+  m_Name: EnemySensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,12 +553,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7144137975203151960}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2196337263955371591}
+  m_Father: {fileID: 1595667023841219665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6834456717887966127
 MonoBehaviour:
@@ -526,6 +582,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   triggerInteraction: 0
+--- !u!1 &8368765059802204490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595667023841219665}
+  m_Layer: 3
+  m_Name: '[Sensors]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595667023841219665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368765059802204490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1656831396979375921}
+  - {fileID: 6668181851603827693}
+  m_Father: {fileID: 2196337263955371591}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &973158292036829867
 PrefabInstance:
   m_ObjectHideFlags: 0

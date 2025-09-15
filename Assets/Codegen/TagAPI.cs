@@ -12,6 +12,7 @@ namespace Atomic.Entities
         ///Keys
         public const int Player = 1;
         public const int Enemy = 2;
+        public const int HeroTeam = 3;
 
 
         ///Extensions
@@ -24,5 +25,10 @@ namespace Atomic.Entities
         public static bool NotEnemyTag(this IEntity obj) => !obj.HasTag(Enemy);
         public static bool AddEnemyTag(this IEntity obj) => obj.AddTag(Enemy);
         public static bool DelEnemyTag(this IEntity obj) => obj.DelTag(Enemy);
+
+        public static bool HasHeroTeamTag(this IEntity obj) => obj.HasTag(HeroTeam);
+        public static bool NotHeroTeamTag(this IEntity obj) => !obj.HasTag(HeroTeam);
+        public static bool AddHeroTeamTag(this IEntity obj) => obj.AddTag(HeroTeam);
+        public static bool DelHeroTeamTag(this IEntity obj) => obj.DelTag(HeroTeam);
     }
 }

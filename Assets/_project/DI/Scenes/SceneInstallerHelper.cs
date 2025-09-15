@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Atomic.Entities;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -36,6 +37,39 @@ namespace ObbyDefender.DI
         [SerializeField] private Transform _baseSpawnPoint;
         [SerializeField] private Transform _baseContainer;
 
+
+        [Space] [Header("Animals")] [SerializeField]
+        private Transform _enemyContainer;
+
+        [Header("Spawn and Waves systems")] [Header("Настройки")] [SerializeField]
+        private EnemyConfigDatabase _enemyConfigDatabase;
+
+        [SerializeField] private BalanceFormulaConfig _formulaConfig;
+        [SerializeField] private int _waveCount;
+        [SerializeField] private List<AnimalSpawnZone> _spawnZones;
+        [SerializeField] private Transform _basePosition;
+        [SerializeField] private float _minSpawnDelay;
+        [SerializeField] private float _maxSpawnDelay;
+
+        [SerializeField] private ValueView _remainingEnemiesView;
+
+        public Transform EnemyContainer => _enemyContainer;
+
+        public EnemyConfigDatabase EnemyConfigDatabase => _enemyConfigDatabase;
+
+        public BalanceFormulaConfig FormulaConfig => _formulaConfig;
+
+        public int WaveCount => _waveCount;
+
+        public List<AnimalSpawnZone> SpawnZones => _spawnZones;
+
+        public Transform BasePosition => _basePosition;
+
+        public float MinSpawnDelay => _minSpawnDelay;
+
+        public float MaxSpawnDelay => _maxSpawnDelay;
+
+        public ValueView RemainingEnemiesView => _remainingEnemiesView;
 
         public Transform BasePrefab => _basePrefab;
 

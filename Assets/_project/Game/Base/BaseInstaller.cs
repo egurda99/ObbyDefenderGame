@@ -9,7 +9,7 @@ namespace ObbyDefender
 
         public override void Install(IEntity entity)
         {
-            entity.AddPlayerTag();
+            entity.AddHeroTeamTag();
 
             entity.AddRootTransform(transform);
             _lifeMechanic.Install(entity);

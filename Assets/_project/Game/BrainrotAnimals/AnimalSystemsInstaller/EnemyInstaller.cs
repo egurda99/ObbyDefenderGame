@@ -6,11 +6,11 @@ namespace ObbyDefender
 {
     public sealed class EnemyInstaller : MonoInstaller
     {
-        [Header("MeleeEntity animals")] [SerializeField]
-        private List<MeleeBrainrotAnimalInstaller> _meleePrefabs;
-
-        [Header("Range animals")] [SerializeField]
-        private List<RangeBrainrotAnimalInstaller> _rangePrefabs;
+        // [Header("MeleeEntity animals")] [SerializeField]
+        // private List<MeleeBrainrotAnimalInstaller> _meleePrefabs;
+        //
+        // [Header("Range animals")] [SerializeField]
+        // private List<RangeBrainrotAnimalInstaller> _rangePrefabs;
 
         [SerializeField] private Transform _enemyContainer;
 
@@ -29,32 +29,40 @@ namespace ObbyDefender
 
         public override void InstallBindings()
         {
-            BindMeleePool();
+            BindEnemyConfigDatabase();
 
-            BindRangePool();
+            BindAnimalPools();
+            BindAnimalFactories();
 
-            BindMeleeFactory();
+            BindWavesModule();
+        }
 
-            BindRangeFactory();
+        private void BindEnemyConfigDatabase()
+        {
+            Container.Bind<EnemyConfigDatabase>().FromInstance(_enemyConfigDatabase).AsSingle();
+        }
 
+        private void BindWavesModule()
+        {
+            var meleeAttackAnimals = new List<AnimalType>();
+            foreach (var e in _enemyConfigDatabase.Enemies)
+            {
+                if (e.EnemyType == AnimalAttackType.Melee)
+                    meleeAttackAnimals.Add(e.EnemyId);
+            }
+
+            var rangeAttackAnimals = new List<AnimalType>();
+            foreach (var e in _enemyConfigDatabase.Enemies)
+            {
+                if (e.EnemyType == AnimalAttackType.Range)
+                    rangeAttackAnimals.Add(e.EnemyId);
+            }
 
             var animalTypes = new AnimalTypesHolder
             {
-                MeleeAttackAnimals = new List<AnimalType>
-                {
-                    AnimalType.Ballerina,
-                    AnimalType.DinDinDon,
-                    AnimalType.Gorillo,
-                    AnimalType.Mateo,
-                    AnimalType.Sahur,
-                    AnimalType.Capuchino
-                },
-                RangeAttackAnimals = new List<AnimalType>
-                {
-                    AnimalType.Bombardini,
-                    AnimalType.Bombardiro,
-                    AnimalType.Orcaleo
-                }
+                MeleeAttackAnimals = meleeAttackAnimals,
+
+                RangeAttackAnimals = rangeAttackAnimals
             };
 
 
@@ -74,45 +82,43 @@ namespace ObbyDefender
             Container.BindInterfacesTo<EnemiesRemainingAdapter>().AsSingle().WithArguments(_remainingEnemiesView);
         }
 
-        private void BindRangeFactory()
+        private void BindAnimalFactories()
         {
-            Container.Bind<RangeAnimalFactory>()
-                .AsSingle()
-                .WithArguments(_rangePrefabs);
+            Container.Bind<MeleeAnimalFactory>().AsSingle();
+            Container.Bind<RangeAnimalFactory>().AsSingle();
         }
 
-        private void BindMeleeFactory()
+        private void BindAnimalPools()
         {
-            Container.Bind<MeleeAnimalFactory>()
-                .AsSingle()
-                .WithArguments(_meleePrefabs);
-        }
-
-        private void BindRangePool()
-        {
-            foreach (var prefab in _rangePrefabs)
+            foreach (var config in _enemyConfigDatabase.Enemies)
             {
-                Container.BindMemoryPool<RangeBrainrotAnimalInstaller, RangeAnimalPool>()
-                    .WithId(prefab.AnimalType)
-                    .WithInitialSize(3)
-                    .FromComponentInNewPrefab(prefab)
-                    .UnderTransform(_enemyContainer)
-                    .AsCached()
-                    .NonLazy();
-            }
-        }
+                if (config.Prefab == null)
+                {
+                    Debug.LogError($"Prefab not set for {config.EnemyId} in EnemyConfigDatabase!");
+                    continue;
+                }
 
-        private void BindMeleePool()
-        {
-            foreach (var prefab in _meleePrefabs)
-            {
-                Container.BindMemoryPool<MeleeBrainrotAnimalInstaller, MeleeAnimalPool>()
-                    .WithId(prefab.AnimalType)
-                    .WithInitialSize(5)
-                    .FromComponentInNewPrefab(prefab)
-                    .UnderTransform(_enemyContainer)
-                    .AsCached()
-                    .NonLazy();
+                if (config.EnemyType == AnimalAttackType.Melee)
+                {
+                    Container.BindMemoryPool<MeleeBrainrotAnimalInstaller, MeleeAnimalPool>()
+                        .WithId(config.EnemyId)
+                        .WithInitialSize(5)
+                        .FromComponentInNewPrefab(config.Prefab)
+                        .UnderTransform(_enemyContainer)
+                        .AsCached()
+                        .NonLazy();
+                }
+
+                else if (config.EnemyType == AnimalAttackType.Range)
+                {
+                    Container.BindMemoryPool<RangeBrainrotAnimalInstaller, RangeAnimalPool>()
+                        .WithId(config.EnemyId)
+                        .WithInitialSize(3)
+                        .FromComponentInNewPrefab(config.Prefab)
+                        .UnderTransform(_enemyContainer)
+                        .AsCached()
+                        .NonLazy();
+                }
             }
         }
     }

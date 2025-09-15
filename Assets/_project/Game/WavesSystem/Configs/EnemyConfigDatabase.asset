@@ -23,6 +23,7 @@ MonoBehaviour:
       _speedGrowthPerWave: 1.01
       _attackGrowthPerWave: 1.05
       _difficultyWeight: 1
+    Prefab: {fileID: 5037446951036679413, guid: c3beccb725edfd64fab0c2a7d48acc5b, type: 3}
   - EnemyId: 6
     EnemyType: 1
     BaseBalanceStats:
@@ -33,6 +34,7 @@ MonoBehaviour:
       _speedGrowthPerWave: 1.01
       _attackGrowthPerWave: 1.05
       _difficultyWeight: 1
+    Prefab: {fileID: 1683876115824334090, guid: 7e2dc6435a126124597f994199c47a08, type: 3}
   - EnemyId: 1
     EnemyType: 0
     BaseBalanceStats:
@@ -43,3 +45,4 @@ MonoBehaviour:
       _speedGrowthPerWave: 1.01
       _attackGrowthPerWave: 1.05
       _difficultyWeight: 2
+    Prefab: {fileID: 2710853233608625745, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}

@@ -39,7 +39,7 @@ namespace Elementary
             targetVar.Value = nearest;
         }
 
-        private static bool IsAliveTarget(Transform tr)
+        private bool IsAliveTarget(Transform tr)
         {
             return (tr.TryGetComponent(out SceneEntity entity) && !entity.GetIsDead().Value) ||
                    (tr.TryGetComponent(out SceneEntityProxy proxy) && !proxy.GetIsDead().Value);

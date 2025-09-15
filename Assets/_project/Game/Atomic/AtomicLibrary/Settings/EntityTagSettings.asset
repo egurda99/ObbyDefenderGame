@@ -20,3 +20,5 @@ MonoBehaviour:
     type: Player
   - id: 2
     type: Enemy
+  - id: 3
+    type: HeroTeam

@@ -30,7 +30,7 @@ namespace ObbyDefender
 
         public override void Install(IEntity entity)
         {
-            entity.AddPlayerTag();
+            entity.AddHeroTeamTag();
             _autoShootToTargetMechanic.Install(entity);
             _rotateToTargetMechanic.Install(entity);
 

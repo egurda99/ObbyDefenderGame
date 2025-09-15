@@ -44,8 +44,6 @@ namespace ObbyDefender
             _activeEnemies[index].Unsubscribe();
             _activeEnemies.RemoveAt(index);
             OnActiveEnemyDead?.Invoke();
-
-            Debug.Log($"Enemy {enemy.name} removed from ActiveEnemiesProvider");
         }
 
         public void Dispose()

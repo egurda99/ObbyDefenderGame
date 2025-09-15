@@ -20,12 +20,15 @@ namespace ObbyDefender
             public AnimalAttackType EnemyType;
 
             [InlineProperty] [HideLabel] public EnemyBaseBalanceStats BaseBalanceStats;
+
+            [Header("Prefab")] [PreviewField] [HideLabel]
+            public GameObject Prefab;
         }
 
-        public EnemyBaseBalanceStats GetStats(AnimalType id)
+        public GameObject GetPrefab(AnimalType id)
         {
             var config = Enemies.Find(e => e.EnemyId == id);
-            return config?.BaseBalanceStats;
+            return config?.Prefab;
         }
     }
 }
