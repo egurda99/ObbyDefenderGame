@@ -17,7 +17,10 @@ namespace ObbyDefender
         private readonly float _minSpawnDelay;
         private readonly float _maxSpawnDelay;
         private readonly AnimalTypesHolder _animalTypesHolder;
-        private readonly WaveSystem _waveSystem;
+        private readonly WavesSystem _wavesSystem;
+
+        public event Action<SceneEntity> OnEnemySpawned;
+        public event Action OnWaveSpawnEnded;
 
         public AnimalSpawner(
             List<AnimalSpawnZone> zones,
@@ -25,11 +28,11 @@ namespace ObbyDefender
             MeleeAnimalFactory meleeFactory,
             RangeAnimalFactory rangeFactory,
             AnimalTypesHolder animalTypesHolder,
-            WaveSystem waveSystem,
+            WavesSystem wavesSystem,
             float minSpawnDelay,
             float maxSpawnDelay)
         {
-            _waveSystem = waveSystem;
+            _wavesSystem = wavesSystem;
             _animalTypesHolder = animalTypesHolder;
             _zones = zones;
             _basePosition = basePosition;
@@ -39,7 +42,12 @@ namespace ObbyDefender
             _maxSpawnDelay = maxSpawnDelay;
         }
 
-        // ? Асинхронный спавн волны
+
+        public void OnStartGame()
+        {
+            SpawnWaveAsync(_wavesSystem.GetCurrentWave()).Forget();
+        }
+
         private async UniTask SpawnWaveAsync(Wave wave)
         {
             if (wave == null)
@@ -64,16 +72,18 @@ namespace ObbyDefender
 
                 for (var i = 0; i < entry.Count; i++)
                 {
-                    SpawnEnemy(entry.EnemyId);
+                    SpawnEnemy(entry.EnemyId, entry.Stats);
 
                     var delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
                     await UniTask.Delay(TimeSpan.FromSeconds(delay));
                 }
             }
+
+            OnWaveSpawnEnded?.Invoke();
         }
 
         // ? Спавн конкретного врага из волны
-        private void SpawnEnemy(AnimalType enemyType)
+        private void SpawnEnemy(AnimalType enemyType, EnemyStats entryStats)
         {
             var zone = GetRandomFreeZone();
             if (zone == null)
@@ -84,7 +94,6 @@ namespace ObbyDefender
 
             GameObject enemyGO = null;
 
-            // Определяем фабрику по типу врага
             if (_animalTypesHolder.MeleeAttackAnimals.Contains(enemyType))
             {
                 enemyGO = _meleeFactory.Create(enemyType)?.gameObject;
@@ -95,7 +104,11 @@ namespace ObbyDefender
             }
 
             if (enemyGO != null)
-                ConfigureEnemy(zone.SpawnPoint.position, enemyGO);
+            {
+                var sceneEntity = enemyGO.GetComponent<SceneEntity>();
+                ConfigureEnemy(zone.SpawnPoint.position, sceneEntity, entryStats);
+                OnEnemySpawned?.Invoke(sceneEntity);
+            }
         }
 
         // ? Выбираем случайную свободную зону
@@ -107,13 +120,17 @@ namespace ObbyDefender
             return freeZones[Random.Range(0, freeZones.Count)];
         }
 
-        private void ConfigureEnemy(Vector3 position, GameObject enemyGO)
+        private void ConfigureEnemy(Vector3 position, SceneEntity sceneEntity, EnemyStats entryStats)
         {
-            var sceneEntity = enemyGO.GetComponent<SceneEntity>();
             var controller = sceneEntity.GetCharacterController();
+
+            sceneEntity.GetHitPoints().Value = entryStats.CurrentHealth;
+            sceneEntity.GetMoveSpeed().Value = entryStats.CurrentSpeed;
+            sceneEntity.GetAttackDamage().Value = entryStats.CurrentAttackPower;
+
             controller.enabled = false;
 
-            enemyGO.transform.position = position;
+            sceneEntity.transform.position = position;
 
 
             sceneEntity.GetGlobalTarget().Value = _basePosition;
@@ -121,11 +138,6 @@ namespace ObbyDefender
 
             sceneEntity.GetRootTransform().position = new Vector3(position.x, offset.y, position.z);
             controller.enabled = true;
-        }
-
-        public void OnStartGame()
-        {
-            SpawnWaveAsync(_waveSystem.GetCurrentWave()).Forget();
         }
     }
 }

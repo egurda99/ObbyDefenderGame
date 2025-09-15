@@ -9,6 +9,8 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
 {
     [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private float _attackDamage;
+
 
     [SerializeField] private bool _isShooting;
     [SerializeField] private bool _canDamagePlayer;
@@ -26,6 +28,7 @@ public sealed class AutoShootToTargetMechanic : IEntityInstaller
 
         entity.AddShootEvent(new BaseEvent());
         entity.AddShootAction(new BaseEvent());
+        entity.AddAttackDamage(_attackDamage);
         entity.AddShootRequest(new BaseEvent());
         entity.AddChangeTargetAction(new BaseEvent<Transform>());
 

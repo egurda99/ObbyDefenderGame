@@ -18,6 +18,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
     private readonly BulletFactory _bulletFactory;
     private ReactiveVariable<WeaponType> _weaponType;
     private readonly bool _canDamagePlayer;
+    private ReactiveVariable<float> _attackDamage;
 
     public AutoShootToTargetBehaviour(BulletFactory bulletFactory, bool canDamagePlayer)
     {
@@ -31,6 +32,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
         _shootEvent = entity.GetShootEvent();
         _shootAction = entity.GetShootAction();
         _shootRequested = entity.GetShootRequest();
+        _attackDamage = entity.GetAttackDamage();
 
 
         _firePoint = entity.GetFirePoint();
@@ -56,6 +58,7 @@ public sealed class AutoShootToTargetBehaviour : IEntityInit, IEntityUpdate, IEn
 
 
         var targetPosition = targetVar.Value.position;
+        bulletEntity.GetAttackDamage().Value = _attackDamage.Value;
         bulletEntity.GetRootTransform().position = _firePoint.Value.position;
         bulletEntity.GetCanDamagePlayer().Value = _canDamagePlayer;
 

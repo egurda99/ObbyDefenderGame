@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f379d2adaa74c55bd1b802a4ba593b8, type: 3}
+  m_Name: EnemyConfigDatabase
+  m_EditorClassIdentifier: 
+  Enemies:
+  - EnemyId: 0
+    EnemyType: 0
+    Stats:
+      _baseHealth: 20
+      _baseSpeed: 5
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+  - EnemyId: 6
+    EnemyType: 1
+    Stats:
+      _baseHealth: 20
+      _baseSpeed: 10
+      _baseAttackPower: 10
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 2
+  - EnemyId: 1
+    EnemyType: 0
+    Stats:
+      _baseHealth: 16
+      _baseSpeed: 4
+      _baseAttackPower: 4
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1

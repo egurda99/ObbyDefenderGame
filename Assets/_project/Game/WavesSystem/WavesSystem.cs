@@ -3,19 +3,18 @@ using UnityEngine;
 
 namespace ObbyDefender
 {
-    public sealed class WaveSystem
+    public sealed class WavesSystem
     {
         private readonly List<Wave> _waves;
 
         public int CurrentWaveIndex { get; private set; }
 
-        public WaveSystem(List<Wave> waves)
+        public WavesSystem(List<Wave> waves)
         {
             _waves = waves;
             CurrentWaveIndex = 1;
         }
 
-        // ? Получить текущую волну
         public Wave GetCurrentWave()
         {
             if (_waves == null || _waves.Count == 0)
@@ -34,14 +33,12 @@ namespace ObbyDefender
             return _waves[CurrentWaveIndex];
         }
 
-        // ? Переход к следующей волне
         public void MoveToNextWave()
         {
-            if (CurrentWaveIndex < _waves.Count - 1)
+            if (HasNextWave())
                 CurrentWaveIndex++;
         }
 
-        // ? Проверка, есть ли следующая волна
         public bool HasNextWave()
         {
             return CurrentWaveIndex < _waves.Count - 1;

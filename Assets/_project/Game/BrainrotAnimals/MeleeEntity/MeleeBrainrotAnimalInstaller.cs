@@ -25,11 +25,13 @@ namespace ObbyDefender
         // [SerializeField] private DestroyEntityMechanic _destroyEntityMechanic;
         [SerializeField] private SwitchOffCharacterControllerMechanic _switchOffCharacterControllerMechanic;
         [SerializeField] private ReturnAnimalToPoolMechanic _returnAnimalToPoolMechanic;
-
+        [SerializeField] private int _enemyLayer = 6;
+        [SerializeField] private int _bulletsLayer = 7;
 
         private NearestAliveTargetObserver _nearestAliveTargetObserver;
-        private readonly int _enemyLayer = 6;
-        private readonly int _bulletsLayer = 7;
+
+        // private readonly int _enemyLayer = 6;
+        // private readonly int _bulletsLayer = 7;
         private IMemoryPool _pool;
         private IEntity _entity;
 
@@ -85,14 +87,9 @@ namespace ObbyDefender
             _entity.GetBehaviour<ReturnAnimalToPoolBehaviour>().SetPool(_pool);
             _colliderDetectionOverlapSphere.Play();
             _entity.GetIsDead().Value = false;
-            _entity.GetHitPoints().Value = 40f;
             _entity.GetIsTargetAlive().Value = false;
             _entity.GetIsAttacking().Value = false;
             _entity.GetCharacterController().enabled = true;
-            Debug.Log("Configured Melee Installer");
-
-
-            //  _entity.GetTarget().Value = null;
         }
     }
 }

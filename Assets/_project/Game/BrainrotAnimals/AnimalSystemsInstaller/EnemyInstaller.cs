@@ -24,6 +24,8 @@ namespace ObbyDefender
         [SerializeField] private float _minSpawnDelay;
         [SerializeField] private float _maxSpawnDelay;
 
+        [SerializeField] private ValueView _remainingEnemiesView;
+
 
         public override void InstallBindings()
         {
@@ -55,17 +57,21 @@ namespace ObbyDefender
                 }
             };
 
-            //Container.Bind<WaveBalancer>().AsSingle().WithArguments(_formulaConfig, _enemyConfigDatabase);
+
             var balancer = new WaveBalancer(_enemyConfigDatabase, _formulaConfig);
 
-            var configurator = new WaveConfigurator(_waveCount, balancer);
+            var configurator = new WavesGenerator(_waveCount, balancer);
             configurator.Generate();
 
-            Container.Bind<WaveSystem>().AsSingle().WithArguments(configurator.Waves);
+            Container.Bind<WavesSystem>().AsSingle().WithArguments(configurator.Waves);
 
             Container.BindInterfacesAndSelfTo<AnimalSpawner>().AsSingle()
                 .WithArguments(_spawnZones, _basePosition, _minSpawnDelay, _maxSpawnDelay, animalTypes);
-            //Container.Bind<WaveConfigurator>().AsSingle().WithArguments(_waveCount);
+
+            Container.BindInterfacesAndSelfTo<ActiveEnemiesProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemiesRemainingHandler>().AsSingle();
+
+            Container.BindInterfacesTo<EnemiesRemainingAdapter>().AsSingle().WithArguments(_remainingEnemiesView);
         }
 
         private void BindRangeFactory()

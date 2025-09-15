@@ -422,6 +422,12 @@ MonoBehaviour:
   _lifeMechanic:
     _hitPoints: 35
     _isDead: 0
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _bulletsLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &2879463499398315296
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,14 +12,14 @@ namespace ObbyDefender
 
         [Header("Генератор")] public int WaveCount = 10;
 
-        private WaveConfigurator _configurator;
+        private WavesGenerator _configurator;
         private WaveBalancer _balancer;
 
         [Button("Generate Waves")]
         private void Generate()
         {
             _balancer ??= new WaveBalancer(EnemyDatabase, FormulaConfig);
-            _configurator = new WaveConfigurator(WaveCount);
+            _configurator = new WavesGenerator(WaveCount);
             _configurator.Generate(_balancer);
         }
 

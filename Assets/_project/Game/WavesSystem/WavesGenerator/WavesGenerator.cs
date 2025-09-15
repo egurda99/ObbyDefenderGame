@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace ObbyDefender
 {
-    public sealed class WaveConfigurator
+    public sealed class WavesGenerator
     {
         private readonly int _waveCount;
         private List<Wave> _waves = new();
@@ -12,12 +12,12 @@ namespace ObbyDefender
 
         public List<Wave> Waves => _waves;
 
-        public WaveConfigurator(int waveCount)
+        public WavesGenerator(int waveCount)
         {
             _waveCount = waveCount;
         }
 
-        public WaveConfigurator(int waveCount, WaveBalancer waveBalancer)
+        public WavesGenerator(int waveCount, WaveBalancer waveBalancer)
         {
             _waveBalancer = waveBalancer;
             _waveCount = waveCount;

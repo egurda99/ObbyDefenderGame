@@ -5,7 +5,7 @@ namespace ObbyDefender
     public interface IAnimal
     {
         AnimalType AnimalType { get; }
-        void OnSpawned(IMemoryPool rangeEnemyPool);
+        void OnSpawned(IMemoryPool enemyPool);
         void OnDespawned();
     }
 }

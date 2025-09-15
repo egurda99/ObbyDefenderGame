@@ -14614,15 +14614,16 @@ MonoBehaviour:
   _autoShootToTargetMechanic:
     _firePoint: {fileID: 4971935785057520727}
     _bulletPrefab: {fileID: 7322496175308660257, guid: cdfecc478056f3b45aab4bdd7c81f1d6, type: 3}
+    _attackDamage: 1
     _isShooting: 0
     _canDamagePlayer: 1
   _shootReloadMechanic:
     _reloadTime: 2
-  _setConcrentTargetMechanic:
-    _target: {fileID: 0}
   _lifeMechanic:
     _hitPoints: 156
     _isDead: 0
+  _enemyLayer: 6
+  _bulletsLayer: 7
 --- !u!1 &6271810968343121420
 GameObject:
   m_ObjectHideFlags: 0

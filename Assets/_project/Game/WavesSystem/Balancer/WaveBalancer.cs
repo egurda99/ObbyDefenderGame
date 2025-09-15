@@ -59,7 +59,8 @@ namespace ObbyDefender
         private void AddEnemiesToWave(Wave wave, List<EnemyConfigDatabase.EnemyConfig> candidates, int count,
             int waveIndex)
         {
-            if (candidates.Count == 0 || count <= 0) return;
+            if (candidates.Count == 0 || count <= 0)
+                return;
 
             for (var i = 0; i < count; i++)
             {
@@ -78,14 +79,21 @@ namespace ObbyDefender
 
         private EnemyStats ScaleStats(EnemyStats baseStats, int waveIndex)
         {
-            return new EnemyStats
-            {
-                EnemyId = baseStats.EnemyId,
-                BaseHealth = baseStats.BaseHealth * Mathf.Pow(baseStats.HealthGrowthPerWave, waveIndex),
-                BaseSpeed = baseStats.BaseSpeed * Mathf.Pow(baseStats.SpeedGrowthPerWave, waveIndex),
-                BaseAttackPower = baseStats.BaseAttackPower * Mathf.Pow(baseStats.AttackGrowthPerWave, waveIndex),
-                DifficultyWeight = baseStats.DifficultyWeight
-            };
+            // return new EnemyStats
+            // {
+            //     //EnemyId = baseStats.EnemyId,
+            //     EnemyId = baseStats.SetAnimalType(baseStats.EnemyId),
+            //     BaseHealth = baseStats.BaseHealth * Mathf.Pow(baseStats.HealthGrowthPerWave, waveIndex),
+            //     BaseSpeed = baseStats.BaseSpeed * Mathf.Pow(baseStats.SpeedGrowthPerWave, waveIndex),
+            //     BaseAttackPower = baseStats.BaseAttackPower * Mathf.Pow(baseStats.AttackGrowthPerWave, waveIndex),
+            //     DifficultyWeight = baseStats.DifficultyWeight
+            // };
+
+            return new EnemyStats(baseStats.EnemyId,
+                baseStats.DifficultyWeight,
+                baseStats.BaseHealth * Mathf.Pow(baseStats.HealthGrowthPerWave, waveIndex),
+                baseStats.BaseSpeed * Mathf.Pow(baseStats.SpeedGrowthPerWave, waveIndex),
+                baseStats.BaseAttackPower * Mathf.Pow(baseStats.AttackGrowthPerWave, waveIndex));
         }
 
         private float CalculateWaveDifficulty(Wave wave)

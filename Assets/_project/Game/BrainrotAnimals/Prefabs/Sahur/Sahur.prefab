@@ -6000,11 +6000,15 @@ MonoBehaviour:
     _attackDamage: 1
   _meleeReloadMechanic:
     _reloadTime: 1
-  _setConcrentTargetMechanic:
-    _target: {fileID: 0}
   _lifeMechanic:
     _hitPoints: 35
     _isDead: 0
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _bulletsLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7350472617953331625
 GameObject:
   m_ObjectHideFlags: 0

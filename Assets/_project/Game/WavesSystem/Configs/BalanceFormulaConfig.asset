@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da22cc9c528b4307ade7045a092a499f, type: 3}
-  m_Name: WaveBalanceTool
+  m_Script: {fileID: 11500000, guid: 3e40ad5108944f15b5f9c62f19d0931f, type: 3}
+  m_Name: BalanceFormulaConfig
   m_EditorClassIdentifier: 
-  EnemyDatabase: {fileID: 11400000, guid: 604aeb4740f516d4e81bbf08b0b8c4b0, type: 2}
-  FormulaConfig: {fileID: 11400000, guid: 065a51f94d57be84eaca5eb1f181f9df, type: 2}
-  WaveCount: 10
+  HealthWeight: 0.5
+  AttackWeight: 1
+  SpeedWeight: 0.2
+  RewardFactor: 0.2
+  MinEnemiesPerWave: 3
+  MaxEnemiesPerWave: 100

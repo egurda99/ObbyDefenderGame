@@ -4,6 +4,7 @@ using UnityEngine;
 
 public sealed class EnteredTriggerFXBehaviour : IEntityInit, IEntityUpdate, IEntityDispose
 {
+    private const double ProcentOfParticleFinished = 0.25;
     private IEvent _enteredTriggerEvent;
     private ParticleSystem _destroyFX;
     private bool _isStarted;
@@ -26,7 +27,7 @@ public sealed class EnteredTriggerFXBehaviour : IEntityInit, IEntityUpdate, IEnt
 
     public void OnUpdate(IEntity entity, float deltaTime)
     {
-        if (_isStarted && !_destroyFX.isPlaying)
+        if (_isStarted && _destroyFX.time >= _destroyFX.main.duration * ProcentOfParticleFinished)
         {
             _isFXEnded.Value = true;
             _isStarted = false;
