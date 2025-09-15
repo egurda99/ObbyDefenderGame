@@ -20,6 +20,7 @@ namespace Atomic.Entities
         public const int DieFX = 48; // ParticleSystem
         public const int DestroyFX = 69; // ParticleSystem
         public const int IsFXEnded = 71; // ReactiveVariable<bool>
+        public const int CollectFX = 74; // ParticleSystem
 
 
         ///Extensions
@@ -130,5 +131,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetIsFXEnded(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsFXEnded, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ParticleSystem GetCollectFX(this IEntity obj) => obj.GetValue<ParticleSystem>(CollectFX);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCollectFX(this IEntity obj, out ParticleSystem value) => obj.TryGetValue(CollectFX, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCollectFX(this IEntity obj, ParticleSystem value) => obj.AddValue(CollectFX, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCollectFX(this IEntity obj) => obj.HasValue(CollectFX);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCollectFX(this IEntity obj) => obj.DelValue(CollectFX);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCollectFX(this IEntity obj, ParticleSystem value) => obj.SetValue(CollectFX, value);
     }
 }

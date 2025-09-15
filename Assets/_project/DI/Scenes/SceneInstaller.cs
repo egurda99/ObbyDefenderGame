@@ -27,6 +27,19 @@ namespace ObbyDefender.DI
             BindAnimalFactories();
 
             BindWavesModule();
+
+            BindCoinsModule();
+        }
+
+        private void BindCoinsModule()
+        {
+            Container.BindMemoryPool<CoinInstaller, CoinsPool>()
+                .WithInitialSize(5)
+                .FromComponentInNewPrefab(_sceneInstallerHelper.CoinPrefab)
+                .UnderTransform(_sceneInstallerHelper.CoinsContainer);
+
+            Container.BindInterfacesAndSelfTo<CoinsSpawner>().AsSingle()
+                .WithArguments(_sceneInstallerHelper.CoinsBalanceConfig);
         }
 
         private void ConfigureBase()

@@ -20,6 +20,7 @@ namespace ObbyDefender
 
 
         [SerializeField] private TakeDamageVFXMechanic _takeDamageVFXMechanic;
+        [SerializeField] private CollectVFXMechanic _collectVFXMechanic;
 
 
         public override void Install(IEntity entity)
@@ -32,6 +33,7 @@ namespace ObbyDefender
             _shootVFXMechanic.Install(entity);
             _takeDamageVFXMechanic.Install(entity);
             _takeDamageAnimationMechanic.Install(entity);
+            _collectVFXMechanic.Install(entity);
 
             entity.AddWeaponChangerAnimator(_weaponChangerAnimatorController);
         }

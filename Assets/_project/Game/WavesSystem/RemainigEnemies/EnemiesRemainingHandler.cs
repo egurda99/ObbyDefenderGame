@@ -1,4 +1,5 @@
 using System;
+using Atomic.Entities;
 using UnityEngine;
 
 namespace ObbyDefender
@@ -24,7 +25,7 @@ namespace ObbyDefender
             Debug.Log($"<color=blue>Enemies in wave : {_enemiesRemaining}</color>");
         }
 
-        private void OnEnemyDead()
+        private void OnEnemyDead(SceneEntity sceneEntity)
         {
             _enemiesRemaining--;
             OnEnemiesChanged?.Invoke(_enemiesRemaining);

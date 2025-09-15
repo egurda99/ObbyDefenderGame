@@ -11,7 +11,7 @@ namespace ObbyDefender
 
         private readonly List<EnemySubscription> _activeEnemies = new();
 
-        public event Action OnActiveEnemyDead;
+        public event Action<SceneEntity> OnActiveEnemyDead;
 
         public ActiveEnemiesProvider(AnimalSpawner animalSpawner)
         {
@@ -41,9 +41,10 @@ namespace ObbyDefender
             if (index < 0)
                 return;
 
+            OnActiveEnemyDead?.Invoke(_activeEnemies[index].Enemy);
+
             _activeEnemies[index].Unsubscribe();
             _activeEnemies.RemoveAt(index);
-            OnActiveEnemyDead?.Invoke();
         }
 
         public void Dispose()

@@ -53,6 +53,20 @@ namespace ObbyDefender.DI
 
         [SerializeField] private ValueView _remainingEnemiesView;
 
+        [Space] [Header("CoinsModule")] [SerializeField]
+        private Transform _coinsContainer;
+
+        [SerializeField] private GameObject _coinPrefab;
+
+        [SerializeField] private CoinsBalanceConfig _coinsBalanceConfig;
+
+        public CoinsBalanceConfig CoinsBalanceConfig => _coinsBalanceConfig;
+
+        public Transform CoinsContainer => _coinsContainer;
+
+        public GameObject CoinPrefab => _coinPrefab;
+
+
         public Transform EnemyContainer => _enemyContainer;
 
         public EnemyConfigDatabase EnemyConfigDatabase => _enemyConfigDatabase;

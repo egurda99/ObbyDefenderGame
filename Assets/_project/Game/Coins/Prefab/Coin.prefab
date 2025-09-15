@@ -14430,9 +14430,9 @@ Transform:
   m_GameObject: {fileID: 5209188994868551730}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7250739, y: 0, z: 0, w: 0.6886711}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2229704769143146059}
   m_LocalEulerAnglesHint: {x: 92.95, y: 0, z: 0}
@@ -14690,7 +14690,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -24347,7 +24347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enteredTriggerFXMechanic:
     _destroyFX: {fileID: 5124808217156043530}
-    _procentOfParticleFinished: 0.25
+    _procentOfParticleFinished: 1
 --- !u!135 &7106747216942827662
 SphereCollider:
   m_ObjectHideFlags: 0

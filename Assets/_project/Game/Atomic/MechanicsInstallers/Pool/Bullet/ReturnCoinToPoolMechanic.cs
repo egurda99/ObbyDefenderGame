@@ -3,7 +3,7 @@ using Atomic.Entities;
 using Zenject;
 
 [Serializable]
-public sealed class ReturnBulletToPoolMechanic : IEntityInstaller
+public sealed class ReturnCoinToPoolMechanic : IEntityInstaller
 {
     private IEntity _entity;
     private IMemoryPool _pool;
@@ -11,12 +11,12 @@ public sealed class ReturnBulletToPoolMechanic : IEntityInstaller
     public void Install(IEntity entity)
     {
         _entity = entity;
-        _entity.AddBehaviour(new ReturnBulletToPoolBehaviour());
+        _entity.AddBehaviour(new ReturnCoinToPoolBehaviour());
     }
 
     public void Init(IMemoryPool pool)
     {
         _pool = pool;
-        _entity.GetBehaviour<ReturnBulletToPoolBehaviour>().SetPool(_pool);
+        _entity.GetBehaviour<ReturnCoinToPoolBehaviour>().SetPool(_pool);
     }
 }

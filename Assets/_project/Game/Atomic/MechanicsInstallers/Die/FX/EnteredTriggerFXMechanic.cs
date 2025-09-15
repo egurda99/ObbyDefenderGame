@@ -1,4 +1,5 @@
 using System;
+using Atomic.Elements;
 using Atomic.Entities;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public sealed class EnteredTriggerFXMechanic : IEntityInstaller
     public void Install(IEntity entity)
     {
         entity.AddDestroyFX(_destroyFX);
+        entity.AddIsFXEnded(new ReactiveVariable<bool>());
 
         entity.AddBehaviour(new EnteredTriggerFXBehaviour(_procentOfParticleFinished));
     }

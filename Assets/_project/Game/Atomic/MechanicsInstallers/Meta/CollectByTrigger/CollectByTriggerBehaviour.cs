@@ -26,7 +26,9 @@ public sealed class CollectByTriggerBehaviour : IEntityInit, IEntityDispose
                 return;
             }
 
-            _triggerEnteredEvent.Invoke();
+            entity.GetCollectedEvent().Invoke();
+
+            _triggerEnteredEvent?.Invoke();
         }
     }
 
