@@ -21,6 +21,7 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: 65963a57255854673a75f295393f74f0, type: 3}
     _title: Turret health
     _description: Increase turret health
+  _type: 1
   _turretHealthTable:
     startHealth: 10
     endHealth: 100

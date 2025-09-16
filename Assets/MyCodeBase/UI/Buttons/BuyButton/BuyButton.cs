@@ -68,5 +68,10 @@ namespace MyCodeBase
                     throw new Exception($"Undefined button state {state}!");
             }
         }
+
+        public void HidePrice()
+        {
+            _priceText.gameObject.SetActive(false);
+        }
     }
 }

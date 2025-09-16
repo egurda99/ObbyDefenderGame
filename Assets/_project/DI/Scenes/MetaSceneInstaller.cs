@@ -1,4 +1,5 @@
 using Atomic.Entities;
+using MyCodeBase;
 using ObbyDefender.Weapons;
 using ShootEmUp;
 using UnityEngine;
@@ -18,6 +19,13 @@ namespace ObbyDefender.DI
             BindWeaponSwitcher();
             BindPlayerUpgradeApplier();
             BindInput();
+
+            BindPopupManager();
+        }
+
+        private void BindPopupManager()
+        {
+            Container.Bind<PopupManager>().FromComponentInHierarchy().AsSingle();
         }
 
         private void BindPlayerUpgradeApplier()

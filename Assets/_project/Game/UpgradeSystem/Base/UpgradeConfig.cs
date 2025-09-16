@@ -10,6 +10,10 @@ namespace _UpgradePractice.Scripts
 
 
         [SerializeField] private UpgradeMetaData _metadata;
+        [SerializeField] private UpgradeType _type;
+
+        public UpgradeType Type => _type;
+
 
         public UpgradeMetaData Metadata => _metadata;
 
