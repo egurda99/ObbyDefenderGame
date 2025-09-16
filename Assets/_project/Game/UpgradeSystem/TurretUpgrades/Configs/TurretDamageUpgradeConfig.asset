@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8beac4a2ebe45f5a36a69f7bfa14624, type: 3}
+  m_Name: TurretDamageUpgradeConfig
+  m_EditorClassIdentifier: 
+  Id: TurretDamage
+  MaxLevel: 20
+  PriceTable:
+    _basePrice: 10
+    _levels: 00000000140000001e00000028000000320000003c00000046000000500000005a000000640000006e00000078000000820000008c00000096000000a0000000aa000000b4000000be000000c8000000
+  _metadata:
+    _sprite: {fileID: 21300000, guid: 5f3356ecf0a37d247a7d5e65278adb55, type: 3}
+    _title: Turret damage
+    _description: Increaset turret damage
+  DamageUpgradeTable:
+    startDamage: 5
+    endDamage: 100
+    damageStep: 5
+    table:
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 50
+    - 55
+    - 60
+    - 65
+    - 70
+    - 75
+    - 80
+    - 85
+    - 90
+    - 95
+    - 100

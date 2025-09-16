@@ -1,4 +1,3 @@
-using _UpgradePractice.Scripts;
 using MyCodeBase;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace Game.Tutorial
         [SerializeField] private UpgradeConveyorPanelShower _upgradeConveyorPanelShower;
 
         [SerializeField] private PopupName _popupName;
-        [SerializeField] private UpgradeConfig _upgradeConfig;
+        //  [SerializeField] private UpgradeConfig _upgradeConfig;
 
         [SerializeField] private int _targetLevel;
 
@@ -28,7 +27,7 @@ namespace Game.Tutorial
 
         public GameObject PlaceTriggerPointPrefab => _placeTriggerPointPrefab;
 
-        public UpgradeConfig UpgradeConfig => _upgradeConfig;
+        // public UpgradeConfig UpgradeConfig => _upgradeConfig;
 
         public UpgradeConveyorPanelShower UpgradeConveyorPanelShower => _upgradeConveyorPanelShower;
 

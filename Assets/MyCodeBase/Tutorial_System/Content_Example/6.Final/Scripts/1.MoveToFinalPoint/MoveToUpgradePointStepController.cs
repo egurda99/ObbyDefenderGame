@@ -1,6 +1,6 @@
-using _UpgradePractice.Scripts;
 using Game.Tutorial.Gameplay;
 using MyCodeBase;
+using ObbyDefender.Scripts;
 using UnityEngine;
 using Zenject;
 

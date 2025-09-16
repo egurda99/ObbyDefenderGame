@@ -1,5 +1,6 @@
 using Atomic.Entities;
 using Elementary;
+using ObbyDefender.Scripts;
 using ObbyDefender.Weapons;
 using UnityEngine;
 using Zenject;
@@ -34,6 +35,7 @@ namespace ObbyDefender
 
         private NearestAliveTargetObserver _nearestAliveTargetObserver;
         private CoinsObserver _coinsObserver;
+        private IEntity _entity;
 
 
         [Inject]
@@ -46,6 +48,8 @@ namespace ObbyDefender
         {
             entity.AddPlayerTag();
             entity.AddHeroTeamTag();
+
+            _entity = entity;
 
             _moveToDirectionMechanic.Install(entity);
             _rotateToMoveDirectionMechanic.Install(entity);
@@ -61,6 +65,8 @@ namespace ObbyDefender
 
             _nearestAliveTargetObserver = new NearestAliveTargetObserver(_enemiesSensor, GetComponent<SceneEntity>());
             _coinsObserver = new CoinsObserver(_coinsSensor, GetComponent<SceneEntity>());
+
+
             entity.AddWeaponType(WeaponType.None);
 
             entity.AddHeroGunsView(_heroGunsView);
@@ -75,6 +81,12 @@ namespace ObbyDefender
             entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
             entity.GetCanShoot().Append(() => !entity.GetIsStunned().Value);
             entity.GetCanShoot().Append(() => entity.GetIsTargetAlive().Value);
+        }
+
+        public void ConfigurePlayer(HeroData heroData)
+        {
+            _entity.GetMoveSpeed().Value = heroData.Speed;
+            _entity.GetHitPoints().Value = heroData.Health;
         }
 
         private void OnDestroy()

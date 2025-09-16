@@ -16,6 +16,7 @@ namespace ObbyDefender.DI
             BindBulletPool();
             BindCycleManager();
             BindPlayer();
+            BindPlayerUpgradeApplier();
             BindWeaponSwitcher();
             BindInput();
             BindTurrets();
@@ -29,6 +30,11 @@ namespace ObbyDefender.DI
             BindWavesModule();
 
             BindCoinsModule();
+        }
+
+        private void BindPlayerUpgradeApplier()
+        {
+            Container.BindInterfacesAndSelfTo<HeroUpgradesApplier>().AsSingle();
         }
 
         private void BindCoinsModule()

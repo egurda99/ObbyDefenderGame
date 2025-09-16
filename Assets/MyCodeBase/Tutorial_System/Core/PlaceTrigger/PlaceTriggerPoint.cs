@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _UpgradePractice.Scripts
+namespace ObbyDefender.Scripts
 {
     public sealed class PlaceTriggerPoint : MonoBehaviour
     {

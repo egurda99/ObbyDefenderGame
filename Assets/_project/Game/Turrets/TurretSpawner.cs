@@ -1,4 +1,5 @@
 using System;
+using ObbyDefender.Scripts;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -11,14 +12,16 @@ namespace ObbyDefender
         private readonly Transform _turretPrefab;
         private readonly TurretsManager _turretsManager;
         private readonly BulletFactory _bulletFactory;
+        private readonly TurretData _turretData;
 
         public event Action<Vector3> OnTurretSpawned;
 
 
         public TurretSpawner(TurretBuilderSystem turretBuilderSystem,
             Transform turretZoneContainer, Transform turretPrefab, TurretsManager turretsManager,
-            BulletFactory bulletFactory)
+            BulletFactory bulletFactory, TurretData turretData)
         {
+            _turretData = turretData;
             _bulletFactory = bulletFactory;
             _turretsManager = turretsManager;
             _turretZoneContainer = turretZoneContainer;
@@ -35,6 +38,7 @@ namespace ObbyDefender
             if (!turretGO.TryGetComponent(out TurretInstaller turretInstaller))
                 return;
             turretInstaller.SetBulletFactory(_bulletFactory);
+            turretInstaller.ConfigureStats(_turretData);
 
             _turretsManager.TryAddTurret(turretInstaller);
             _turretBuilderSystem.OnTurretSpawned(position);

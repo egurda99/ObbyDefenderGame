@@ -1,5 +1,6 @@
 using Atomic.Entities;
 using Elementary;
+using ObbyDefender.Scripts;
 using ObbyDefender.Weapons;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ namespace ObbyDefender
 
         private BulletFactory _bulletFactory;
         private NearestAliveTargetObserver _nearestAliveTargetObserver;
+        private IEntity _entity;
 
 
         public void SetBulletFactory(BulletFactory bulletFactory)
@@ -30,6 +32,7 @@ namespace ObbyDefender
 
         public override void Install(IEntity entity)
         {
+            _entity = entity;
             entity.AddHeroTeamTag();
             _autoShootToTargetMechanic.Install(entity);
             _rotateToTargetMechanic.Install(entity);
@@ -49,6 +52,17 @@ namespace ObbyDefender
             entity.GetCanShoot().Append(() => !entity.GetIsDead().Value);
             entity.GetCanShoot().Append(() => !entity.GetIsRotating().Value);
             entity.GetCanShoot().Append(() => !entity.GetNeedReload().Value);
+        }
+
+        private void OnDestroy()
+        {
+            _nearestAliveTargetObserver.Dispose();
+        }
+
+        public void ConfigureStats(TurretData turretData)
+        {
+            _entity.GetHitPoints().Value = turretData.Health;
+            _entity.GetAttackDamage().Value = turretData.Damage;
         }
     }
 }
