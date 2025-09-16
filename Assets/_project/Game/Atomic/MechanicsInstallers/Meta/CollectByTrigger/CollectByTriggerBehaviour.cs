@@ -8,9 +8,11 @@ public sealed class CollectByTriggerBehaviour : IEntityInit, IEntityDispose
     private TriggerEventDispatcher _triggerEventDispatcher;
 
     private IEvent _triggerEnteredEvent;
+    private ReactiveVariable<int> _pointsValue;
 
     public void Init(IEntity entity)
     {
+        _pointsValue = entity.GetPointsValue();
         _triggerEventDispatcher = entity.GetTriggerEventDispatcher();
         _triggerEnteredEvent = entity.GetEnteredTriggerEvent();
 
@@ -27,6 +29,8 @@ public sealed class CollectByTriggerBehaviour : IEntityInit, IEntityDispose
             }
 
             entity.GetCollectedEvent().Invoke();
+            entity.GetCollectedPoints().Value += _pointsValue.Value;
+
 
             _triggerEnteredEvent?.Invoke();
         }

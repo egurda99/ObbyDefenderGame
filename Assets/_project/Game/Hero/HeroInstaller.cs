@@ -1,3 +1,4 @@
+using Atomic.Elements;
 using Atomic.Entities;
 using Elementary;
 using ObbyDefender.Scripts;
@@ -48,6 +49,8 @@ namespace ObbyDefender
         {
             entity.AddPlayerTag();
             entity.AddHeroTeamTag();
+            entity.AddCollectedPoints(new ReactiveVariable<int>());
+
 
             _entity = entity;
 

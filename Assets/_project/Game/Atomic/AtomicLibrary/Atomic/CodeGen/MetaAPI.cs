@@ -16,6 +16,7 @@ namespace Atomic.Entities
         ///Keys
         public const int PointsValue = 73; // ReactiveVariable<int>
         public const int CollectedEvent = 75; // IEvent
+        public const int CollectedPoints = 76; // ReactiveVariable<int>
 
 
         ///Extensions
@@ -54,5 +55,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetCollectedEvent(this IEntity obj, IEvent value) => obj.SetValue(CollectedEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<int> GetCollectedPoints(this IEntity obj) => obj.GetValue<ReactiveVariable<int>>(CollectedPoints);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCollectedPoints(this IEntity obj, out ReactiveVariable<int> value) => obj.TryGetValue(CollectedPoints, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCollectedPoints(this IEntity obj, ReactiveVariable<int> value) => obj.AddValue(CollectedPoints, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCollectedPoints(this IEntity obj) => obj.HasValue(CollectedPoints);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCollectedPoints(this IEntity obj) => obj.DelValue(CollectedPoints);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCollectedPoints(this IEntity obj, ReactiveVariable<int> value) => obj.SetValue(CollectedPoints, value);
     }
 }

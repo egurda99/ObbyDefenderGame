@@ -51,14 +51,20 @@ namespace ObbyDefender.DI
         [SerializeField] private float _minSpawnDelay;
         [SerializeField] private float _maxSpawnDelay;
 
-        [SerializeField] private ValueView _remainingEnemiesView;
-
         [Space] [Header("CoinsModule")] [SerializeField]
         private Transform _coinsContainer;
+
 
         [SerializeField] private GameObject _coinPrefab;
 
         [SerializeField] private CoinsBalanceConfig _coinsBalanceConfig;
+
+        [Space] [Header("HUD")] [SerializeField]
+        private ValueView _moneyView;
+
+        [SerializeField] private ValueView _remainingEnemiesView;
+
+        public ValueView MoneyView => _moneyView;
 
         public CoinsBalanceConfig CoinsBalanceConfig => _coinsBalanceConfig;
 

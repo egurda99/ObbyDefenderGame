@@ -32,8 +32,8 @@ namespace ObbyDefender
 
         private void OnBuildCompleted()
         {
+            _moneyStorage.SpendMoney(_price);
             OnZoneBuildRequested?.Invoke(_view.transform.position);
-            Debug.Log("<color=red>Requested</color>");
         }
 
         private void OnPlayerExited()

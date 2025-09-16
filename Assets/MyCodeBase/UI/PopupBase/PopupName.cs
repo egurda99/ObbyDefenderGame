@@ -3,6 +3,7 @@ namespace MyCodeBase
     public enum PopupName
     {
         PLAYER_UPGRADES = 0,
-        TURRET_UPGRADES = 1
+        TURRET_UPGRADES = 1,
+        GAME_ENDED = 2
     }
 }

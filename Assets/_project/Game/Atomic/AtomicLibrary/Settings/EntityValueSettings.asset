@@ -272,3 +272,6 @@ MonoBehaviour:
     - id: 75
       name: CollectedEvent
       type: IEvent
+    - id: 76
+      name: CollectedPoints
+      type: ReactiveVariable<int>

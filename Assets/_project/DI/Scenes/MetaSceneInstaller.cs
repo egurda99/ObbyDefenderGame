@@ -19,8 +19,14 @@ namespace ObbyDefender.DI
             BindWeaponSwitcher();
             BindPlayerUpgradeApplier();
             BindInput();
+            ConfigureHUD();
 
             BindPopupManager();
+        }
+
+        private void ConfigureHUD()
+        {
+            Container.BindInterfacesTo<MoneyWidgetAdapter>().AsSingle().WithArguments(_sceneInstallerHelper.MoneyView);
         }
 
         private void BindPopupManager()

@@ -25,7 +25,6 @@ public sealed class AddToMoneyStorageBehaviour : IEntityInit, IEntityDispose
     private void OnTriggerEntered()
     {
         _moneyStorage.EarnMoney(_pointsValue.Value);
-//        Debug.Log($"<color=orange>Added money to storage : {_pointsValue.Value}</color>");
     }
 
     public void Dispose(IEntity entity)

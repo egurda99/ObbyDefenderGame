@@ -12,6 +12,7 @@ namespace ObbyDefender
         private int _enemiesRemaining;
 
         public event Action<int> OnEnemiesChanged;
+        public event Action<int> WaveEnded;
 
         public int EnemiesRemaining => _enemiesRemaining;
 
@@ -31,10 +32,16 @@ namespace ObbyDefender
             OnEnemiesChanged?.Invoke(_enemiesRemaining);
             if (_enemiesRemaining <= 0)
             {
-                Debug.Log("<color=red>Enemies ended. Game ENDED</color>");
-                Debug.Log($"<color=orange>reward is {_wavesSystem.GetCurrentWave().Reward}</color>");
+                WaveEnded?.Invoke(_wavesSystem.GetCurrentWave().Reward);
             }
         }
+
+        public int GetKilledEnemies()
+        {
+            var killedEnemies = _wavesSystem.GetCurrentWave().Enemies.Count - _enemiesRemaining;
+            return killedEnemies;
+        }
+
 
         public void Dispose()
         {

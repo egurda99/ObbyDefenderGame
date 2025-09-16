@@ -23,8 +23,6 @@ namespace _project.Debug
             _turretsManager = turretsManager;
             _weaponSwitcher = weaponSwitcher;
             _upgradeManager = upgradesManager;
-
-            _moneyStorage.SetupMoney(5000);
         }
 
         [Button]

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Atomic.Entities;
+using MyCodeBase;
 using ObbyDefender.Weapons;
 using ShootEmUp;
 using UnityEngine;
@@ -30,12 +31,33 @@ namespace ObbyDefender.DI
             BindWavesModule();
 
             BindCoinsModule();
+            ConfigureHUD();
+            BindPopupManager();
+            BindGameEnd();
+        }
+
+        private void BindPopupManager()
+        {
+            Container.Bind<PopupManager>().FromComponentInHierarchy().AsSingle();
+        }
+
+        private void BindGameEnd()
+        {
+            Container.BindInterfacesAndSelfTo<GameEndHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameEndObserver>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EndGamePopupShower>().AsSingle();
         }
 
         private void BindPlayerUpgradeApplier()
         {
             Container.BindInterfacesAndSelfTo<HeroUpgradesApplier>().AsSingle();
         }
+
+        private void ConfigureHUD()
+        {
+            Container.BindInterfacesTo<MoneyWidgetAdapter>().AsSingle().WithArguments(_sceneInstallerHelper.MoneyView);
+        }
+
 
         private void BindCoinsModule()
         {
@@ -50,8 +72,11 @@ namespace ObbyDefender.DI
 
         private void ConfigureBase()
         {
-            Instantiate(_sceneInstallerHelper.BasePrefab, _sceneInstallerHelper.BaseSpawnPoint.position,
+            var baseTransform = Instantiate(_sceneInstallerHelper.BasePrefab,
+                _sceneInstallerHelper.BaseSpawnPoint.position,
                 Quaternion.identity, _sceneInstallerHelper.BaseContainer);
+
+            Container.Bind<BaseService>().AsSingle().WithArguments(baseTransform.GetComponent<SceneEntity>());
         }
 
         private void BindTurrets()
