@@ -13,10 +13,21 @@ namespace ObbyDefender.DI
         public override void InstallBindings()
         {
             BindInput();
+            BindSaveLoaderSystem();
             BindMoneyStorage();
             BindHeroData();
             BindTurretData();
             BindUpgradeManager();
+        }
+
+        private void BindSaveLoaderSystem()
+        {
+            Container.BindInterfacesAndSelfTo<GameRepository>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<SaveLoadManager>().AsSingle().NonLazy();
+
+            Container.BindInterfacesAndSelfTo<MoneySaveLoader>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<UpgradesSaveLoader>().AsSingle().NonLazy();
         }
 
         private void BindHeroData()

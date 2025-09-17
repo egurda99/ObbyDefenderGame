@@ -12,6 +12,10 @@ namespace ObbyDefender.Scripts
 
         public float Health => _health;
 
+
+        public event Action SpeedChanged;
+        public event Action HealthChanged;
+
         public HeroData(float speed, float health)
         {
             _speed = speed;
@@ -21,11 +25,13 @@ namespace ObbyDefender.Scripts
         public void SetSpeed(float speed)
         {
             _speed = speed;
+            SpeedChanged?.Invoke();
         }
 
         public void SetHealth(float health)
         {
             _health = health;
+            HealthChanged?.Invoke();
         }
     }
 }

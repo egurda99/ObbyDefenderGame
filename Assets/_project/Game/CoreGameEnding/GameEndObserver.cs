@@ -26,7 +26,7 @@ namespace ObbyDefender
 
         private void OnGameWon(int reward, int killedEnemies, int collectedMoney)
         {
-            _gameCycleManager.PauseGame();
+            _gameCycleManager.FinishGame();
             _moneyStorage.EarnMoney(reward);
 
             GameWon?.Invoke(reward, killedEnemies, collectedMoney);
@@ -34,7 +34,8 @@ namespace ObbyDefender
 
         private void OnGameLost(int enemiesKilled, int collectedMoney)
         {
-            _gameCycleManager.PauseGame();
+            _gameCycleManager.FinishGame();
+
             GameLost?.Invoke(enemiesKilled, collectedMoney);
         }
 

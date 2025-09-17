@@ -34,6 +34,12 @@ namespace ObbyDefender.DI
             ConfigureHUD();
             BindPopupManager();
             BindGameEnd();
+            BindSaveLoaderUpdater();
+        }
+
+        private void BindSaveLoaderUpdater()
+        {
+            Container.BindInterfacesAndSelfTo<SceneContainerUpdater>().AsSingle().NonLazy();
         }
 
         private void BindPopupManager()

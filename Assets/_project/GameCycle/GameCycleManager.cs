@@ -43,6 +43,8 @@ namespace ShootEmUp
             {
                 _gameLateUpdateListeners.Add(gameLateUpdateListener);
             }
+
+            InitGame();
         }
 
         private void Start()
@@ -95,6 +97,23 @@ namespace ShootEmUp
             }
 
             SceneEntityUpdater.Instance.LateUpdateEntities(deltaTime);
+        }
+
+
+        [Button]
+        public void InitGame()
+        {
+            if (_gameState != GameState.OFF)
+            {
+                return;
+            }
+
+            Debug.Log("<color=green>Game inited</color>");
+
+            foreach (var gameStartListener in _container.Resolve<IEnumerable<IGameInitListener>>())
+            {
+                gameStartListener.OnInitGame();
+            }
         }
 
         [Button]

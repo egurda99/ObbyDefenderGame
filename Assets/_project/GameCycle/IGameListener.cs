@@ -4,6 +4,11 @@ namespace ShootEmUp
     {
     }
 
+    public interface IGameInitListener : IGameListener
+    {
+        void OnInitGame();
+    }
+
     public interface IGameStartListener : IGameListener
     {
         void OnStartGame();

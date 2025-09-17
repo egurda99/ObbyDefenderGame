@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public sealed class SceneContainerUpdater : MonoBehaviour
+public sealed class SceneContainerUpdaterMonobeh : MonoBehaviour
 {
     private DiContainer _container;
     private SaveLoadManager _saveLoadManager;

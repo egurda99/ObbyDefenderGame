@@ -24,7 +24,7 @@ namespace ObbyDefender.Scripts
             _view.SetMoneyText(_collectedMoney.ToString());
 
 
-            if (_waveBonus == 0) // lost
+            if (_waveBonus == 0)
             {
                 _view.SetTitleText("Game Over :(");
                 _view.HideWaveBonusText();

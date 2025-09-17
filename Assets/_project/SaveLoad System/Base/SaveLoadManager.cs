@@ -1,8 +1,9 @@
 using System;
+using ShootEmUp;
 using Sirenix.OdinInspector;
 using Zenject;
 
-public sealed class SaveLoadManager
+public sealed class SaveLoadManager : IGameFinishListener
 {
     private ISaveLoader[] _saveLoaders;
 
@@ -24,6 +25,7 @@ public sealed class SaveLoadManager
         _gameContext.UpdateContainer(container);
 
         _saveLoaders = _gameContext.GetServices<ISaveLoader>();
+        OnInitGame();
     }
 
     [Button]
@@ -49,5 +51,15 @@ public sealed class SaveLoadManager
         }
 
         _repository.SaveState();
+    }
+
+    private void OnInitGame()
+    {
+        Load();
+    }
+
+    public void OnFinishGame()
+    {
+        Save();
     }
 }

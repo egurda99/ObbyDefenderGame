@@ -22,12 +22,19 @@ namespace ObbyDefender.DI
             ConfigureHUD();
 
             BindPopupManager();
+            BindSaveLoaderUpdater();
         }
 
         private void ConfigureHUD()
         {
             Container.BindInterfacesTo<MoneyWidgetAdapter>().AsSingle().WithArguments(_sceneInstallerHelper.MoneyView);
         }
+
+        private void BindSaveLoaderUpdater()
+        {
+            Container.BindInterfacesAndSelfTo<SceneContainerUpdater>().AsSingle().NonLazy();
+        }
+
 
         private void BindPopupManager()
         {

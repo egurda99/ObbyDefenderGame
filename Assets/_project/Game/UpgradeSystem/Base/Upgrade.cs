@@ -12,13 +12,21 @@ namespace _UpgradePractice.Scripts
         private readonly UpgradeConfig _config;
         private int _level;
 
+        public bool IsMaxLevel => Level == MaxLevel;
+
+
         protected Upgrade(UpgradeConfig config)
         {
             _config = config;
             _level = 1;
         }
 
-        public bool IsMaxLevel => Level == MaxLevel;
+        public void SetLevel(int level)
+        {
+            _level = level;
+            OnUpgrade();
+        }
+
 
         public void LevelUp()
         {

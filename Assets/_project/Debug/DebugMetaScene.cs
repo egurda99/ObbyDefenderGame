@@ -12,16 +12,16 @@ namespace _project.Debug
         [ShowInInspector] private MoneyStorage _moneyStorage;
         private UpgradesManager _upgradeManager;
         [ShowInInspector] [ReadOnly] private WeaponSwitcher _weaponSwitcher;
+        [ShowInInspector] private SaveLoadManager _saveLoadManager;
 
         [Inject]
         public void Construct(MoneyStorage moneyStorage,
-            UpgradesManager upgradesManager, WeaponSwitcher weaponSwitcher)
+            UpgradesManager upgradesManager, WeaponSwitcher weaponSwitcher, SaveLoadManager saveLoadManager)
         {
+            _saveLoadManager = saveLoadManager;
             _weaponSwitcher = weaponSwitcher;
             _moneyStorage = moneyStorage;
             _upgradeManager = upgradesManager;
-
-            _moneyStorage.SetupMoney(5000);
         }
 
         [Button]
