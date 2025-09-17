@@ -194,6 +194,8 @@ namespace ObbyDefender.DI
 
             Container.BindInterfacesTo<EnemiesRemainingAdapter>().AsSingle()
                 .WithArguments(_sceneInstallerHelper.RemainingEnemiesView);
+
+            Container.BindInterfacesAndSelfTo<WavesSaveLoader>().AsSingle().NonLazy();
         }
 
         private void BindAnimalFactories()

@@ -20,7 +20,6 @@ namespace ObbyDefender
         private readonly WavesSystem _wavesSystem;
 
         public event Action<SceneEntity> OnEnemySpawned;
-        public event Action OnWaveSpawnEnded;
 
         public AnimalSpawner(
             List<AnimalSpawnZone> zones,
@@ -78,8 +77,6 @@ namespace ObbyDefender
                     await UniTask.Delay(TimeSpan.FromSeconds(delay));
                 }
             }
-
-            OnWaveSpawnEnded?.Invoke();
         }
 
         private void SpawnEnemy(AnimalType enemyType, EnemyRealStats entryRealStats)

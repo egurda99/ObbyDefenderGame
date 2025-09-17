@@ -12,7 +12,11 @@ namespace ObbyDefender
         public WavesSystem(List<Wave> waves)
         {
             _waves = waves;
-            CurrentWaveIndex = 1;
+        }
+
+        public void SetWave(int index)
+        {
+            CurrentWaveIndex = index;
         }
 
         public Wave GetCurrentWave()
