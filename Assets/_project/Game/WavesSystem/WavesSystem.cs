@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,9 +6,10 @@ namespace ObbyDefender
 {
     public sealed class WavesSystem
     {
-        private readonly List<Wave> _waves;
+        private readonly List<Wave> _waves = new();
 
         public int CurrentWaveIndex { get; private set; }
+        public event Action<int> WaveChanged;
 
         public WavesSystem(List<Wave> waves)
         {
@@ -17,6 +19,7 @@ namespace ObbyDefender
         public void SetWave(int index)
         {
             CurrentWaveIndex = index;
+            WaveChanged?.Invoke(CurrentWaveIndex);
         }
 
         public Wave GetCurrentWave()
@@ -40,7 +43,11 @@ namespace ObbyDefender
         public void MoveToNextWave()
         {
             if (HasNextWave())
+            {
                 CurrentWaveIndex++;
+
+                WaveChanged?.Invoke(CurrentWaveIndex);
+            }
         }
 
         public bool HasNextWave()

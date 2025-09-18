@@ -24,10 +24,10 @@ namespace ObbyDefender
 
             _activeEnemiesProvider = activeEnemiesProvider;
 
-            _activeEnemiesProvider.OnActiveEnemyDead += OnEnemyDied;
+            _activeEnemiesProvider.ActiveEnemyDead += EnemyDied;
         }
 
-        private void OnEnemyDied(SceneEntity sceneEntity)
+        private void EnemyDied(SceneEntity sceneEntity)
         {
             var chance = CalculateDropChance(_wavesSystem.GetCurrentWave().TotalDifficulty);
             if (Random.value <= chance)
@@ -64,7 +64,7 @@ namespace ObbyDefender
 
         public void Dispose()
         {
-            _activeEnemiesProvider.OnActiveEnemyDead -= OnEnemyDied;
+            _activeEnemiesProvider.ActiveEnemyDead -= EnemyDied;
         }
     }
 }

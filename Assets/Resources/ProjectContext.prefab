@@ -89,3 +89,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradeCatalog: {fileID: 11400000, guid: a79a24261e61df840b68f4c4d4739618, type: 2}
+  _formulaConfig: {fileID: 11400000, guid: 065a51f94d57be84eaca5eb1f181f9df, type: 2}
+  _enemyConfigDatabase: {fileID: 11400000, guid: 604aeb4740f516d4e81bbf08b0b8c4b0, type: 2}

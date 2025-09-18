@@ -18,6 +18,20 @@ namespace ObbyDefender.DI
             BindHeroData();
             BindTurretData();
             BindUpgradeManager();
+            BindWaveBalancer();
+        }
+
+        private void BindWaveBalancer()
+        {
+            Container.Bind<WaveModuleBalancerConfig>().FromInstance(_helper.FormulaConfig);
+
+            var balancer = new WaveBalancer(_helper.EnemyConfigDatabase,
+                _helper.FormulaConfig);
+
+            var configurator = new WavesGenerator(_helper.FormulaConfig.WaveCount, balancer);
+            configurator.Generate();
+
+            Container.Bind<WavesSystem>().AsSingle().WithArguments(configurator.Waves);
         }
 
         private void BindSaveLoaderSystem()

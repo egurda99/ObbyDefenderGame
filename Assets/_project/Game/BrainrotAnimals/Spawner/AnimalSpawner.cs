@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Atomic.Entities;
 using Cysharp.Threading.Tasks;
 using ShootEmUp;
@@ -8,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace ObbyDefender
 {
-    public sealed class AnimalSpawner : IGameStartListener
+    public sealed class AnimalSpawner : IGameStartListener, IGameFinishListener
     {
         private readonly List<AnimalSpawnZone> _zones;
         private readonly Transform _basePosition;
@@ -18,7 +19,7 @@ namespace ObbyDefender
         private readonly float _maxSpawnDelay;
         private readonly AnimalTypesHolder _animalTypesHolder;
         private readonly WavesSystem _wavesSystem;
-
+        private CancellationTokenSource _cts;
         public event Action<SceneEntity> OnEnemySpawned;
 
         public AnimalSpawner(
@@ -28,8 +29,7 @@ namespace ObbyDefender
             RangeAnimalFactory rangeFactory,
             AnimalTypesHolder animalTypesHolder,
             WavesSystem wavesSystem,
-            float minSpawnDelay,
-            float maxSpawnDelay)
+            WaveModuleBalancerConfig waveModuleBalancerConfig)
         {
             _wavesSystem = wavesSystem;
             _animalTypesHolder = animalTypesHolder;
@@ -37,17 +37,18 @@ namespace ObbyDefender
             _basePosition = basePosition;
             _meleeFactory = meleeFactory;
             _rangeFactory = rangeFactory;
-            _minSpawnDelay = minSpawnDelay;
-            _maxSpawnDelay = maxSpawnDelay;
+            _minSpawnDelay = waveModuleBalancerConfig.MinSpawnDelay;
+            _maxSpawnDelay = waveModuleBalancerConfig.MaxSpawnDelay;
         }
 
 
         public void OnStartGame()
         {
-            SpawnWaveAsync(_wavesSystem.GetCurrentWave()).Forget();
+            _cts = new CancellationTokenSource();
+            SpawnWaveAsync(_wavesSystem.GetCurrentWave(), _cts.Token).Forget();
         }
 
-        private async UniTask SpawnWaveAsync(Wave wave)
+        private async UniTask SpawnWaveAsync(Wave wave, CancellationToken ctsToken)
         {
             if (wave == null)
             {
@@ -71,10 +72,11 @@ namespace ObbyDefender
 
                 for (var i = 0; i < entry.Count; i++)
                 {
+                    ctsToken.ThrowIfCancellationRequested();
                     SpawnEnemy(entry.EnemyId, entry.Stats);
 
                     var delay = Random.Range(_minSpawnDelay, _maxSpawnDelay);
-                    await UniTask.Delay(TimeSpan.FromSeconds(delay));
+                    await UniTask.Delay(TimeSpan.FromSeconds(delay), cancellationToken: ctsToken);
                 }
             }
         }
@@ -133,6 +135,13 @@ namespace ObbyDefender
 
             sceneEntity.GetRootTransform().position = new Vector3(position.x, offset.y, position.z);
             controller.enabled = true;
+        }
+
+        public void OnFinishGame()
+        {
+            _cts?.Cancel();
+            _cts?.Dispose();
+            _cts = null;
         }
     }
 }

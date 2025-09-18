@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f379d2adaa74c55bd1b802a4ba593b8, type: 3}
+  m_Name: EnemyDatabaseConfig
+  m_EditorClassIdentifier: 
+  Enemies:
+  - EnemyId: 0
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 6
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+    Prefab: {fileID: 5037446951036679413, guid: c3beccb725edfd64fab0c2a7d48acc5b, type: 3}
+  - EnemyId: 6
+    EnemyType: 1
+    BaseBalanceStats:
+      _baseHealth: 16
+      _baseSpeed: 4
+      _baseAttackPower: 6
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 2
+    Prefab: {fileID: 1683876115824334090, guid: 7e2dc6435a126124597f994199c47a08, type: 3}
+  - EnemyId: 7
+    EnemyType: 1
+    BaseBalanceStats:
+      _baseHealth: 16
+      _baseSpeed: 4
+      _baseAttackPower: 6
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 2
+    Prefab: {fileID: 1683876115824334090, guid: 7e2dc6435a126124597f994199c47a08, type: 3}
+  - EnemyId: 5
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 6
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+    Prefab: {fileID: 8498646745209106951, guid: 80a5341b2dc753f4bad868811a069ae5, type: 3}
+  - EnemyId: 1
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 6
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+    Prefab: {fileID: 2710853233608625745, guid: a9f5372bbb252114fb2647fe4c32c349, type: 3}
+  - EnemyId: 2
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 6
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+    Prefab: {fileID: 3863339065144252970, guid: a8bcba4ec0964ae4a9d946a8ca9e1f0f, type: 3}
+  - EnemyId: 3
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 6
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+    Prefab: {fileID: 4621059595148303464, guid: 3a2e93a84ca3bbc4cbb175a7d19e7d44, type: 3}
+  - EnemyId: 8
+    EnemyType: 1
+    BaseBalanceStats:
+      _baseHealth: 16
+      _baseSpeed: 4
+      _baseAttackPower: 6
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 2
+    Prefab: {fileID: 2471915127300190880, guid: 3e38e7c28cadb23459e719ccc9d40e76, type: 3}
+  - EnemyId: 4
+    EnemyType: 0
+    BaseBalanceStats:
+      _baseHealth: 15
+      _baseSpeed: 6
+      _baseAttackPower: 5
+      _healthGrowthPerWave: 1.05
+      _speedGrowthPerWave: 1.01
+      _attackGrowthPerWave: 1.05
+      _difficultyWeight: 1
+    Prefab: {fileID: 6786366574545335057, guid: 96aead4e2096ff64185b2725920eda07, type: 3}

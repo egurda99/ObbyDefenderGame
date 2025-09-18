@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e40ad5108944f15b5f9c62f19d0931f, type: 3}
   m_Name: BalanceFormulaConfig
   m_EditorClassIdentifier: 
-  _healthWeight: 0.5
+  _healthWeight: 1
   _attackWeight: 1
   _speedWeight: 0.2
-  _rewardFactor: 0.1
+  _rewardFactor: 0.3
   _minEnemiesPerWave: 3
   _maxEnemiesPerWave: 100
+  _minSpawnDelay: 0.5
+  _maxSpawnDelay: 2
+  _waveCount: 20

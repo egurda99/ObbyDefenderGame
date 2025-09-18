@@ -8,7 +8,7 @@ namespace ObbyDefender
     public class WaveBalanceTool : ScriptableObject
     {
         [Header("Настройки")] public EnemyConfigDatabase EnemyDatabase;
-        public BalanceFormulaConfig FormulaConfig;
+        public WaveModuleBalancerConfig FormulaConfig;
 
         [Header("Генератор")] public int WaveCount = 10;
 

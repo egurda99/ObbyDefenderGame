@@ -17,7 +17,7 @@ namespace ObbyDefender
         [Header("Spawn and Waves systems")] [Header("Настройки")] [SerializeField]
         private EnemyConfigDatabase _enemyConfigDatabase;
 
-        [SerializeField] private BalanceFormulaConfig _formulaConfig;
+        [SerializeField] private WaveModuleBalancerConfig _formulaConfig;
         [SerializeField] private int _waveCount;
         [SerializeField] private List<AnimalSpawnZone> _spawnZones;
         [SerializeField] private Transform _basePosition;

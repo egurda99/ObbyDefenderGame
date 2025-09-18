@@ -9,9 +9,13 @@ namespace ObbyDefender
         private readonly GameEndHandler _gameEndHandler;
         private readonly GameCycleManager _gameCycleManager;
         private readonly MoneyStorage _moneyStorage;
+        private bool _isGameLost;
 
         public event Action<int, int> GameLost;
         public event Action<int, int, int> GameWon;
+
+
+        public bool IsGameLost => _isGameLost;
 
         public GameEndObserver(GameEndHandler gameEndHandler, GameCycleManager gameCycleManager,
             MoneyStorage moneyStorage)
@@ -28,12 +32,14 @@ namespace ObbyDefender
         {
             _gameCycleManager.FinishGame();
             _moneyStorage.EarnMoney(reward);
+            _isGameLost = false;
 
             GameWon?.Invoke(reward, killedEnemies, collectedMoney);
         }
 
         private void OnGameLost(int enemiesKilled, int collectedMoney)
         {
+            _isGameLost = true;
             _gameCycleManager.FinishGame();
 
             GameLost?.Invoke(enemiesKilled, collectedMoney);

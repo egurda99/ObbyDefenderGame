@@ -6,9 +6,9 @@ namespace ObbyDefender
     public sealed class WaveBalancer
     {
         private readonly EnemyConfigDatabase _enemyDatabase;
-        private readonly BalanceFormulaConfig _formula;
+        private readonly WaveModuleBalancerConfig _formula;
 
-        public WaveBalancer(EnemyConfigDatabase enemyDatabase, BalanceFormulaConfig formula)
+        public WaveBalancer(EnemyConfigDatabase enemyDatabase, WaveModuleBalancerConfig formula)
         {
             _enemyDatabase = enemyDatabase;
             _formula = formula;

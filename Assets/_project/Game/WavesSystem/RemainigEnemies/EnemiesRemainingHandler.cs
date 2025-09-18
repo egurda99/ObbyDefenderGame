@@ -1,6 +1,5 @@
 using System;
 using Atomic.Entities;
-using UnityEngine;
 
 namespace ObbyDefender
 {
@@ -20,13 +19,19 @@ namespace ObbyDefender
         {
             _activeEnemiesProvider = activeEnemiesProvider;
             _wavesSystem = wavesSystem;
-            _activeEnemiesProvider.OnActiveEnemyDead += OnEnemyDead;
+            _wavesSystem.WaveChanged += OnWavesChanged;
+            _activeEnemiesProvider.ActiveEnemyDead += EnemyDead;
 
             _enemiesRemaining = _wavesSystem.GetCurrentWave().Enemies.Count;
-            Debug.Log($"<color=blue>Enemies in wave : {_enemiesRemaining}</color>");
         }
 
-        private void OnEnemyDead(SceneEntity sceneEntity)
+        private void OnWavesChanged(int value)
+        {
+            _enemiesRemaining = _wavesSystem.GetCurrentWave().Enemies.Count;
+            OnEnemiesChanged?.Invoke(_enemiesRemaining);
+        }
+
+        private void EnemyDead(SceneEntity sceneEntity)
         {
             _enemiesRemaining--;
             OnEnemiesChanged?.Invoke(_enemiesRemaining);
@@ -45,7 +50,8 @@ namespace ObbyDefender
 
         public void Dispose()
         {
-            _activeEnemiesProvider.OnActiveEnemyDead -= OnEnemyDead;
+            _activeEnemiesProvider.ActiveEnemyDead -= EnemyDead;
+            _wavesSystem.WaveChanged -= OnWavesChanged;
         }
     }
 }

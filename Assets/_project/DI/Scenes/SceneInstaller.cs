@@ -175,25 +175,17 @@ namespace ObbyDefender.DI
                 RangeAttackAnimals = rangeAttackAnimals
             };
 
-
-            var balancer = new WaveBalancer(_sceneInstallerHelper.EnemyConfigDatabase,
-                _sceneInstallerHelper.FormulaConfig);
-
-            var configurator = new WavesGenerator(_sceneInstallerHelper.WaveCount, balancer);
-            configurator.Generate();
-
-            Container.Bind<WavesSystem>().AsSingle().WithArguments(configurator.Waves);
-
             Container.BindInterfacesAndSelfTo<AnimalSpawner>().AsSingle()
-                .WithArguments(_sceneInstallerHelper.SpawnZones, _sceneInstallerHelper.BasePosition,
-                    _sceneInstallerHelper.MinSpawnDelay,
-                    _sceneInstallerHelper.MaxSpawnDelay, animalTypes);
+                .WithArguments(_sceneInstallerHelper.SpawnZones, _sceneInstallerHelper.BasePosition, animalTypes);
 
             Container.BindInterfacesAndSelfTo<ActiveEnemiesProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemiesRemainingHandler>().AsSingle();
 
             Container.BindInterfacesTo<EnemiesRemainingAdapter>().AsSingle()
                 .WithArguments(_sceneInstallerHelper.RemainingEnemiesView);
+
+            Container.BindInterfacesTo<CurrentWaveViewAdapter>().AsSingle()
+                .WithArguments(_sceneInstallerHelper.CurrentWaveView);
 
             Container.BindInterfacesAndSelfTo<WavesSaveLoader>().AsSingle().NonLazy();
         }

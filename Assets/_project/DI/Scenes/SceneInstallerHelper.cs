@@ -44,12 +44,9 @@ namespace ObbyDefender.DI
         [Header("Spawn and Waves systems")] [Header("Настройки")] [SerializeField]
         private EnemyConfigDatabase _enemyConfigDatabase;
 
-        [SerializeField] private BalanceFormulaConfig _formulaConfig;
-        [SerializeField] private int _waveCount;
         [SerializeField] private List<AnimalSpawnZone> _spawnZones;
+
         [SerializeField] private Transform _basePosition;
-        [SerializeField] private float _minSpawnDelay;
-        [SerializeField] private float _maxSpawnDelay;
 
         [Space] [Header("CoinsModule")] [SerializeField]
         private Transform _coinsContainer;
@@ -63,6 +60,9 @@ namespace ObbyDefender.DI
         private ValueView _moneyView;
 
         [SerializeField] private ValueView _remainingEnemiesView;
+        [SerializeField] private ValueView _currentWaveView;
+
+        public ValueView CurrentWaveView => _currentWaveView;
 
         public ValueView MoneyView => _moneyView;
 
@@ -77,17 +77,9 @@ namespace ObbyDefender.DI
 
         public EnemyConfigDatabase EnemyConfigDatabase => _enemyConfigDatabase;
 
-        public BalanceFormulaConfig FormulaConfig => _formulaConfig;
-
-        public int WaveCount => _waveCount;
-
         public List<AnimalSpawnZone> SpawnZones => _spawnZones;
 
         public Transform BasePosition => _basePosition;
-
-        public float MinSpawnDelay => _minSpawnDelay;
-
-        public float MaxSpawnDelay => _maxSpawnDelay;
 
         public ValueView RemainingEnemiesView => _remainingEnemiesView;
 
