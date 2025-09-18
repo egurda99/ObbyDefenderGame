@@ -22,7 +22,7 @@ public sealed class MoneySaveLoader : SaveLoader<MoneyStorage, MoneyData>
 
     protected override void SetupDefaultData(MoneyStorage service)
     {
-        Debug.Log($"<color=yellow>Setup default data = {5000}</color>");
-        service.SetupMoney(5000);
+        Debug.Log($"<color=yellow>Setup default data = {9000}</color>");
+        service.SetupMoney(9000);
     }
 }

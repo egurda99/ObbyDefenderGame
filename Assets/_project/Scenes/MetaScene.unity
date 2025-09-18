@@ -4299,6 +4299,7 @@ GameObject:
   - component: {fileID: 964556071}
   - component: {fileID: 964556072}
   - component: {fileID: 964556073}
+  - component: {fileID: 964556074}
   m_Layer: 0
   m_Name: TurretUpgradeTrigger
   m_TagString: Untagged
@@ -4356,6 +4357,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _popupName: 1
+--- !u!114 &964556074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964556070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2130512ce64cb8b763b3c07ee4c8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &966848041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5913,7 +5926,7 @@ MonoBehaviour:
   _m16BulletPrefab: {fileID: 8227780381354242315, guid: cdb0fa9c08ab7894d809b53d76c65b30, type: 3}
   _rangeAnimalBulletPrefab: {fileID: 8517235436761006663, guid: cdfecc478056f3b45aab4bdd7c81f1d6, type: 3}
   _bulletContainer: {fileID: 664674246}
-  _moneyView: {fileID: 1393282148}
+  _moneyView: {fileID: 6016540918441798084}
 --- !u!1001 &1283154992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6166,6 +6179,7 @@ GameObject:
   - component: {fileID: 1344949916}
   - component: {fileID: 1344949917}
   - component: {fileID: 1344949918}
+  - component: {fileID: 1344949919}
   m_Layer: 0
   m_Name: HeroUpgradeGameTrigger
   m_TagString: Untagged
@@ -6223,6 +6237,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _popupName: 0
+--- !u!114 &1344949919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344949915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2130512ce64cb8b763b3c07ee4c8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1363512592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6496,17 +6522,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6935024692468406403, guid: 286ec322ba9648b4b87122e32689c481, type: 3}
   m_PrefabInstance: {fileID: 6016540918441798083}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1393282148 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6735710828195980835, guid: 286ec322ba9648b4b87122e32689c481, type: 3}
-  m_PrefabInstance: {fileID: 6016540918441798083}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d814a589d26464790f8a311a7bcbd3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1412249879
 GameObject:
   m_ObjectHideFlags: 0
@@ -69665,6 +69680,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 286ec322ba9648b4b87122e32689c481, type: 3}
+--- !u!114 &6016540918441798084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5475104392985640721, guid: 286ec322ba9648b4b87122e32689c481, type: 3}
+  m_PrefabInstance: {fileID: 6016540918441798083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141a1c104b6d4b7cbf0e59481b924f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &6315903568761403633
 MeshRenderer:
   m_ObjectHideFlags: 0

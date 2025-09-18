@@ -30,8 +30,8 @@ namespace ObbyDefender
 
         private void OnGameWon(int reward, int killedEnemies, int collectedMoney)
         {
-            _gameCycleManager.FinishGame();
             _moneyStorage.EarnMoney(reward);
+            _gameCycleManager.FinishGame();
             _isGameLost = false;
 
             GameWon?.Invoke(reward, killedEnemies, collectedMoney);

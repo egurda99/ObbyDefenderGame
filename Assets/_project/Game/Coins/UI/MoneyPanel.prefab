@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6935024692468406403}
   - component: {fileID: 5987006316786541411}
-  - component: {fileID: 6735710828195980835}
+  - component: {fileID: 5475104392985640721}
   m_Layer: 0
   m_Name: MoneyPanel
   m_TagString: Untagged
@@ -47,7 +47,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3000440504007168765}
   m_CullTransparentMesh: 1
---- !u!114 &6735710828195980835
+--- !u!114 &5475104392985640721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,10 +56,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3000440504007168765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d814a589d26464790f8a311a7bcbd3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 141a1c104b6d4b7cbf0e59481b924f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valueText: {fileID: 1618043115589005971}
+  _currencyText: {fileID: 1618043115589005971}
 --- !u!1 &5553724957950590453
 GameObject:
   m_ObjectHideFlags: 0

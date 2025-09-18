@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.92156863}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -878,6 +878,7 @@ GameObject:
   - component: {fileID: 4786747178858883207}
   - component: {fileID: 2649926442468177468}
   - component: {fileID: 1257477264456011473}
+  - component: {fileID: 6960993717226524555}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -987,6 +988,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6960993717226524555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480927266548753347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f457df0b4379426084e8ef2d31b90de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _graphic: {fileID: 2649926442468177468}
+  _scaleMultiplier: 1.1
+  _duration: 0.5
 --- !u!1 &6091661147140791976
 GameObject:
   m_ObjectHideFlags: 0

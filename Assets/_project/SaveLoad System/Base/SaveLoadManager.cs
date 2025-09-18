@@ -1,4 +1,5 @@
 using System;
+using MyCodeBase;
 using ShootEmUp;
 using Sirenix.OdinInspector;
 using Zenject;
@@ -10,15 +11,18 @@ public sealed class SaveLoadManager : IGameFinishListener
     private readonly GameRepository _repository;
 
     private readonly IContext _gameContext;
+    private readonly MoneyStorage _moneyStorage;
 
     public event Action OnStartSaving;
     public event Action OnLoaded;
 
-    public SaveLoadManager(GameRepository repository, DiContainer diContainer)
+    public SaveLoadManager(GameRepository repository, DiContainer diContainer, MoneyStorage moneyStorage)
     {
+        _moneyStorage = moneyStorage;
         _repository = repository;
         _gameContext = new ZenjectContext(diContainer);
     }
+
 
     public void InitOnNewScene(DiContainer container)
     {

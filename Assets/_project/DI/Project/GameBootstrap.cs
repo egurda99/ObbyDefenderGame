@@ -1,5 +1,6 @@
 using _UpgradePractice.Scripts;
 using MyCodeBase;
+using MyCodeBase.UI;
 using ObbyDefender.Scripts;
 using UnityEngine;
 using Zenject;
@@ -19,6 +20,12 @@ namespace ObbyDefender.DI
             BindTurretData();
             BindUpgradeManager();
             BindWaveBalancer();
+            BindDoTween();
+        }
+
+        private void BindDoTween()
+        {
+            Container.Bind<DoTweenAnimationManager>().AsSingle().NonLazy();
         }
 
         private void BindWaveBalancer()

@@ -22,9 +22,9 @@ namespace ObbyDefender.DI
         [SerializeField] private Transform _bulletContainer;
 
         [Space] [Header("HUD")] [SerializeField]
-        private ValueView _moneyView;
+        private MoneyView _moneyView;
 
-        public ValueView MoneyView => _moneyView;
+        public MoneyView MoneyView => _moneyView;
 
         public Transform PistolBulletPrefab => _pistolBulletPrefab;
 

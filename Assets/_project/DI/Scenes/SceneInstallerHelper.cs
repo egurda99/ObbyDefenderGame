@@ -57,14 +57,14 @@ namespace ObbyDefender.DI
         [SerializeField] private CoinsBalanceConfig _coinsBalanceConfig;
 
         [Space] [Header("HUD")] [SerializeField]
-        private ValueView _moneyView;
+        private MoneyView _moneyView;
 
         [SerializeField] private ValueView _remainingEnemiesView;
         [SerializeField] private ValueView _currentWaveView;
 
         public ValueView CurrentWaveView => _currentWaveView;
 
-        public ValueView MoneyView => _moneyView;
+        public MoneyView MoneyView => _moneyView;
 
         public CoinsBalanceConfig CoinsBalanceConfig => _coinsBalanceConfig;
 

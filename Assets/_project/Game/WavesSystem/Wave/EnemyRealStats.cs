@@ -7,12 +7,12 @@ namespace ObbyDefender
     [Serializable]
     public sealed class EnemyRealStats
     {
-        [SerializeField] private AnimalType _enemyId;
         [SerializeField] [ReadOnly] private float _currentHealth;
         [SerializeField] [ReadOnly] private float _currentSpeed;
         [SerializeField] [ReadOnly] private float _currentAttackPower;
         [SerializeField] private float _difficultyWeight;
 
+        private AnimalType _enemyId;
         public AnimalType EnemyId => _enemyId;
         public float CurrentHealth => _currentHealth;
         public float CurrentSpeed => _currentSpeed;
