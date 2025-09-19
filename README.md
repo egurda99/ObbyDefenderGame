@@ -1,7 +1,5 @@
 # 🏰 ObbyDefenderGame
 
-# 🏰 ObbyDefenderGame
-
 <div align="center">
 
 ![Game Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
